@@ -35,6 +35,7 @@ export default new Router({
       }
 
     },
+    //分析配置
     {
       path:'/Configuration',
       name:'Configuration',
