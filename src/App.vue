@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <section>
+    <section v-if="$route.meta.keepAlive">
       <nav class="navBar" style="z-index: 1;">
 
         <Menu  mode="horizontal" :theme="theme1" avtive-name="1" @on-select="onSelect">
@@ -18,7 +18,7 @@
             <Icon type="md-analytics"/>
             分析配置
           </MenuItem>
-          <MenuItem name="MyProject" router-link="{path: '/MyProject'}" style="float: right" >
+          <MenuItem name="MyProject" style="float: right" >
             <Icon type="ios-paper"/>
             我的项目
           </MenuItem>

@@ -2,28 +2,137 @@
   <div>
     <div>分析配置</div>
     <div>
-      <LineForProject
-        v-bind:number="1" title="标题11111111111111111" date="今天" source="人民日报" author="爸爸" >
-      </LineForProject>
-      <LineForProject
-        v-bind:number="2" title="标题22222222222222222" date="今天" source="人民日报" author="爸爸" >
-      </LineForProject>
-      <LineForProject
-        v-bind:number="3" title="标题33333" date="今天" source="人民日报" author="爸爸" >
-      </LineForProject>
-      <LineForProject
-        v-bind:number="4" title="标题444444444" date="今天" source="人民日报" author="爸爸" >
-      </LineForProject>
+      <el-table
+      ref="mutipleTable"
+      :data="tableData"
+      tooltip-effect="dark"
+      style="width: 1600px;margin-left: 100px"
+      @selection-change="handleSelectionChange">
+        <el-table-column
+          type="selection"
+          width="55"
+          align="center">
+        </el-table-column>
+        <el-table-column
+          prop="title"
+          label="标题"
+          width="700"
+          align="center">
+        </el-table-column>
+        <el-table-column
+          prop="author"
+          label="作者"
+          width="100"
+          style="color: dimgray"
+          align="center">
+        </el-table-column>
+        <el-table-column
+          prop="source"
+          label="来源"
+          width="300"
+          align="center">
+        </el-table-column>
+        <el-table-column
+          prop="date"
+          label="时间"
+          width="200"
+          align="center">
+        </el-table-column>
+        <el-table-column
+          label="操作"
+          width="200"
+          align="center">
+          <router-link to="ArticleDetail">详情</router-link>
+        </el-table-column>
+      </el-table>
+
     </div>
   </div>
 </template>
 
 <script>
-  import LineForProject from "./sub/LineForProject";
-
   export default {
     name: "Configuration",
-    components: {LineForProject}
+    data(){
+      return{
+        tableData:[{
+          title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
+          author:"谁写的",
+          source:"《大连理工大学学报（社会科学版）》",
+          date:"2018年4期",
+        },
+          {
+            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
+            author:"谁写的",
+            source:"《大连理工大学学报（社会科学版）》",
+            date:"2018年4期",
+          },
+          {
+            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
+            author:"谁写的",
+            source:"《大连理工大学学报（社会科学版）》",
+            date:"2018年4期",
+          },
+          {
+            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
+            author:"谁写的",
+            source:"《大连理工大学学报（社会科学版）》",
+            date:"2018年4期",
+          },
+          {
+            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
+            author:"谁写的",
+            source:"《大连理工大学学报（社会科学版）》",
+            date:"2018年4期",
+          },
+          {
+            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
+            author:"谁写的",
+            source:"《大连理工大学学报（社会科学版）》",
+            date:"2018年4期",
+          },
+          {
+            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
+            author:"谁写的",
+            source:"《大连理工大学学报（社会科学版）》",
+            date:"2018年4期",
+          },
+          {
+            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
+            author:"谁写的",
+            source:"《大连理工大学学报（社会科学版）》",
+            date:"2018年4期",
+          },
+          {
+            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
+            author:"谁写的",
+            source:"《大连理工大学学报（社会科学版）》",
+            date:"2018年4期",
+          },
+          {
+            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
+            author:"谁写的",
+            source:"《大连理工大学学报（社会科学版）》",
+            date:"2018年4期",
+          },
+          {
+            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
+            author:"谁写的",
+            source:"《大连理工大学学报（社会科学版）》",
+            date:"2018年4期",
+          },
+          {
+            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
+            author:"谁写的",
+            source:"《大连理工大学学报（社会科学版）》",
+            date:"2018年4期",
+          },
+        ]
+      }
+    },
+    methods:{
+
+    }
   }
 </script>
 
