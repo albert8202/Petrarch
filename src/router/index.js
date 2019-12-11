@@ -6,7 +6,7 @@ import MyProject from '@/components/MyProject'
 import Configuration from '@/components/Configuration'
 import ArticleDetail from '@/components/ArticleDetail'
 import Register from '@/components/Register'
-
+import Upload from '@/components/Upload'
 
 Vue.use(Router)
 
@@ -61,6 +61,15 @@ export default new Router({
       path:'/articleDetail',
       name:'ArticleDetail',
       component: ArticleDetail,
+      meta:{
+        keepAlive:true
+      }
+    },
+    //导入
+    {
+      path:'/upload',
+      name:'Upload',
+      component:Upload,
       meta:{
         keepAlive:true
       }
