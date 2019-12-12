@@ -5,7 +5,7 @@
 
         <Menu  mode="horizontal" :theme="theme1" avtive-name="1" @on-select="onSelect">
           <div router-link="{path: '/'}" style="float: left">这是萌泰科技的图标</div>
-          <Submenu name="1"style="float: right">
+          <Submenu name="1" style="float: right">
             <template slot="title">
               <Icon type="ios-people"/>
               萌泰科技
@@ -14,7 +14,7 @@
             <MenuItem name="LogOut">退出</MenuItem>
 
           </Submenu>
-          <MenuItem name="Configuration"  style="float: right" >
+          <MenuItem name="AnalysisMenu"  style="float: right" >
             <Icon type="md-analytics"/>
             分析配置
           </MenuItem>
