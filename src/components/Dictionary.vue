@@ -48,16 +48,16 @@
           </div>
         </div>
       </nav>
-    </header> -->
+    </header>-->
     <div data-v-0f1723f0 class="content">
       <div data-v-0f1723f0 class="el-row">
         <div data-v-0f1723f0 class="el-col el-col-22">
           <ul data-v-0f1723f0 class="menus">
-            <router-link to="AnalysisMenu">
-            <li data-v-0f1723f0 style="cursor: pointer;">
+            <router-link data-v-0f1723f0 tag="li" style="cursor:pointer;" to="AnalysisMenu">
               <span data-v-0f1723f0>分析配置</span>
-              <i data-v-0f1723f0 class="fa fa-angle-right fa-lg"></i>&nbsp;
-            </li>
+
+              <i data-v-0f1723f0 class="fa fa-angle-right fa-lg"></i>
+&nbsp;
             </router-link>
             <li data-v-0f1723f0 style="color: rgb(233, 71, 67);">
               <span data-v-0f1723f0>分词词典</span>
@@ -102,7 +102,12 @@
         </form>
       </div>
       <div data-v-0f1723f0 class="el-col el-col-24">
-        <button data-v-0f1723f0 type="button" class="el-button wordStatistics el-button--text" style="margin-bottom:20px">
+        <button
+          data-v-0f1723f0
+          type="button"
+          class="el-button wordStatistics el-button--text"
+          style="margin-bottom:20px"
+        >
           <!---->
           <!---->
           <span>
@@ -232,12 +237,10 @@
                           <!---->
                           <span>
                             操作
-                            <i
-                              class="fa fa-arrow-down"
-                            ></i>
+                            <i class="fa fa-arrow-down"></i>
                           </span>
                         </button>
-                        
+
                         <!-- <ul
                           data-v-0f1723f0
                           class="el-dropdown-menu el-popper"
@@ -256,7 +259,7 @@
                           <span data-v-0f1723f0>
                             <li data-v-0f1723f0 tabindex="-1" class="el-dropdown-menu__item">删除</li>
                           </span>
-                        </ul> -->
+                        </ul>-->
                       </div>
                     </div>
                   </td>
@@ -307,9 +310,7 @@
                           <!---->
                           <span>
                             操作
-                            <i
-                              class="fa fa-arrow-down"
-                            ></i>
+                            <i class="fa fa-arrow-down"></i>
                           </span>
                         </button>
                         <ul
@@ -457,13 +458,11 @@
                             <!---->
                             <span>
                               操作
-                              <i
-                              class="fa fa-arrow-down"
-                            ></i>
+                              <i class="fa fa-arrow-down"></i>
                               <!-- <i
                                 data-v-0f1723f0
                                 class="el-icon-arrow-down el-icon&amp;#45;&amp;#45;right"
-                              ></i> -->
+                              ></i>-->
                             </span>
                           </button>
                         </div>
@@ -516,13 +515,11 @@
                             <!---->
                             <span>
                               操作
-                              <i
-                              class="fa fa-arrow-down"
-                            ></i>
+                              <i class="fa fa-arrow-down"></i>
                               <!-- <i
                                 data-v-0f1723f0
                                 class="el-icon-arrow-down el-icon&amp;#45;&amp;#45;right"
-                              ></i> -->
+                              ></i>-->
                             </span>
                           </button>
                           <ul
@@ -567,31 +564,14 @@
         </div>
       </div>
       <div data-v-0f1723f0 class="el-col el-col-24" style="margin-top: 10px;">
-        <div data-v-0f1723f0 class="el-pagination">
-          <span class="el-pagination__total">共 2 条</span>
-          <button type="button" disabled="disabled" class="btn-prev">
-            <i class="fa fa-arrow-left"></i>
-          </button>
-          <ul class="el-pager">
-            <li class="number active">1</li>
-            <!---->
-            <!---->
-            <!---->
-          </ul>
-          <button type="button" disabled="disabled" class="btn-next">
-            <i class="fa fa-arrow-right"></i>
-          </button>
-          <span class="el-pagination__jump">
-            前往
-            <div class="el-input el-pagination__editor is-in-pagination">
-              <!---->
-              <input type="number" autocomplete="off" min="1" max="1" class="el-input__inner" />
-              <!---->
-              <!---->
-              <!---->
-            </div>页
-          </span>
-        </div>
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page.sync="currentPage3"
+          :page-size="100"
+          layout="total,prev, pager, next, jumper"
+          :total="1000"
+        ></el-pagination>
       </div>
     </div>
     <footer data-v-0f1723f0 class="el-footer" style="height: 60px;">
@@ -613,7 +593,6 @@
       </div>
     </footer>
   </section>
-  
 </template>
 
 <script>

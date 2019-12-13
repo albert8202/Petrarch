@@ -76,42 +76,14 @@
           <div class="el-col el-col-22">
             <div class="el-row" style="height: 40px; line-height: 40px; padding-left: 20px;">
               <span>
-                <i class="icon-zhu" style="color: rgb(93, 175, 52);"></i>&nbsp;&nbsp;
+                  <el-button type="success" style="padding:3px;font-size:10px;text-align:center">主</el-button>
+                &nbsp;&nbsp;
               </span>
-              <div class="el-dropdown">
                 <span
-                  aria-haspopup="list"
-                  aria-controls="dropdown-menu-9848"
-                  role="button"
-                  tabindex="0"
-                  class="el-dropdown-selfdefine"
                   style="color: rgb(0, 0, 0); font-weight: bold; font-size: 14px;"
                 >
                   文本库样例
-                  <i class="el-icon-arrow-down el-icon&amp;#45;&amp;#45;right"></i>
                 </span>
-                <ul
-                  class="el-dropdown-menu el-popper"
-                  id="dropdown-menu-9848"
-                  style="display: none;"
-                >
-                  <span>
-                    <span>
-                      <li tabindex="-1" class="el-dropdown-menu__item">文本库样例</li>
-                    </span>
-                  </span>
-                  <span>
-                    <span>
-                      <li tabindex="-1" class="el-dropdown-menu__item">|-&nbsp;中国梦</li>
-                    </span>
-                  </span>
-                  <span>
-                    <span>
-                      <li tabindex="-1" class="el-dropdown-menu__item">|-&nbsp;新时代</li>
-                    </span>
-                  </span>
-                </ul>
-              </div>
             </div>
             <div class="el-row" style="height: 40px; line-height: 30px; padding-left: 20px;">
               <form class="el-form el-form--label-left el-form--inline">
@@ -119,7 +91,7 @@
                   <!---->
                   <div class="el-form-item__content">
                     <div>
-                      <i class="icon-database"></i>&nbsp;&nbsp;
+                      <i class="fa fa-database"></i>&nbsp;&nbsp;
                       <span>
                         共计：
                         <span style="color: red;">90</span>&nbsp;条
@@ -148,585 +120,115 @@
           </div>
         </div>
 
-        <div data-v-7e5aa87c class="el-col el-col-19">
-          <div class="el-tabs__content">
-            <div
-              data-v-7e5aa87c
-              role="tabpanel"
-              id="pane-0"
-              aria-labelledby="tab-0"
-              class="el-tab-pane"
-              width="100%"
-            >
-              <div>
-                <br />
-              </div>
-              <div data-v-7e5aa87c>
-                <div data-v-7e5aa87c style="display: block;">
-                  <div
-                    data-v-7e5aa87c
-                    class="el-table el-table--fit el-table--enable-row-transition"
-                    align="center"
-                  >
-                    <div class="hidden-columns">
-                      <div data-v-7e5aa87c></div>
-                      <div data-v-7e5aa87c></div>
-                      <div data-v-7e5aa87c></div>
-                      <div data-v-7e5aa87c></div>
-                      <div data-v-7e5aa87c></div>
-                      <div data-v-7e5aa87c></div>
-                      <div data-v-7e5aa87c></div>
-                      <div data-v-7e5aa87c></div>
-                    </div>
-                    <div class="el-table__header-wrapper">
-                      <table
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                        class="el-table__header"
-                        style="width: 942px;"
-                      >
-                        <colgroup>
-                          <col name="el-table_163_column_753" width="128" />
-                          <col name="el-table_163_column_754" width="127" />
-                          <col name="el-table_163_column_755" width="100" />
-                          <col name="el-table_163_column_756" width="100" />
-                          <col name="el-table_163_column_757" width="180" />
-                          <col name="el-table_163_column_758" width="127" />
-                          <col name="el-table_163_column_759" width="100" />
-                          <col name="el-table_163_column_760" width="80" />
-                        </colgroup>
-                        <thead class>
-                          <tr class>
-                            <th
-                              colspan="1"
-                              rowspan="1"
-                              class="el-table_163_column_753 is-leaf"
-                              style="background-color: rgb(245, 247, 249); font-weight: bold; text-align: center;"
-                            >
-                              <div class="cell">名称</div>
-                            </th>
-                            <th
-                              colspan="1"
-                              rowspan="1"
-                              class="el-table_163_column_754 is-leaf"
-                              style="background-color: rgb(245, 247, 249); font-weight: bold; text-align: center;"
-                            >
-                              <div class="cell">事件词典名称</div>
-                            </th>
-                            <th
-                              colspan="1"
-                              rowspan="1"
-                              class="el-table_163_column_755 is-leaf"
-                              style="background-color: rgb(245, 247, 249); font-weight: bold; text-align: center;"
-                            >
-                              <div class="cell">提取级别</div>
-                            </th>
-                            <th
-                              colspan="1"
-                              rowspan="1"
-                              class="el-table_163_column_756 is-leaf"
-                              style="background-color: rgb(245, 247, 249); font-weight: bold; text-align: center;"
-                            >
-                              <div class="cell">创建者</div>
-                            </th>
-                            <th
-                              colspan="1"
-                              rowspan="1"
-                              class="el-table_163_column_757 is-leaf"
-                              style="background-color: rgb(245, 247, 249); font-weight: bold; text-align: center;"
-                            >
-                              <div class="cell">创建时间</div>
-                            </th>
-                            <th
-                              colspan="1"
-                              rowspan="1"
-                              class="el-table_163_column_758 is-leaf"
-                              style="background-color: rgb(245, 247, 249); font-weight: bold; text-align: center;"
-                            >
-                              <div class="cell">文本库名称</div>
-                            </th>
-                            <th
-                              colspan="1"
-                              rowspan="1"
-                              class="el-table_163_column_759 is-leaf"
-                              style="background-color: rgb(245, 247, 249); font-weight: bold; text-align: center;"
-                            >
-                              <div class="cell">状态</div>
-                            </th>
-                            <th
-                              colspan="1"
-                              rowspan="1"
-                              class="el-table_163_column_760 is-center is-leaf"
-                              style="background-color: rgb(245, 247, 249); font-weight: bold; text-align: center;"
-                            >
-                              <div class="cell">操作</div>
-                            </th>
-                          </tr>
-                        </thead>
-                      </table>
-                    </div>
-                    <div class="el-table__body-wrapper is-scrolling-none">
-                      <table
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                        class="el-table__body"
-                        style="width: 942px;"
-                      >
-                        <colgroup>
-                          <col name="el-table_163_column_753" width="128" />
-                          <col name="el-table_163_column_754" width="127" />
-                          <col name="el-table_163_column_755" width="100" />
-                          <col name="el-table_163_column_756" width="100" />
-                          <col name="el-table_163_column_757" width="180" />
-                          <col name="el-table_163_column_758" width="127" />
-                          <col name="el-table_163_column_759" width="100" />
-                          <col name="el-table_163_column_760" width="80" />
-                        </colgroup>
-                        <tbody>
-                          <tr class="el-table__row" style="text-align: center;">
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_753"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">样例 - 主题</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_754"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">
-                                <span data-v-7e5aa87c>主题逻辑词典s模板 1</span>
-                              </div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_755"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">内容</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_756"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">monetware</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_757"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">2019-11-08 17:04:14</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_758"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">文本库样例</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_759"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">
-                                <!---->
-                                <span data-v-7e5aa87c>
-                                  <button
-                                    data-v-7e5aa87c
-                                    type="button"
-                                    class="el-button el-button--success el-button--mini is-round"
-                                    style="cursor: auto;"
-                                  >
-                                    <!---->
-                                    <!---->
-                                    <span>右边能点</span>
-                                  </button>
-                                </span>
-                                <!---->
-                              </div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_760 is-center"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">
-                                <button
-                                  data-v-7e5aa87c
-                                  type="button"
-                                  class="el-button el-tooltip item el-button--text"
-                                  aria-describedby="el-tooltip-2545"
-                                  tabindex="0"
-                                  @click="toResult"
-                                >
-                                  <!---->
-                                  <!---->
-                                  <span>
-                                    <i data-v-7e5aa87c class="fa fa-arrow-down"></i>
-                                  </span>
-                                </button>
-                                <button
-                                  data-v-7e5aa87c
-                                  disabled="disabled"
-                                  type="button"
-                                  class="el-button el-button--text is-disabled"
-                                >
-                                  <!---->
-                                  <!---->
-                                  <span>
-                                    <i data-v-7e5aa87c aria-hidden="true" class="fa fa-trash"></i>
-                                  </span>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr class="el-table__row" style="text-align: center;">
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_753"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">中国梦 - 主题</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_754"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">
-                                <span data-v-7e5aa87c>主题逻辑词典模板 1</span>
-                              </div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_755"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">内容</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_756"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">monetware</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_757"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">2019-11-08 17:04:11</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_758"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">中国梦</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_759"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">
-                                <!---->
-                                <span data-v-7e5aa87c>
-                                  <button
-                                    data-v-7e5aa87c
-                                    type="button"
-                                    class="el-button el-button--success el-button--mini is-round"
-                                    style="cursor: auto;"
-                                  >
-                                    <!---->
-                                    <!---->
-                                    <span>已完成</span>
-                                  </button>
-                                </span>
-                                <!---->
-                              </div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_760 is-center"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">
-                                <button
-                                  data-v-7e5aa87c
-                                  type="button"
-                                  class="el-button el-tooltip item el-button--text"
-                                  aria-describedby="el-tooltip-3704"
-                                  tabindex="0"
-                                >
-                                  <!---->
-                                  <!---->
-                                  <span>
-                                    <i data-v-7e5aa87c class="icon-tongji"></i>
-                                  </span>
-                                </button>
-                                <button
-                                  data-v-7e5aa87c
-                                  disabled="disabled"
-                                  type="button"
-                                  class="el-button el-button--text is-disabled"
-                                >
-                                  <!---->
-                                  <!---->
-                                  <span>
-                                    <i data-v-7e5aa87c aria-hidden="true" class="fa fa-trash"></i>
-                                  </span>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr class="el-table__row" style="text-align: center;">
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_753"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">新时代 - 主题</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_754"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">
-                                <span data-v-7e5aa87c>主题逻辑词典模板 1</span>
-                              </div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_755"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">内容</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_756"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">monetware</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_757"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">2019-11-08 17:04:08</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_758"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">新时代</div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_759"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">
-                                <!---->
-                                <span data-v-7e5aa87c>
-                                  <button
-                                    data-v-7e5aa87c
-                                    type="button"
-                                    class="el-button el-button--success el-button--mini is-round"
-                                    style="cursor: auto;"
-                                  >
-                                    <!---->
-                                    <!---->
-                                    <span>已完成</span>
-                                  </button>
-                                </span>
-                                <!---->
-                              </div>
-                            </td>
-                            <td
-                              rowspan="1"
-                              colspan="1"
-                              class="el-table_163_column_760 is-center"
-                              style="text-align: center; height: 30px;"
-                            >
-                              <div class="cell">
-                                <button
-                                  data-v-7e5aa87c
-                                  type="button"
-                                  class="el-button el-tooltip item el-button--text"
-                                  aria-describedby="el-tooltip-1147"
-                                  tabindex="0"
-                                >
-                                  <!---->
-                                  <!---->
-                                  <span>
-                                    <i data-v-7e5aa87c class="icon-tongji"></i>
-                                  </span>
-                                </button>
-                                <button
-                                  data-v-7e5aa87c
-                                  disabled="disabled"
-                                  type="button"
-                                  class="el-button el-button--text is-disabled"
-                                >
-                                  <!---->
-                                  <!---->
-                                  <span>
-                                    <i data-v-7e5aa87c aria-hidden="true" class="fa fa-trash"></i>
-                                  </span>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                          <!---->
-                        </tbody>
-                      </table>
-                      <!---->
-                      <!---->
-                    </div>
-                    <!---->
-                    <!---->
+        <div style="margin-top:20px">
+          <el-table
+            :data="tableData"
+            stripe
+            header-cell-style="background-color: rgb(245, 247, 249); text-align: center"
+            style="width: 100%"
+          >
+            <el-table-column align="center" prop="name" label="名称"></el-table-column>
+            <el-table-column align="center" prop="dicName" label="事件词典名称"></el-table-column>
+            <el-table-column align="center" prop="level" label="提取级别"></el-table-column>
+            <el-table-column align="center" prop="time" label="创建时间"></el-table-column>
+            <el-table-column align="center" prop="state" label="状态">
+              <el-button size="mini" type="success" round>
+                <span>右边能点</span>
+              </el-button>
+            </el-table-column>
+            <el-table-column  align="center" prop="operation" label="操作">
+                <router-link to="EventResult">
+                <el-button type="text"><span><i class="fa fa-line-chart"></i></span>
+                </el-button>
+                </router-link>
+                <el-buutton type="text" style="margin-left:10px;color:rgb(0,0,0)"><span>
+            <i class="fa fa-trash"></i></span></el-buutton></el-table-column>
+          </el-table>
+        </div>
 
-                    <div class="el-table__fixed-right-patch" style="width: 0px; height: 45px;"></div>
-                    <div class="el-table__column-resize-proxy" style="display: none;"></div>
-                    <div class="el-loading-mask" style="display: none;">
-                      <div class="el-loading-spinner">
-                        <svg viewBox="25 25 50 50" class="circular">
-                          <circle cx="50" cy="50" r="20" fill="none" class="path" />
-                        </svg>
-                        <!---->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div data-v-7e5aa87c class="newStatistic" style="display: block;">
-                <div data-v-7e5aa87c class="add">
-                  <h3>&nbsp;&nbsp;新建主题抽取</h3>
-                  <p data-v-7e5aa87c></p>
-                </div>
-                <form data-v-7e5aa87c class="el-form el-form--label-left" style="width: 600px;">
-                  <div data-v-7e5aa87c class="el-form-item is-required">
-                    <label class="el-form-item__label" style="width: 100px;">事件文本库</label>
-                    <div class="el-form-item__content" style="margin-left: 100px;">
-                      <span data-v-7e5aa87c>
-                        <div data-v-7e5aa87c class="el-select" style="width: 300px;">
+        <div data-v-7e5aa87c class="newStatistic" style="display: block;">
+          <div data-v-7e5aa87c class="add">
+            <h3>&nbsp;&nbsp;新建主题抽取</h3>
+            <p data-v-7e5aa87c></p>
+          </div>
+          <form data-v-7e5aa87c class="el-form el-form--label-left" style="width: 600px;">
+            <div data-v-7e5aa87c class="el-form-item is-required">
+              <label class="el-form-item__label" style="width: 100px;">事件文本库</label>
+              <div class="el-form-item__content" style="margin-left: 100px;">
+                <span data-v-7e5aa87c>
+                  <div data-v-7e5aa87c class="el-select" style="width: 300px;">
+                    <!---->
+                    <div class="el-input el-input--suffix">
+                      <!---->
+                      <input
+                        type="text"
+                        readonly="readonly"
+                        autocomplete="off"
+                        placeholder="请选择"
+                        class="el-input__inner"
+                      />
+                      <!---->
+                      <span class="el-input__suffix">
+                        <span class="el-input__suffix-inner">
+                          <i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
                           <!---->
-                          <div class="el-input el-input--suffix">
-                            <!---->
-                            <input
-                              type="text"
-                              readonly="readonly"
-                              autocomplete="off"
-                              placeholder="请选择"
-                              class="el-input__inner"
-                            />
-                            <!---->
-                            <span class="el-input__suffix">
-                              <span class="el-input__suffix-inner">
-                                <i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                                <!---->
-                                <!---->
-                              </span>
-                              <!---->
-                            </span>
-                            <!---->
-                          </div>
-                          <div class="el-select-dropdown el-popper" style="display: none;">
-                            <div class="el-scrollbar" style>
-                              <div
-                                class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default"
-                              >
-                                <ul class="el-scrollbar__view el-select-dropdown__list">
-                                  <!---->
-                                  <li data-v-7e5aa87c class="el-select-dropdown__item selected">
-                                    <span>文本库样例</span>
-                                  </li>
-                                  <li data-v-7e5aa87c class="el-select-dropdown__item">
-                                    <span>中国梦</span>
-                                  </li>
-                                  <li data-v-7e5aa87c class="el-select-dropdown__item">
-                                    <span>新时代</span>
-                                  </li>
-                                </ul>
-                              </div>
-                              <div class="el-scrollbar__bar is-horizontal">
-                                <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
-                              </div>
-                              <div class="el-scrollbar__bar is-vertical">
-                                <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
-                              </div>
-                            </div>
-                            <!---->
-                          </div>
-                        </div>
+                          <!---->
+                        </span>
+                        <!---->
                       </span>
                       <!---->
                     </div>
-                  </div>
-                  <div data-v-7e5aa87c class="el-form-item is-required">
-                    <label for="name" class="el-form-item__label" style="width: 100px;">自定义名称</label>
-                    <div class="el-form-item__content" style="margin-left: 100px;">
-                      <div data-v-7e5aa87c class="el-input el-input--suffix" style="width: 300px;">
-                        <!---->
-                        <input
-                          type="text"
-                          autocomplete="off"
-                          placeholder="请输入"
-                          class="el-input__inner"
-                        />
-                        <!---->
-                        <!---->
-                        <!---->
+                    <div class="el-select-dropdown el-popper" style="display: none;">
+                      <div class="el-scrollbar" style>
+                        <div
+                          class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default"
+                        >
+                          <ul class="el-scrollbar__view el-select-dropdown__list">
+                            <!---->
+                            <li data-v-7e5aa87c class="el-select-dropdown__item selected">
+                              <span>文本库样例</span>
+                            </li>
+                            <li data-v-7e5aa87c class="el-select-dropdown__item">
+                              <span>中国梦</span>
+                            </li>
+                            <li data-v-7e5aa87c class="el-select-dropdown__item">
+                              <span>新时代</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="el-scrollbar__bar is-horizontal">
+                          <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                        </div>
+                        <div class="el-scrollbar__bar is-vertical">
+                          <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                        </div>
                       </div>
                       <!---->
                     </div>
                   </div>
+                </span>
+                <!---->
+              </div>
+            </div>
+            <div data-v-7e5aa87c class="el-form-item is-required">
+              <label for="name" class="el-form-item__label" style="width: 100px;">自定义名称</label>
+              <div class="el-form-item__content" style="margin-left: 100px;">
+                <div data-v-7e5aa87c class="el-input el-input--suffix" style="width: 300px;">
+                  <!---->
+                  <input type="text" autocomplete="off" placeholder="请输入" class="el-input__inner" />
+                  <!---->
+                  <!---->
+                  <!---->
+                </div>
+                <!---->
+              </div>
+            </div>
 
-                  <div data-v-7e5aa87c class="el-form-item is-required">
-                    <label
-                      for="analysisParams"
-                      class="el-form-item__label"
-                      style="width: 100px;"
-                    >提取级别</label>
-                    <div class="el-form-item__content" style="margin-left: 100px;">
-                      <div data-v-7e5aa87c role="radiogroup" class="el-radio-group">
-                        <!-- <label
+            <div data-v-7e5aa87c class="el-form-item is-required">
+              <label for="analysisParams" class="el-form-item__label" style="width: 100px;">提取级别</label>
+              <div class="el-form-item__content" style="margin-left: 100px;">
+                <div data-v-7e5aa87c role="radiogroup" class="el-radio-group">
+                  <!-- <label
                           data-v-7e5aa87c
                           role="radio"
                           aria-checked="true"
@@ -746,95 +248,95 @@
                           <span class="el-radio__label">
                             整篇抽取
                           </span>
-                        </label>-->
-                        <label data-v-7e5aa87c role="radio" tabindex="-1" class="el-radio">
-                          <span class="el-radio__input">
-                            <span class="el-radio__inner"></span>
-                            <input
-                              type="radio"
-                              aria-hidden="true"
-                              tabindex="-1"
-                              class="el-radio__original"
-                              value="2"
-                            />
-                          </span>
-                          <span class="el-radio__label">
-                            句子提取
-                            <!---->
-                          </span>
-                        </label>
-                        <label data-v-7e5aa87c role="radio" tabindex="-1" class="el-radio">
-                          <span class="el-radio__input">
-                            <span class="el-radio__inner"></span>
-                            <input
-                              type="radio"
-                              aria-hidden="true"
-                              tabindex="-1"
-                              class="el-radio__original"
-                              value="3"
-                            />
-                          </span>
-                          <span class="el-radio__label">
-                            段落提取
-                            <!---->
-                          </span>
-                        </label>
-                      </div>
+                  </label>-->
+                  <label data-v-7e5aa87c role="radio" tabindex="-1" class="el-radio">
+                    <span class="el-radio__input">
+                      <span class="el-radio__inner"></span>
+                      <input
+                        type="radio"
+                        aria-hidden="true"
+                        tabindex="-1"
+                        class="el-radio__original"
+                        value="2"
+                      />
+                    </span>
+                    <span class="el-radio__label">
+                      句子提取
                       <!---->
-                    </div>
-                  </div>
-                  <div data-v-7e5aa87c class="el-form-item is-required">
-                    <label for="subId" class="el-form-item__label" style="width: 100px;">事件词典</label>
-                    <div class="el-form-item__content" style="margin-left: 100px;">
-                      <div data-v-7e5aa87c class="el-select" style="width: 300px;">
+                    </span>
+                  </label>
+                  <label data-v-7e5aa87c role="radio" tabindex="-1" class="el-radio">
+                    <span class="el-radio__input">
+                      <span class="el-radio__inner"></span>
+                      <input
+                        type="radio"
+                        aria-hidden="true"
+                        tabindex="-1"
+                        class="el-radio__original"
+                        value="3"
+                      />
+                    </span>
+                    <span class="el-radio__label">
+                      段落提取
+                      <!---->
+                    </span>
+                  </label>
+                </div>
+                <!---->
+              </div>
+            </div>
+            <div data-v-7e5aa87c class="el-form-item is-required">
+              <label for="subId" class="el-form-item__label" style="width: 100px;">事件词典</label>
+              <div class="el-form-item__content" style="margin-left: 100px;">
+                <div data-v-7e5aa87c class="el-select" style="width: 300px;">
+                  <!---->
+                  <div class="el-input el-input--suffix">
+                    <!---->
+                    <input
+                      type="text"
+                      readonly="readonly"
+                      autocomplete="off"
+                      placeholder="请选择"
+                      class="el-input__inner"
+                    />
+                    <!---->
+                    <span class="el-input__suffix">
+                      <span class="el-input__suffix-inner">
+                        <i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
                         <!---->
-                        <div class="el-input el-input--suffix">
+                        <!---->
+                      </span>
+                      <!---->
+                    </span>
+                    <!---->
+                  </div>
+                  <div class="el-select-dropdown el-popper" style="display: none;">
+                    <div class="el-scrollbar" style>
+                      <div
+                        class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default"
+                      >
+                        <ul class="el-scrollbar__view el-select-dropdown__list">
                           <!---->
-                          <input
-                            type="text"
-                            readonly="readonly"
-                            autocomplete="off"
-                            placeholder="请选择"
-                            class="el-input__inner"
-                          />
-                          <!---->
-                          <span class="el-input__suffix">
-                            <span class="el-input__suffix-inner">
-                              <i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                              <!---->
-                              <!---->
-                            </span>
-                            <!---->
-                          </span>
-                          <!---->
-                        </div>
-                        <div class="el-select-dropdown el-popper" style="display: none;">
-                          <div class="el-scrollbar" style>
-                            <div
-                              class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default"
-                            >
-                              <ul class="el-scrollbar__view el-select-dropdown__list">
-                                <!---->
-                                <li data-v-7e5aa87c class="el-select-dropdown__item">
-                                  <span>主题逻辑词典模板 1</span>
-                                </li>
-                                <li data-v-7e5aa87c class="el-select-dropdown__item">
-                                  <span>主题逻辑词典模板 2</span>
-                                </li>
-                              </ul>
-                            </div>
-                            <div class="el-scrollbar__bar is-horizontal">
-                              <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
-                            </div>
-                            <div class="el-scrollbar__bar is-vertical">
-                              <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
-                            </div>
-                          </div>
-                          <!---->
-                        </div>
+                          <li data-v-7e5aa87c class="el-select-dropdown__item">
+                            <span>主题逻辑词典模板 1</span>
+                          </li>
+                          <li data-v-7e5aa87c class="el-select-dropdown__item">
+                            <span>主题逻辑词典模板 2</span>
+                          </li>
+                        </ul>
                       </div>
-                      <!-- 新建词典？ -->
-                      <!-- <button
+                      <div class="el-scrollbar__bar is-horizontal">
+                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+                      </div>
+                      <div class="el-scrollbar__bar is-vertical">
+                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+                      </div>
+                    </div>
+                    <!---->
+                  </div>
+                </div>
+                <!-- 新建词典？ -->
+                <!-- <button
                         data-v-7e5aa87c
                         type="button"
                         class="el-button el-tooltip el-button--default el-button--medium"
@@ -842,32 +344,29 @@
                         tabindex="0"
                       >
                         <i class="el-icon-plus"></i>
-                      </button>-->
-                      <!---->
-                    </div>
-                  </div>
-                </form>
-                <button data-v-7e5aa87c type="button" class="el-button el-button--primary">
-                  <!---->
-                  <!---->
-                  <span>开始抽取</span>
-                </button>
-                <button
-                  data-v-7e5aa87c
-                  type="button"
-                  class="el-button el-button--default"
-                  style="margin-bottom: 20px;"
-                >
-                  <!---->
-                  <!---->
-                  <span>取消抽取</span>
-                </button>
+                </button>-->
+                <!---->
               </div>
             </div>
+          </form>
+          <button data-v-7e5aa87c type="button" class="el-button el-button--primary">
             <!---->
-          </div>
+            <!---->
+            <span>开始抽取</span>
+          </button>
+          <button
+            data-v-7e5aa87c
+            type="button"
+            class="el-button el-button--default"
+            style="margin-bottom: 20px;"
+          >
+            <!---->
+            <!---->
+            <span>取消抽取</span>
+          </button>
         </div>
       </div>
+      <!---->
     </div>
     <footer data-v-7e5aa87c class="el-footer" style="height: 60px;">
       <div data-v-4e9c2f90 data-v-7e5aa87c class="footer">
@@ -894,7 +393,18 @@
 export default {
   name: "EventExtract",
   data() {
-    return {};
+    return {
+      tableData: [
+        {
+          name: "name",
+          dicName: "someDictionary",
+          level: "juzi",
+          time: "now",
+          state: "",
+          operation: ""
+        }
+      ]
+    };
   },
   methods: {
     toResult() {

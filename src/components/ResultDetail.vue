@@ -26,15 +26,16 @@
       </el-row>
     </div>
     <div>
-      <button type="button" class="el-button wordStatistics el-button--text" style="cursor: auto;padding: 20px 200px">
+
+      <el-row class="content">
+
+      <el-button type="text" @click="toEventResult">
         <!---->
         <!---->
         <span>
           <i data-v-e4a61f98 class="fa fa-table fa-lg"></i> &nbsp;事件提取结果
         </span>
-      </button>
-
-      <el-row class="content">
+      </el-button>
         <el-table
           :data="tableData"
           border="true"
@@ -59,6 +60,11 @@ export default {
   name: "ResultDeetail",
   data() {
     return {};
+  },
+  methods:{
+      toEventResult(){
+          this.$router.push('/eventResult')
+      }
   }
 };
 </script>
@@ -96,7 +102,7 @@ export default {
 }
 .content {
   margin-top: 10px;
-  padding: 0 100px;
+  padding: 0 50px;
   text-align: left;
 }
 .content_text {

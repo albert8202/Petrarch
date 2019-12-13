@@ -27,21 +27,14 @@
           <div class="el-col el-col-22">
             <div class="el-row" style="height: 40px; line-height: 40px; padding-left: 20px;">
               <span>
-                <i class="icon-zhu" style="color: rgb(93, 175, 52);"></i>&nbsp;&nbsp;
+                  <el-button type="success" style="padding:3px;font-size:10px;text-align:center">主</el-button>
+                &nbsp;&nbsp;
               </span>
-              <div class="el-dropdown">
                 <span
-                  aria-haspopup="list"
-                  aria-controls="dropdown-menu-9848"
-                  role="button"
-                  tabindex="0"
-                  class="el-dropdown-selfdefine"
                   style="color: rgb(0, 0, 0); font-weight: bold; font-size: 14px;"
                 >
                   文本库样例
-                  <i class="el-icon-arrow-down el-icon&amp;#45;&amp;#45;right"></i>
                 </span>
-              </div>
             </div>
             <div class="el-row" style="height: 40px; line-height: 30px; padding-left: 20px;">
               <form class="el-form el-form--label-left el-form--inline">
@@ -49,8 +42,9 @@
                   <!---->
                   <div class="el-form-item__content">
                     <div>
-                      <i class="icon-database"></i>&nbsp;&nbsp;
+                      <i class="fa fa-database"></i>&nbsp;&nbsp;
                       <span>
+                        共计：
                         <span style="color: red;">90</span>&nbsp;条
                       </span>
                     </div>
@@ -79,19 +73,7 @@
           </div>
         </div>
         <div data-v-7e5aa87c class="el-row">
-          <div data-v-7e5aa87c class="el-col el-col-22">
-            <div class="el-tabs__content">
-              <div
-                data-v-7e5aa87c
-                role="tabpanel"
-                id="pane-0"
-                aria-labelledby="tab-0"
-                class="el-tab-pane"
-              >
-                <div>
-                  <br />
-                </div>
-                <div data-v-7e5aa87c>
+                <div data-v-7e5aa87c  style="margin-top:10px">
                   <form
                     data-v-7e5aa87c
                     class="el-form resultForm el-form--label-left el-form--inline"
@@ -142,87 +124,67 @@
                     </div>
                   </form>
 
-    <div  style=" margin-left: 60px; ">
-                  <div data-v-7e5aa87c style="margin: 10px 0px; height: 30px;">
-                    <div data-v-7e5aa87c class="el-col el-col-19">
-                      <button
-                        data-v-7e5aa87c
-                        type="button"
-                        class="el-button wordStatistics el-button--text"
-                        style="cursor: auto;"
-                      >
-                        <!---->
-                        <!---->
-                        <span>
-                          <i data-v-7e5aa87c class="fa fa-mars-stroke fa-lg"></i> &nbsp;提取结果
-                        </span>
-                      </button>
+                  <div>
+                    <div data-v-7e5aa87c style="margin: 10px 0px; height: 30px;">
+                      <div data-v-7e5aa87c class="el-col el-col-19">
+                        <button
+                          data-v-7e5aa87c
+                          type="button"
+                          class="el-button wordStatistics el-button--text"
+                          style="cursor: auto;"
+                        >
+                          <!---->
+                          <!---->
+                          <span>
+                            <i data-v-7e5aa87c class="fa fa-mars-stroke fa-lg"></i> &nbsp;提取结果
+                          </span>
+                        </button>
+                      </div>
                     </div>
-                  </div>
 
-                  <el-table :data="tableData" border style="width: 100%;">
-                    <el-table-column prop="articleID" label="文本 ID" width="180"></el-table-column>
-                    <el-table-column prop="title" label="标题" width="180"></el-table-column>
-                    <el-table-column prop="content" label="正文"></el-table-column>
-                    <el-table-column prop="num" label="事件数量"></el-table-column>
-                    <el-table-column prop="operation" label="操作"></el-table-column>
-                  </el-table>
+                    <el-table :data="tableData"  border           stripe
+            header-cell-style="text-align: center"
+            style="width: 100%">
+                      <el-table-column align="center" prop="articleID" label="文本 ID" width="180"></el-table-column>
+                      <el-table-column align="center" prop="title" label="标题" width="180"></el-table-column>
+                      <el-table-column align="center" prop="content" label="正文"></el-table-column>
+                      <el-table-column align="center" prop="num" label="事件数量"></el-table-column>
+                      <el-table-column align="center" prop="operation" label="操作" width="80px"><el-button type="text" @click="toResultDetail">详情</el-button></el-table-column>
+                    </el-table>
 
-                  <div data-v-7e5aa87c style="margin: 10px 0px; height: 30px;">
-                    <div data-v-7e5aa87c class="el-col el-col-pull-#24">
-                      <button
-                        data-v-7e5aa87c
-                        type="button"
-                        class="el-button wordStatistics el-button--text"
-                        style="display: block;"
-                      >
-                        <!---->
-                        <!---->
-                        <span>
-                          <i data-v-7e5aa87c class="fa fa-sign-out fa-lg"></i> &nbsp;导出
-                        </span>
-                      </button>
+                    <div data-v-7e5aa87c style="margin: 10px 0px; height: 30px;">
+                      <div data-v-7e5aa87c class="el-col el-col-pull-#24">
+                        <button
+                          data-v-7e5aa87c
+                          type="button"
+                          class="el-button wordStatistics el-button--text"
+                          style="display: block;"
+                        >
+                          <!---->
+                          <!---->
+                          <span>
+                            <i data-v-7e5aa87c class="fa fa-sign-out fa-lg"></i> &nbsp;导出
+                          </span>
+                        </button>
+                      </div>
                     </div>
+      <div data-v-0f1723f0 class="el-col el-col-24" style="margin-top: 10px;">
+         <div class="block">
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page.sync="currentPage3"
+      :page-size="100"
+      layout="total,prev, pager, next, jumper"
+      :total="1000">
+    </el-pagination>
+  </div>
+      </div>
                   </div>
-                  <div data-v-7e5aa87c class="el-pagination" style="margin-top: 10px;">
-                    <span class="el-pagination__total">共 0 条</span>
-                    <button type="button" disabled="disabled" class="btn-prev">
-                      <i class="el-icon el-icon-arrow-left"></i>
-                    </button>
-                    <ul class="el-pager">
-                      <!---->
-                      <!---->
-                      <!---->
-                      <!---->
-                    </ul>
-                    <button type="button" disabled="disabled" class="btn-next">
-                      <i class="el-icon el-icon-arrow-right"></i>
-                    </button>
-                    <span class="el-pagination__jump">
-                      前往
-                      <div class="el-input el-pagination__editor is-in-pagination">
-                        <!---->
-                        <input
-                          type="number"
-                          autocomplete="off"
-                          min="1"
-                          max="0"
-                          class="el-input__inner"
-                        />
-                        <!---->
-                        <!---->
-                        <!---->
-                      </div>页
-                    </span>
-                  </div>
-                </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
     <footer data-v-7e5aa87c class="el-footer" style="height: 60px;">
       <div data-v-4e9c2f90 data-v-7e5aa87c class="footer">
         <div data-v-4e9c2f90 class="links">
@@ -248,7 +210,22 @@
 export default {
   name: "EventResult",
   data() {
-    return {};
+    return {
+        tableData:[
+            {
+                articleID: '1',
+                title:'title',
+                content:'xxxxx',
+                num:'233',
+                operation:'',
+            },
+        ]
+    };
+  },
+  methods:{
+      toResultDetail(){
+          this.$router.push('/resultDetail')
+      }
   }
 };
 </script>
