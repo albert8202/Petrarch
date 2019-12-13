@@ -102,7 +102,7 @@
         </form>
       </div>
       <div data-v-0f1723f0 class="el-col el-col-24">
-        <button data-v-0f1723f0 type="button" class="el-button wordStatistics el-button--text">
+        <button data-v-0f1723f0 type="button" class="el-button wordStatistics el-button--text" style="margin-bottom:20px">
           <!---->
           <!---->
           <span>

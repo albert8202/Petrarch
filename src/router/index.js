@@ -11,6 +11,7 @@ import AnalysisMenu from '@/components/AnalysisMenu'
 import Dictionary from '@/components/Dictionary'
 import EventExtract from '@/components/EventExtract'
 import EventResult from '@/components/EventResult'
+import ResultDetail from '@/components/ResultDetail'
 
 Vue.use(Router)
 
@@ -109,6 +110,15 @@ export default new Router({
             path: '/eventResult',
             name: 'EventResult',
             component: EventResult,
+            meta: {
+                keepAlive: true
+            }
+        },
+        //结果详情
+        {
+            path: '/resultDetail',
+            name: 'ResultDetail',
+            component: ResultDetail,
             meta: {
                 keepAlive: true
             }
