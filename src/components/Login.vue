@@ -49,8 +49,87 @@
 
 <script>
     export default {
-        name: "Login"
+        name: "Login",
+        data(){
+          return{
+            email: null,
+            password: null,
+            errHint: '',
+            loading:false
+          }
+        },
+        methods:{
+              async loginEventHandeler () {
+      this.loading=true;
+      try {
+        console.log("start")
+        let data = {
+          email: this.email,
+          password: this.password
+        }
+        var _this = this;
+        this.signIn(data).then(Response=>{
+          console.log(Response);
+          if(Response.data.code==200 && Response.data.message=="success" && Response.data.data.user_id!=0)
+          {
+            _this.checkLogin().then(Response=>{
+              console.log('aa',Response)
+            })
+            //成功
+            //this.errHint="Success!";
+            _this.loading=false
+            _this.$Notice.success({
+              title: 'Login Success!',
+              desc:''
+            })
+            var i = Response.data.data.user_id
+            //User.userId = i;
+            //console.log(User.userId)
+            //加入coockie
+            _this.setCookie("userId", i, 30)
+            console.log(document.cookie)
+            _this.$router.push("/home");
+          }
+          else if(Response.data.code==200 && Response.data.data.user_id==0)
+          {
+            //失败
+            _this.loading=false
+            _this.$Notice.error({
+              title: 'E-mail or Password Wrong.',
+              desc:''
+            })
+            _this.errHint="E-mail or Password is Wrong!"
+          }
+          else{
+            _this.loading=false
+            _this.$Notice.error({
+              title: "You have already loged in.",
+              desc:''
+            })
+            _this.errHint="You have already loged in."
+          }
+        });
+      } catch (e) {
+        this.loading=false
+        return {
+          result: false,
+          errMsg: "Can't connect with server"
+        };
+      }
     }
+  },
+  beforeRouteEnter(to,from,next){
+      next(vm=>{
+        vm.getCookie("userId").then(res => {
+          if(res){
+            console.log("已经登录")
+            vm.$router.push("home")
+          }
+        });
+      })
+    }
+}
+
 </script>
 
 <style scoped>

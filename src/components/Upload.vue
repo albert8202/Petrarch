@@ -26,16 +26,6 @@
 
         <p style="margin-top: 50px">标题映射</p>
         <el-container style="margin-top: 30px">
-          <el-input style="width: 500px;"
-                    placeholder="Excel单元格标题"
-                    v-model="textTitle"
-                    clearable>
-          </el-input>
-          <el-input style="width: 500px;"
-                    placeholder="目标字段"
-                    v-model="textTitle"
-                    clearable>
-          </el-input>
         </el-container>
         <el-button type="primary" style="margin-top: 30px">上传<i class="el-icon-upload el-icon--right"></i></el-button>
       </el-container>

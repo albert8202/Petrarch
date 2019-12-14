@@ -2,6 +2,8 @@
   <div>
     <div>分析配置</div>
     <div>
+      <el-button type="text" icon="el-icon-download" @click="importClick">导入</el-button>
+      <el-button type="text" icon="el-icon-close">删除</el-button>
       <el-table
       ref="mutipleTable"
       :data="tableData"
@@ -10,7 +12,13 @@
       @selection-change="handleSelectionChange">
         <el-table-column
           type="selection"
-          width="55"
+          width="40px"
+          align="center">
+        </el-table-column>
+        <el-table-column
+          prop="number"
+          label="序号"
+          width="50px"
           align="center">
         </el-table-column>
         <el-table-column
@@ -45,6 +53,12 @@
           <router-link to="ArticleDetail">详情</router-link>
         </el-table-column>
       </el-table>
+      <div class="block"  style="margin:100px">
+      <el-pagination
+        layout="prev, pager, next"
+        :total="1000">
+      </el-pagination>
+    </div>
 
     </div>
   </div>
@@ -56,6 +70,7 @@
     data(){
       return{
         tableData:[{
+          number:1,
           title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
           author:"谁写的",
           source:"《大连理工大学学报（社会科学版）》",
@@ -131,6 +146,9 @@
       }
     },
     methods:{
+      importClick(){
+        this.$router.push('/upload')
+      }
 
     }
   }
