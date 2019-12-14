@@ -16,7 +16,7 @@
           align="center">
         </el-table-column>
         <el-table-column
-          prop="number"
+          prop="id"
           label="序号"
           width="50px"
           align="center">
@@ -55,8 +55,11 @@
       </el-table>
       <div class="block"  style="margin:100px">
       <el-pagination
+        small
         layout="prev, pager, next"
-        :total="1000">
+        :total="total"
+        :current-page="curPage"
+        @current-change="handleCurrentChange">
       </el-pagination>
     </div>
 
@@ -65,87 +68,32 @@
 </template>
 
 <script>
+  import textLibApi from "@/api/textLib";
   export default {
     name: "Configuration",
     data(){
       return{
-        tableData:[{
-          number:1,
-          title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
-          author:"谁写的",
-          source:"《大连理工大学学报（社会科学版）》",
-          date:"2018年4期",
-        },
-          {
-            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
-            author:"谁写的",
-            source:"《大连理工大学学报（社会科学版）》",
-            date:"2018年4期",
-          },
-          {
-            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
-            author:"谁写的",
-            source:"《大连理工大学学报（社会科学版）》",
-            date:"2018年4期",
-          },
-          {
-            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
-            author:"谁写的",
-            source:"《大连理工大学学报（社会科学版）》",
-            date:"2018年4期",
-          },
-          {
-            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
-            author:"谁写的",
-            source:"《大连理工大学学报（社会科学版）》",
-            date:"2018年4期",
-          },
-          {
-            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
-            author:"谁写的",
-            source:"《大连理工大学学报（社会科学版）》",
-            date:"2018年4期",
-          },
-          {
-            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
-            author:"谁写的",
-            source:"《大连理工大学学报（社会科学版）》",
-            date:"2018年4期",
-          },
-          {
-            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
-            author:"谁写的",
-            source:"《大连理工大学学报（社会科学版）》",
-            date:"2018年4期",
-          },
-          {
-            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
-            author:"谁写的",
-            source:"《大连理工大学学报（社会科学版）》",
-            date:"2018年4期",
-          },
-          {
-            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
-            author:"谁写的",
-            source:"《大连理工大学学报（社会科学版）》",
-            date:"2018年4期",
-          },
-          {
-            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
-            author:"谁写的",
-            source:"《大连理工大学学报（社会科学版）》",
-            date:"2018年4期",
-          },
-          {
-            title:"[期刊论文]我国社会主要矛盾转化与新时代中国社会建设目标定位",
-            author:"谁写的",
-            source:"《大连理工大学学报（社会科学版）》",
-            date:"2018年4期",
-          },
-        ]
+          id:"",
+          total:10,
+          tableData:[],
+          curPage:1,
       }
     },
+    created(){
+          this.id = this.$route.params.id;
+          this.getTextLibData();
+    },
     methods:{
+        handleCurrentChange(val) {
+            this.curPage = val;
+            this.getTextLibData();
+        },
+        getTextLibData(){
+            textLibApi.getTextLibData(this.id,this.curPage).then(res=>{
+                this.total = res.data.data.total
+                this.tableData = res.data.data.rows
+            })
+        },
       importClick(){
         this.$router.push('/upload')
       }

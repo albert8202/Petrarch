@@ -2,7 +2,7 @@
   <div>
     <div>我的项目</div>
     <span>
-      
+
     </span>
     <div>
       <el-table
@@ -18,21 +18,33 @@
         <el-table-column prop="libNum" label="数量" width="300" align="center"></el-table-column>
         <el-table-column prop="createTime" label="创建时间" width="200" align="center"></el-table-column>
         <el-table-column  width="200" align="center">
-          <el-dropdown  type="primary">
-            <span class="el-dropdown-link">
-              操作
-              <i class="el-icon-arrow-down el-icon--right"></i>
-            </span>
+<!--          <el-dropdown  type="primary">-->
+<!--            <span class="el-dropdown-link">-->
+<!--              操作-->
+<!--              <i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>-->
+<!--            </span>-->
+<!--            <el-dropdown-menu slot="dropdown">-->
+<!--              <el-dropdown-item command="data">数据</el-dropdown-item>-->
+<!--              <el-dropdown-item command="delete">删除</el-dropdown-item>-->
+<!--            </el-dropdown-menu>-->
+<!--          </el-dropdown>-->
+          <el-dropdown @command="handleCommand">
+  <span class="el-dropdown-link">
+    下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+  </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="data">数据</el-dropdown-item>
-              <el-dropdown-item command="delete">删除</el-dropdown-item>
+              <el-dropdown-item command="a">黄金糕</el-dropdown-item>
+              <el-dropdown-item command="b">狮子头</el-dropdown-item>
+              <el-dropdown-item command="c">螺蛳粉</el-dropdown-item>
+              <el-dropdown-item command="d" disabled>双皮奶</el-dropdown-item>
+              <el-dropdown-item command="e" divided>蚵仔煎</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </el-table-column>
       </el-table>
     </div>
     <div class="block">
-  
+
       <el-pagination
         layout="prev, pager, next"
         :total="1000">
@@ -133,7 +145,10 @@ export default {
         }
       ]
     };
-  }
+  },
+    methods:{
+
+    }
 };
 </script>
 

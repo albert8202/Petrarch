@@ -62,7 +62,7 @@ export default new Router({
         },
         //分析配置
         {
-            path: '/configuration',
+            path: '/configuration/:id',
             name: 'Configuration',
             component: Configuration,
             meta: {

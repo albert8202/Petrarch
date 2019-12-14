@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="Submit">
-          <button class="btn submit" type="button" @click="loginEventHandeler">登录</button>
+          <button class="btn submit" type="button" @click="login">登录</button>
         </div>
       </div>
     </div>
@@ -48,6 +48,8 @@
 </template>
 
 <script>
+ import userApi from "@/api/user";
+ import authApi from "@/utils/auth";
     export default {
         name: "Login",
         data(){
@@ -59,75 +61,23 @@
           }
         },
         methods:{
-              async loginEventHandeler () {
-      this.loading=true;
-      try {
-        console.log("start")
-        let data = {
-          email: this.email,
-          password: this.password
-        }
-        var _this = this;
-        this.signIn(data).then(Response=>{
-          console.log(Response);
-          if(Response.data.code==200 && Response.data.message=="success" && Response.data.data.user_id!=0)
-          {
-            _this.checkLogin().then(Response=>{
-              console.log('aa',Response)
-            })
-            //成功
-            //this.errHint="Success!";
-            _this.loading=false
-            _this.$Notice.success({
-              title: 'Login Success!',
-              desc:''
-            })
-            var i = Response.data.data.user_id
-            //User.userId = i;
-            //console.log(User.userId)
-            //加入coockie
-            _this.setCookie("userId", i, 30)
-            console.log(document.cookie)
-            _this.$router.push("/home");
-          }
-          else if(Response.data.code==200 && Response.data.data.user_id==0)
-          {
-            //失败
-            _this.loading=false
-            _this.$Notice.error({
-              title: 'E-mail or Password Wrong.',
-              desc:''
-            })
-            _this.errHint="E-mail or Password is Wrong!"
-          }
-          else{
-            _this.loading=false
-            _this.$Notice.error({
-              title: "You have already loged in.",
-              desc:''
-            })
-            _this.errHint="You have already loged in."
-          }
-        });
-      } catch (e) {
-        this.loading=false
-        return {
-          result: false,
-          errMsg: "Can't connect with server"
-        };
-      }
-    }
-  },
-  beforeRouteEnter(to,from,next){
-      next(vm=>{
-        vm.getCookie("userId").then(res => {
-          if(res){
-            console.log("已经登录")
-            vm.$router.push("home")
-          }
-        });
-      })
-    }
+            login(){
+                userApi.login(this.email, this.password).then(response=>{
+                    if (response.data.flag){
+                        authApi.setUser(response.data.data.token, response.data.data.nickname);
+                        location.href = '/myproject'
+                    }else {
+                        this.$message({
+                            message: response.data.message,
+                            type:  'error'
+                        });
+                        this.mobile= "";
+                        this.password = "";
+                    }
+                })
+            }
+
+        },
 }
 
 </script>
