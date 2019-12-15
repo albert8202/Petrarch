@@ -22,6 +22,7 @@
       <el-row class="content">
         <span
           class="content_text"
+          :v-text="content"
         >中国社会科学网讯（记者王禧玉）2018年是中国改革开放40周年和越南、老挝社会主义革新32周年。为深入总结改革开放的历史进程和实践经验，进一步深化社会主义国家改革开放和世界社会主义运动的认识，2018年11月1日，在北京举行了主题为“改革开放与21世纪世界社会主义”国际研讨会，会议由中国社会科学院、越南社会科学翰林院主办，中国社会科学院马克思主义研究院承办。以下全省略</span>
       </el-row>
     </div>
@@ -59,7 +60,9 @@
 export default {
   name: "ResultDeetail",
   data() {
-    return {};
+    return {
+        content:''
+    };
   },
   methods:{
       toEventResult(){
@@ -102,7 +105,7 @@ export default {
 }
 .content {
   margin-top: 10px;
-  padding: 0 50px;
+  padding: 0 10px;
   text-align: left;
 }
 .content_text {

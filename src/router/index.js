@@ -12,6 +12,7 @@ import Dictionary from '@/components/Dictionary'
 import EventExtract from '@/components/EventExtract'
 import EventResult from '@/components/EventResult'
 import ResultDetail from '@/components/ResultDetail'
+import DictionaryDetail from '@/components/DictionaryDetail'
 
 Vue.use(Router)
 
@@ -94,6 +95,15 @@ export default new Router({
             component: Dictionary,
             meta: {
                 keepAlive: true
+            }
+        },
+        //字典
+        {
+            path: '/dictionaryDetail/:id',
+            name: 'DictionaryDetail',
+            component: DictionaryDetail,
+            meta: {
+                keepAlive: false
             }
         },
         //新建提取

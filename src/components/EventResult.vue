@@ -142,14 +142,12 @@
                       </div>
                     </div>
 
-                    <el-table :data="tableData"  border           stripe
-            header-cell-style="text-align: center"
-            style="width: 100%">
+                    <el-table :data="resData"  border stripe header-cell-style="background-color: rgb(245, 247, 249); text-align: center" style="width: 100%">
                       <el-table-column align="center" prop="articleID" label="文本 ID" width="180"></el-table-column>
                       <el-table-column align="center" prop="title" label="标题" width="180"></el-table-column>
                       <el-table-column align="center" prop="content" label="正文"></el-table-column>
                       <el-table-column align="center" prop="num" label="事件数量"></el-table-column>
-                      <el-table-column align="center" prop="operation" label="操作" width="80px"><el-button type="text" @click="toResultDetail">详情</el-button></el-table-column>
+                      <el-table-column align="center" prop="operation" label="操作" width="80px"><el-button type="text" @click="toResultDetail"><span style="font-size:12px"><i class="fa fa-info-circle"></i>&nbsp;详情</span></el-button></el-table-column>
                     </el-table>
 
                     <div data-v-7e5aa87c style="margin: 10px 0px; height: 30px;">
@@ -170,14 +168,8 @@
                     </div>
       <div data-v-0f1723f0 class="el-col el-col-24" style="margin-top: 10px;">
          <div class="block">
-    <el-pagination
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-      :current-page.sync="currentPage3"
-      :page-size="100"
-      layout="total,prev, pager, next, jumper"
-      :total="1000">
-    </el-pagination>
+                 <el-pagination style="margin-top:10px" @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="curPage"  :page-size="curSize" layout="total,prev, pager, next, jumper" :total="total"></el-pagination>
+
   </div>
       </div>
                   </div>
@@ -207,11 +199,16 @@
 </template>
 
 <script>
+import eventResultApi from "@/api/eventResult";
 export default {
   name: "EventResult",
   data() {
     return {
-        tableData:[
+        total:0,
+        event:{
+
+        },
+        resData:[
             {
                 articleID: '1',
                 title:'title',
@@ -223,6 +220,12 @@ export default {
     };
   },
   methods:{
+      getEventRes(id){
+          eventResultApi.getEventResult(id).then(res=>{
+              this.total=res.data.data.event_total
+              this.resData=res.data.data.rows
+          })
+      },
       toResultDetail(){
           this.$router.push('/resultDetail')
       }
@@ -231,4 +234,11 @@ export default {
 </script>
 
 <style scoped>
+.el-button--text {
+    color: black
+}
+
+.el-button--text:hover {
+    color: red;
+}
 </style>

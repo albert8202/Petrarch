@@ -1,5 +1,5 @@
 <template>
-  <section data-v-7e5aa87c class="el-container container-subjectExtra is-vertical">
+<section data-v-7e5aa87c class="el-container container-subjectExtra is-vertical">
     <!-- <header data-v-7e5aa87c class="el-header" style="height: 60px;">
       <nav data-v-273cece6 data-v-7e5aa87c class="nav-bar">
         <div data-v-273cece6 class="brand">
@@ -50,369 +50,272 @@
       </nav>
     </header>-->
     <div data-v-7e5aa87c class="content">
-      <div data-v-7e5aa87c class="el-row">
-        <div data-v-7e5aa87c class="el-col el-col-22">
-          <ul data-v-7e5aa87c class="menus">
-            <li data-v-7e5aa87c style="cursor: pointer;">
-              <span data-v-7e5aa87c>我的分析</span>
-              <i data-v-7e5aa87c class="fa fa-angle-right fa-lg"></i>&nbsp;
-            </li>
-            <li data-v-7e5aa87c style="cursor: pointer;">
-              <span data-v-7e5aa87c>分析</span>
-              <i data-v-7e5aa87c class="fa fa-angle-right fa-lg"></i>&nbsp;
-            </li>
-            <li data-v-7e5aa87c style="color: rgb(233, 71, 67);">
-              <span data-v-7e5aa87c>事件提取</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div data-v-7e5aa87c class="el-row">
-        <div
-          data-v-7e5aa87c
-          class="el-row"
-          style="height: 80px; background-color: rgb(245, 247, 249);"
-        >
-          <div class="el-col el-col-22">
-            <div class="el-row" style="height: 40px; line-height: 40px; padding-left: 20px;">
-              <span>
-                  <el-button type="success" style="padding:3px;font-size:10px;text-align:center">主</el-button>
-                &nbsp;&nbsp;
-              </span>
-                <span
-                  style="color: rgb(0, 0, 0); font-weight: bold; font-size: 14px;"
-                >
-                  文本库样例
-                </span>
+        <div data-v-7e5aa87c class="el-row">
+            <div data-v-7e5aa87c class="el-col el-col-22">
+                <ul data-v-7e5aa87c class="menus">
+                    <li data-v-7e5aa87c style="cursor: pointer;">
+                        <span data-v-7e5aa87c>我的分析</span>
+                        <i data-v-7e5aa87c class="fa fa-angle-right fa-lg"></i>&nbsp;
+                    </li>
+                    <li data-v-7e5aa87c style="cursor: pointer;">
+                        <span data-v-7e5aa87c>分析</span>
+                        <i data-v-7e5aa87c class="fa fa-angle-right fa-lg"></i>&nbsp;
+                    </li>
+                    <li data-v-7e5aa87c style="color: rgb(233, 71, 67);">
+                        <span data-v-7e5aa87c>事件提取</span>
+                    </li>
+                </ul>
             </div>
-            <div class="el-row" style="height: 40px; line-height: 30px; padding-left: 20px;">
-              <form class="el-form el-form--label-left el-form--inline">
-                <div class="el-form-item">
-                  <!---->
-                  <div class="el-form-item__content">
-                    <div>
-                      <i class="fa fa-database"></i>&nbsp;&nbsp;
-                      <span>
-                        共计：
-                        <span style="color: red;">90</span>&nbsp;条
-                      </span>
-                    </div>
-                    <!---->
-                  </div>
-                </div>
-                <div class="el-form-item">
-                  <!---->
-                  <div class="el-form-item__content">
-                    <div style="margin-left: 20px;">
-                      <i aria-hidden="true" class="fa fa-clock-o"></i>&nbsp;&nbsp;
-                      <span>创建时间：2019-11-08 16:37:04</span>
-                    </div>
-                    <!---->
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="el-col el-col-2">
-            <div style="line-height: 80px; text-align: right; margin-right: 30px; cursor: pointer;">
-              <i aria-hidden="true" class="fa fa-list"></i>
-            </div>
-          </div>
         </div>
-
-        <div style="margin-top:20px">
-          <el-table
-            :data="tableData"
-            stripe
-            header-cell-style="background-color: rgb(245, 247, 249); text-align: center"
-            style="width: 100%"
-          >
-            <el-table-column align="center" prop="name" label="名称"></el-table-column>
-            <el-table-column align="center" prop="dicName" label="事件词典名称"></el-table-column>
-            <el-table-column align="center" prop="level" label="提取级别"></el-table-column>
-            <el-table-column align="center" prop="time" label="创建时间"></el-table-column>
-            <el-table-column align="center" prop="state" label="状态">
-              <el-button size="mini" type="success" round>
-                <span>右边能点</span>
-              </el-button>
-            </el-table-column>
-            <el-table-column  align="center" prop="operation" label="操作">
-                <router-link to="EventResult">
-                <el-button type="text"><span><i class="fa fa-line-chart"></i></span>
-                </el-button>
-                </router-link>
-                <el-buutton type="text" style="margin-left:10px;color:rgb(0,0,0)"><span>
-            <i class="fa fa-trash"></i></span></el-buutton></el-table-column>
-          </el-table>
-        </div>
-
-        <div data-v-7e5aa87c class="newStatistic" style="display: block;">
-          <div data-v-7e5aa87c class="add">
-            <h3>&nbsp;&nbsp;新建主题抽取</h3>
-            <p data-v-7e5aa87c></p>
-          </div>
-          <form data-v-7e5aa87c class="el-form el-form--label-left" style="width: 600px;">
-            <div data-v-7e5aa87c class="el-form-item is-required">
-              <label class="el-form-item__label" style="width: 100px;">事件文本库</label>
-              <div class="el-form-item__content" style="margin-left: 100px;">
-                <span data-v-7e5aa87c>
-                  <div data-v-7e5aa87c class="el-select" style="width: 300px;">
-                    <!---->
-                    <div class="el-input el-input--suffix">
-                      <!---->
-                      <input
-                        type="text"
-                        readonly="readonly"
-                        autocomplete="off"
-                        placeholder="请选择"
-                        class="el-input__inner"
-                      />
-                      <!---->
-                      <span class="el-input__suffix">
-                        <span class="el-input__suffix-inner">
-                          <i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                          <!---->
-                          <!---->
+        <div data-v-7e5aa87c class="el-row">
+            <div data-v-7e5aa87c class="el-row" style="height: 80px; background-color: rgb(245, 247, 249);">
+                <div class="el-col el-col-22">
+                    <div class="el-row" style="height: 40px; line-height: 40px; padding-left: 20px;">
+                        <span>
+                            <el-button type="success" style="padding:3px;font-size:10px;text-align:center">主</el-button>
+                            &nbsp;&nbsp;
                         </span>
-                        <!---->
-                      </span>
-                      <!---->
+                        <span style="color: rgb(0, 0, 0); font-weight: bold; font-size: 14px;">
+                            文本库样例
+                        </span>
                     </div>
-                    <div class="el-select-dropdown el-popper" style="display: none;">
-                      <div class="el-scrollbar" style>
-                        <div
-                          class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default"
-                        >
-                          <ul class="el-scrollbar__view el-select-dropdown__list">
-                            <!---->
-                            <li data-v-7e5aa87c class="el-select-dropdown__item selected">
-                              <span>文本库样例</span>
-                            </li>
-                            <li data-v-7e5aa87c class="el-select-dropdown__item">
-                              <span>中国梦</span>
-                            </li>
-                            <li data-v-7e5aa87c class="el-select-dropdown__item">
-                              <span>新时代</span>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="el-scrollbar__bar is-horizontal">
-                          <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
-                        </div>
-                        <div class="el-scrollbar__bar is-vertical">
-                          <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
-                        </div>
-                      </div>
-                      <!---->
+                    <div class="el-row" style="height: 40px; line-height: 30px; padding-left: 20px;">
+                        <form class="el-form el-form--label-left el-form--inline">
+                            <div class="el-form-item">
+                                <!---->
+                                <div class="el-form-item__content">
+                                    <div>
+                                        <i class="fa fa-database"></i>&nbsp;&nbsp;
+                                        <span>
+                                            共计：
+                                            <span style="color: red;">90</span>&nbsp;条
+                                        </span>
+                                    </div>
+                                    <!---->
+                                </div>
+                            </div>
+                            <div class="el-form-item">
+                                <!---->
+                                <div class="el-form-item__content">
+                                    <div style="margin-left: 20px;">
+                                        <i aria-hidden="true" class="fa fa-clock-o"></i>&nbsp;&nbsp;
+                                        <span>创建时间：2019-11-08 16:37:04</span>
+                                    </div>
+                                    <!---->
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                  </div>
-                </span>
-                <!---->
-              </div>
-            </div>
-            <div data-v-7e5aa87c class="el-form-item is-required">
-              <label for="name" class="el-form-item__label" style="width: 100px;">自定义名称</label>
-              <div class="el-form-item__content" style="margin-left: 100px;">
-                <div data-v-7e5aa87c class="el-input el-input--suffix" style="width: 300px;">
-                  <!---->
-                  <input type="text" autocomplete="off" placeholder="请输入" class="el-input__inner" />
-                  <!---->
-                  <!---->
-                  <!---->
                 </div>
-                <!---->
-              </div>
+                <div class="el-col el-col-2">
+                    <div style="line-height: 80px; text-align: right; margin-right: 30px; cursor: pointer;">
+                        <i aria-hidden="true" class="fa fa-list"></i>
+                    </div>
+                </div>
             </div>
 
-            <div data-v-7e5aa87c class="el-form-item is-required">
-              <label for="analysisParams" class="el-form-item__label" style="width: 100px;">提取级别</label>
-              <div class="el-form-item__content" style="margin-left: 100px;">
-                <div data-v-7e5aa87c role="radiogroup" class="el-radio-group">
-                  <!-- <label
-                          data-v-7e5aa87c
-                          role="radio"
-                          aria-checked="true"
-                          tabindex="0"
-                          class="el-radio is-checked"
-                        >
-                          <span class="el-radio__input is-checked">
-                            <span class="el-radio__inner"></span>
-                            <input
-                              type="radio"
-                              aria-hidden="true"
-                              tabindex="-1"
-                              class="el-radio__original"
-                              value="1"
-                            />
-                          </span>
-                          <span class="el-radio__label">
-                            整篇抽取
-                          </span>
-                  </label>-->
-                  <label data-v-7e5aa87c role="radio" tabindex="-1" class="el-radio">
-                    <span class="el-radio__input">
-                      <span class="el-radio__inner"></span>
-                      <input
-                        type="radio"
-                        aria-hidden="true"
-                        tabindex="-1"
-                        class="el-radio__original"
-                        value="2"
-                      />
-                    </span>
-                    <span class="el-radio__label">
-                      句子提取
-                      <!---->
-                    </span>
-                  </label>
-                  <label data-v-7e5aa87c role="radio" tabindex="-1" class="el-radio">
-                    <span class="el-radio__input">
-                      <span class="el-radio__inner"></span>
-                      <input
-                        type="radio"
-                        aria-hidden="true"
-                        tabindex="-1"
-                        class="el-radio__original"
-                        value="3"
-                      />
-                    </span>
-                    <span class="el-radio__label">
-                      段落提取
-                      <!---->
-                    </span>
-                  </label>
-                </div>
-                <!---->
-              </div>
+            <div style="margin-top:20px">
+                <el-table :data="eventLibs" stripe header-cell-style="background-color: rgb(245, 247, 249); text-align: center" style="width: 100%">
+                    <el-table-column align="center" prop="name" label="名称"></el-table-column>
+                    <el-table-column align="center" prop="dictionary_id" label="事件词典名称"></el-table-column>
+                    <el-table-column align="center" prop="analysis_algorithm" label="提取级别"></el-table-column>
+                    <el-table-column align="center" prop="create_time" label="创建时间"></el-table-column>
+                    <el-table-column align="center" prop="status" label="状态">
+                        <el-button size="mini" type="warning" round>
+                            <span>等待中</span>
+                        </el-button>
+                        <el-button size="mini" type="info" round>
+                            <span>提取中</span>
+                        </el-button>
+                        <el-button size="mini" type="success" round>
+                            <span>已完成</span>
+                        </el-button>
+                    </el-table-column>
+                    <el-table-column align="center" prop="operation" label="操作">
+                        <router-link to="EventResult">
+                            <el-button type="text"><span><i class="fa fa-line-chart"></i></span>
+                            </el-button>
+                        </router-link>
+                        <el-button type="text" style="margin-left:10px;"><span>
+                                <i class="fa fa-trash"></i></span></el-button>
+                    </el-table-column>
+                </el-table>
+                <el-pagination style="margin-top:20px" @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="curPage" :page-size="curSize" layout="total,prev, pager, next, jumper" :total="total"></el-pagination>
+
             </div>
-            <div data-v-7e5aa87c class="el-form-item is-required">
-              <label for="subId" class="el-form-item__label" style="width: 100px;">事件词典</label>
-              <div class="el-form-item__content" style="margin-left: 100px;">
-                <div data-v-7e5aa87c class="el-select" style="width: 300px;">
-                  <!---->
-                  <div class="el-input el-input--suffix">
-                    <!---->
-                    <input
-                      type="text"
-                      readonly="readonly"
-                      autocomplete="off"
-                      placeholder="请选择"
-                      class="el-input__inner"
-                    />
-                    <!---->
-                    <span class="el-input__suffix">
-                      <span class="el-input__suffix-inner">
-                        <i class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-                        <!---->
-                        <!---->
-                      </span>
-                      <!---->
-                    </span>
-                    <!---->
-                  </div>
-                  <div class="el-select-dropdown el-popper" style="display: none;">
-                    <div class="el-scrollbar" style>
-                      <div
-                        class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default"
-                      >
-                        <ul class="el-scrollbar__view el-select-dropdown__list">
-                          <!---->
-                          <li data-v-7e5aa87c class="el-select-dropdown__item">
-                            <span>主题逻辑词典模板 1</span>
-                          </li>
-                          <li data-v-7e5aa87c class="el-select-dropdown__item">
-                            <span>主题逻辑词典模板 2</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="el-scrollbar__bar is-horizontal">
-                        <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
-                      </div>
-                      <div class="el-scrollbar__bar is-vertical">
-                        <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
-                      </div>
-                    </div>
-                    <!---->
-                  </div>
+
+            <div data-v-7e5aa87c class="newStatistic" style="display: block;">
+                <div data-v-7e5aa87c class="add">
+                    <h3>&nbsp;&nbsp;新建主题抽取</h3>
+                    <p data-v-7e5aa87c></p>
                 </div>
-                <!-- 新建词典？ -->
-                <!-- <button
-                        data-v-7e5aa87c
-                        type="button"
-                        class="el-button el-tooltip el-button--default el-button--medium"
-                        aria-describedby="el-tooltip-7609"
-                        tabindex="0"
-                      >
-                        <i class="el-icon-plus"></i>
-                </button>-->
-                <!---->
-              </div>
+                <el-form v-model="form" class="el-form el-form--label-left" style="width: 600px;">
+                    <el-form-item required="true" label="事件文本库">
+                        <el-select style="margin-left: 10px;width: 300px;" v-model="form.lib_id" placeholder="请选择">
+                            <el-option v-for="item in textLibs" :key="item.id" :label="item.textlibrary_name" :value="item.id">
+                            </el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item required="true" label="自定义名称">
+                        <el-input v-model="form.name" placeholder="请输入提取名称" style="margin-left: 10px;width:300px;" auto-complete="false"></el-input>
+                    </el-form-item>
+                    <el-form-item required="true" label="提取级别">
+                        <el-radio-group style="margin-left: 30px;" v-model="form.algorithm">
+                            <el-radio :label="0">句子提取</el-radio>
+                            <el-radio :label="1">段落提取</el-radio>
+                        </el-radio-group>
+                    </el-form-item>
+                    <el-form-item required="true" label="事件词典">
+                        <el-select style="margin-left: 24px;width: 300px;" v-model="form.dic_id" placeholder="请选择">
+                            <el-option v-for="item in dictLibs" :key="item.id" :label="item.name" :value="item.id">
+                            </el-option>
+                        </el-select>
+                    </el-form-item>
+                </el-form>
+                <el-button @click="startEventExtract" type="primary">
+                    <!---->
+                    <!---->
+                    <span>开始提取</span>
+                </el-button>
+                <el-button>取消提取</el-button>
             </div>
-          </form>
-          <button data-v-7e5aa87c type="button" class="el-button el-button--primary">
-            <!---->
-            <!---->
-            <span>开始抽取</span>
-          </button>
-          <button
-            data-v-7e5aa87c
-            type="button"
-            class="el-button el-button--default"
-            style="margin-bottom: 20px;"
-          >
-            <!---->
-            <!---->
-            <span>取消抽取</span>
-          </button>
         </div>
-      </div>
-      <!---->
+        <!---->
     </div>
     <footer data-v-7e5aa87c class="el-footer" style="height: 60px;">
-      <div data-v-4e9c2f90 data-v-7e5aa87c class="footer">
-        <div data-v-4e9c2f90 class="links">
-          <a data-v-4e9c2f90 href="#">关于我们</a>
-          <a data-v-4e9c2f90 href="#">服务协议</a>
-          <a data-v-4e9c2f90>隐私政策</a>
+        <div data-v-4e9c2f90 data-v-7e5aa87c class="footer">
+            <div data-v-4e9c2f90 class="links">
+                <a data-v-4e9c2f90 href="#">关于我们</a>
+                <a data-v-4e9c2f90 href="#">服务协议</a>
+                <a data-v-4e9c2f90>隐私政策</a>
+            </div>
+            <div data-v-4e9c2f90 class="copyright">
+                Copyright © 2019 上海萌泰数据科技股份有限公司 © 版权所有.
+                <a data-v-4e9c2f90 href=" http://beian.miit.gov.cn" target="_blank" style="color: rgb(73, 49, 133);">沪 ICP 备 09099644 号</a>
+            </div>
         </div>
-        <div data-v-4e9c2f90 class="copyright">
-          Copyright © 2019 上海萌泰数据科技股份有限公司 © 版权所有.
-          <a
-            data-v-4e9c2f90
-            href=" http://beian.miit.gov.cn"
-            target="_blank"
-            style="color: rgb(73, 49, 133);"
-          >沪 ICP 备 09099644 号</a>
-        </div>
-      </div>
     </footer>
-  </section>
+</section>
 </template>
 
 <script>
+import dictionaryApi from "@/api/dictionary";
+import textLibApi from "@/api/textLib";
+import eventLibApi from "@/api/eventLib";
+import authApi from "@/utils/auth"
 export default {
-  name: "EventExtract",
-  data() {
-    return {
-      tableData: [
-        {
-          name: "name",
-          dicName: "someDictionary",
-          level: "juzi",
-          time: "now",
-          state: "",
-          operation: ""
+    name: "EventExtract",
+    data() {
+        return {
+            total: 0,
+            curPage: 1,
+            curSize: 10,
+            textLibs: [{
+                name: '1',
+                id: '1',
+            }, {
+                name: '2',
+                id: '2',
+            }],
+            dictLibs: [{
+                name: '1',
+                id: '1',
+            }, {
+                name: '2',
+                id: '2',
+            }],
+            form: {
+                lib_id: null,
+                name: '',
+                type: 13,
+                algorithm: null,
+                dic_id: null
+            },
+            eventLibs: [{
+                name: "name",
+                dicName: "someDictionary",
+                level: "juzi",
+                time: "now",
+                state: "",
+                operation: ""
+            }]
+        };
+    },
+    created() {
+        // authApi.getUser().token != undefined
+        this.initData()
+        this.getAllEventLib()
+        setInterval(() => {
+            setTimeout(this.getStatus, 0)
+        }, 10000)
+    },
+    methods: {
+        initData() {
+            eventLibApi.getTextLibAndDictionary().then(res => {
+                this.textLibs = res.data.data.libs
+                this.dictLibs = res.data.data.dicts
+            })
+        },
+        // getTextLib() {
+        //     eventLibApi.createEventLib(this.form).then(res=>{
+        //         this.total=res.data.data.total
+        //         this.eventLibs=res.data.data.rows
+        //     })
+        // },
+        // gtDict(){
+        //      dictionaryApi.getDictionaryData(1, 10).then(res => {
+        //         this.dictLibs = res.data.data.rows;
+        //     });
+        // },
+        getStatus() {
+            for (item in eventLibs) {
+                eventLibApi.getStatus(item.id).then(res => {
+                    item.status = res.data.data.status
+                })
+            }
+        },
+        startEventExtract() {
+            eventLibApi.createEventLib(this.form).then(res => {
+                this.$message({
+                    type: res.data.flag ? "success" : "error",
+                    message: res.data.message
+                });
+            })
+        },
+        getAllEventLib() {
+            eventLibApi.getAllEventLib().then(res => {
+                this.total = res.data.data.total
+                this.eventLibs = res.data.data.json
+            })
+        },
+        getEventLib() {
+            eventLibApi.getEventLib(this.curPage, this.curSize).then(res => {
+                this.total = res.data.data.total
+                this.eventLibs = res.data.data.rows
+            })
+        },
+        delEventLib(id) {
+            eventLibApi.delEventLib(id).then(res => {
+                this.$message({
+                    type: res.data.flag ? "success" : "error",
+                    message: res.data.message
+                });
+                this.getEventLib()
+            })
+        },
+        toResult() {
+            this.$router.push("/eventResult");
         }
-      ]
-    };
-  },
-  methods: {
-    toResult() {
-      this.$router.push("/eventResult");
     }
-  }
 };
 </script>
 
 <style scoped>
+.el-button--text {
+    color: black
+}
+
+.el-button--text:hover {
+    color: red;
+}
 </style>
