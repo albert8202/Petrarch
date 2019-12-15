@@ -72,7 +72,7 @@ export default new Router({
         },
         //详情
         {
-            path: '/articleDetail',
+            path: '/articleDetail/:lib/:id',
             name: 'ArticleDetail',
             component: ArticleDetail,
             meta: {
