@@ -2,26 +2,30 @@
     <div>
       <el-container direction="vertical" style="margin-top: 100px;margin-left: 200px">
         <p style="font-weight: bold;margin-bottom: 50px">数据导入</p>
-        <el-input style="width: 500px;"
-          placeholder="文本库名称：阿三"
-          v-model="textTitle"
-          clearable>
-        </el-input>
+        <div style="width: 500px; color: #8c939d">
+          文本库名称： {{lib_name}}
+        </div>
 
         <p style="margin-top: 50px">导入文件</p>
-        <el-upload
-          class="upload-demo"
-          action="https://jsonplaceholder.typicode.com/posts/"
-          :on-preview="handlePreview"
-          :on-remove="handleRemove"
-          :before-remove="beforeRemove"
-          multiple
-          :limit="3"
-          :on-exceed="handleExceed"
-          :file-list="fileList"
-          style="margin-top: 30px">
-          <el-button size="small" type="primary">点击上传</el-button>
-          <div slot="tip" class="el-upload__tip">注意只能上传Excel文件且不能大于10M，Excel文件第一行为标题且必须有值，否则该列数据无效！</div>
+        <!--<el-upload-->
+          <!--class="upload-demo"-->
+          <!--action="https://jsonplaceholder.typicode.com/posts/"-->
+          <!--:on-preview="handlePreview"-->
+          <!--:on-remove="handleRemove"-->
+          <!--:before-remove="beforeRemove"-->
+          <!--multiple-->
+          <!--:limit="3"-->
+          <!--:on-exceed="handleExceed"-->
+          <!--:file-list="fileList"-->
+          <!--style="margin-top: 30px">-->
+          <!--<el-button size="small" type="primary">点击上传</el-button>-->
+          <!--<div slot="tip" class="el-upload__tip">注意只能上传Excel文件且不能大于10M，Excel文件第一行为标题且必须有值，否则该列数据无效！</div>-->
+        <!--</el-upload>-->
+        <el-upload style="display:inline-block" action="http://100.68.187.168:5000/dic" :auto-upload="false"
+                   :limit="1" :on-change="uploadFile">
+          <h4 style="color:rgb(216,83,75)">
+            <i data-v-0f1723f0 class="el-icon-upload"></i> &nbsp;上传词典
+          </h4>
         </el-upload>
 
         <p style="margin-top: 50px">标题映射</p>
@@ -41,7 +45,18 @@
         name: "Upload",
       data(){
           return{
-            textTitle:''
+            textTitle:'',
+            uploadFile:null
+
+        }
+      },
+      created(){
+          this.lib_name = this.$route.query.name
+      },
+      methods:{
+        uploadFile(file){
+          console.log(file.raw)
+          this.uploadFile=file.raw
         }
       }
     }
