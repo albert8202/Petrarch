@@ -90,8 +90,7 @@
         },
         getTextLibData(){
             textLibApi.getTextLibData(this.id,this.curPage).then(res=>{
-                this.total = res.data.data.total
-                this.tableData = res.data.data.rows
+                console.log(res)
             })
         },
       importClick(){
