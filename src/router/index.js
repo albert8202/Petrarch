@@ -12,6 +12,7 @@ import Dictionary from '@/components/Dictionary'
 import EventExtract from '@/components/EventExtract'
 import EventResult from '@/components/EventResult'
 import ResultDetail from '@/components/ResultDetail'
+import cloud from "@/components/cloud";
 
 Vue.use(Router)
 
@@ -123,6 +124,15 @@ export default new Router({
                 keepAlive: true
             }
         },
+      //结果详情
+      {
+        path: '/cloud',
+        name: 'Cloud',
+        component: cloud,
+        meta: {
+          keepAlive: true
+        }
+      },
 
     ]
 })
