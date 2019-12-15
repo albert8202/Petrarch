@@ -12,31 +12,20 @@ import 'element-ui/lib/theme-chalk/index.css';
 import 'font-awesome/css/font-awesome.min.css';
 import '../static/css/app.e8d7150796b0befa5b827c0e9e9831d5.css';
 
-// function post(url, data) {
-//     return axios({
-//       method: "POST",
-//       url:  IP + url,
-//       //url: url,
-//       data: data,
-//       withCredentials : true
-//     })
-//   }
-//   function get(url) {
-//     return axios({
-//       method: "GET",
-//       url: IP + url,
-//       withCredentials: true
-//     });
-//   }
 
 Vue.config.productionTip = false;
-
 Vue.use(ViewUI);
 Vue.use(ElementUI)
-    /* eslint-disable no-new */
+/* eslint-disable no-new */
 new Vue({
-    el: '#app',
-    router,
-    components: { App },
-    template: '<App/>'
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
 })
+
+
+
+
+
+

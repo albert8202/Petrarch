@@ -5,9 +5,11 @@
 
     </span>
     <div style="width: 70%;margin-left: 15%">
-      <el-button type="text" size="small" style="margin-left: 100px" @click="isLibCreateShow = true"><i class="el-icon-upload el-icon--right"></i>新建文本库</el-button>
+      <el-button type="text" size="small" style="margin-left: 100px" @click="isLibCreateShow = true"><i
+        class="el-icon-upload el-icon--right"></i>新建文本库
+      </el-button>
       <!--create new textLib-->
-      <el-dialog title="新建文本库" :visible.sync="isLibCreateShow"  style="width: 60%;margin-left: 20%">
+      <el-dialog title="新建文本库" :visible.sync="isLibCreateShow" style="width: 60%;margin-left: 20%">
         <el-form :model="newLibInfor">
           <el-form-item label="文本库名称" style="width: 80%;margin-left: 10%">
             <el-input v-model="newLibInfor.name"
@@ -50,34 +52,43 @@
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="isLibEditShow = false">取 消</el-button>
-          <el-button type="primary" @click="isLibEditShow = false">修改</el-button>
+          <el-button type="primary" @click="editForSure">修改</el-button>
         </div>
       </el-dialog>
-
-
-
 
 
       <el-table
         :data="tableData"
         tooltip-effect="dark"
-        @current-change="handleCurrentChange"
       >
 
         <el-table-column prop="id" label="序号" style="width: 5%" align="center"></el-table-column>
-        <el-table-column prop="textlibrary_name" label="文本库标题" style="width: 20%" align="center"></el-table-column>
-        <el-table-column prop="description" label="描述"  style="color: dimgray;width: 30%" align="center"></el-table-column>
+        <el-table-column label="文本库标题" style="width: 20%" align="center">
+          <template slot-scope="scope">
+            <a :href= "'/configuration/'+scope.row.id" target="_self" class="buttonText">{{scope.row.textlibrary_name}}</a>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" label="描述" style="color: dimgray;width: 30%"
+                         align="center"></el-table-column>
         <el-table-column prop="line_no" label="数量" style="width: 10%" align="center"></el-table-column>
-        <el-table-column prop="create_time" label="创建时间" style="width: 15%" align="center"></el-table-column>
+        <el-table-column label="创建时间" style="width: 15%" align="center">
+          <template slot-scope="scope">
+            <div >{{scope.row.create_time}}</div>
+          </template>
+        </el-table-column>
         <el-table-column label="操作" style="width: 10%" align="center">
-          <el-button-group>
-            <el-button type="primary" icon="el-icon-edit" @click="libEdit"></el-button>
+          <template slot-scope="scope">
+            <el-button-group>
 
-            <el-button type="primary" icon="el-icon-delete" @click="libDelete"></el-button>
-          </el-button-group>
+              <el-button type="primary" icon="el-icon-edit" @click="libEdit(scope.row)"></el-button>
+
+              <el-button type="primary" icon="el-icon-delete" @click="libDelete(scope.row.id)"></el-button>
+
+            </el-button-group>
+          </template>
         </el-table-column>
       </el-table>
-      <div class="block"  style="margin:100px">
+      <div class="block" style="margin:100px">
         <el-pagination
           small
           layout="prev, pager, next"
@@ -92,83 +103,120 @@
 
 <script>
   import textLibApi from "@/api/textLib";
-export default {
-  name: "MyProject",
-  data() {
-    return {
-      curPage:1,
-      total:0,
-      clickRow:0,
-      tableData: [],
-      isLibCreateShow:false,
-      newLibInfor:{
-        name:'',
-        desc:''
-      },
-      isLibEditShow:false,
-      isLibDeleteShow:false,
-      editLibInfor:{
-        name:'',
-        desc:''
+  import timeUtil from '@/utils/timeUtil'
+
+  export default {
+    name: "MyProject",
+    data() {
+      return {
+        rowId: 0,
+        curPage: 1,
+        total: 0,
+        clickRow: 0,
+        tableData: [
+          // {
+          //   id: 121312,
+          //   textlibrary_name: '测试用',
+          //   description: 'sdasdasfas',
+          //   line_no: '22',
+          //   create_time: 'wqeqweqwe'
+          //
+          // }
+        ],
+        isLibCreateShow: false,
+        newLibInfor: {
+          name: '',
+          desc: ''
+        },
+        isLibEditShow: false,
+        editLibInfor: {
+          name: '',
+          desc: ''
+        }
+      };
+    },
+    created() {
+      this.getAllTextLibData()
+    },
+    methods: {
+      libEdit(row) {
+        this.editId = row.id;
+        this.editLibInfor.name = row.textlibrary_name
+        this.editLibInfor.desc = row.description
+        this.isLibEditShow = true
       }
-    };
-  },
-  created(){
-    this.getAllTextLibData()
-  },
-    methods:{
-    libEdit(){
-      this.isLibEditShow=true
-    }
-    ,
-      createTextLib(){
-        this.isLibCreateShow = false
-        console.log(this.newLibInfor)
-        textLibApi.createTextLib(this.newLibInfor).then(res=>{
+      ,
+      editForSure() {
+        textLibApi.editTextLib(parseInt(this.editId), this.editLibInfor).then(res => {
           console.log(res.data)
-          this.$message(res.data.message)
-          this.$router.go(0)
+          if (res.data.flag) {
+            this.getAllTextLibData()
+            this.isLibEditShow = false
+          }
+          this.$message({
+            type: res.data.flag ? 'success' : 'error',
+            message: res.data.message
+          })
+
         })
       }
       ,
-      libDelete() {
+      createTextLib() {
+        this.isLibCreateShow = false
+        console.log(this.newLibInfor)
+        textLibApi.createTextLib(this.newLibInfor).then(res => {
+          console.log(res.data)
+          if (res.data.flag) {
+            this.getAllTextLibData()
+          }
+          this.$message({
+            type: res.data.flag?'success':'error',
+            message: res.data.message
+          })
 
+        })
+      },
+      libDelete(id) {
         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
-        }).then(res => {
-          textLibApi.deleteTextLib()
-
-          this.$message({
-            type: 'success',
-            message: res.date.message
-          });
-        }).catch(() => {
+        }).then(() => {
+            textLibApi.deleteTextLib(parseInt(id)).then(res => {
+              if (res.data.flag) {
+                this.getAllTextLibData()
+              }
+              this.$message({
+                type: res.data.flag?'success':'error',
+                message: res.data.message
+              })
+            })
+          }
+        ).catch(() => {
           this.$message({
             type: 'info',
             message: '已取消删除'
           });
         });
       }
-  ,
+      ,
       handleCurrentChange(val) {
         this.curPage = val;
         this.getTextLibData();
       },
-      getAllTextLibData(){
-        textLibApi.getAllTextLibData(this.curPage).then(res=>{
+      getAllTextLibData() {
+        textLibApi.getAllTextLibData(this.curPage).then(res => {
           this.total = res.data.data.total
           this.tableData = res.data.data.rows
           console.log(res.data.data)
         })
       }
-    }
-};
+    },
+  };
 </script>
 
 <style scoped>
-.el-dropdown-link {
+  .el-dropdown-link {
     cursor: pointer;
     color: #fc6c6c;
   }

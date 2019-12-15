@@ -34,8 +34,26 @@ export default {
   editTextLib(id,editLibInfor){
     return request({
       url:`/${group_name}/${id}`,
-      method:'put'
+      method:'put',
+      data:editLibInfor
+    })
+  },
+
+  deleteArticle(lib,id){
+    return request({
+      url:`/${group_name}/${lib}/${id}`,
+      method:'delete',
+    })
+  },
+
+  getSingleArticle(lib,id){
+    return request({
+      url:`${group_name}/data/${lib}/${id}`,
+      method:'get'
     })
   }
+
+
+
 
 }

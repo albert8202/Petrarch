@@ -1,56 +1,50 @@
 <template>
   <div>
     <div>分析配置</div>
-    <div>
+    <div style="width: 70%;margin-left: 15%">
       <el-button type="text" icon="el-icon-download" @click="importClick">导入</el-button>
-      <el-button type="text" icon="el-icon-close">删除</el-button>
       <el-table
       ref="mutipleTable"
       :data="tableData"
-      tooltip-effect="dark"
-      style="width: 1600px;margin-left: 100px"
-      @selection-change="handleSelectionChange">
-        <el-table-column
-          type="selection"
-          width="40px"
-          align="center">
-        </el-table-column>
+      tooltip-effect="dark">
         <el-table-column
           prop="id"
           label="序号"
-          width="50px"
+          style="width: 5%"
           align="center">
         </el-table-column>
         <el-table-column
           prop="title"
           label="标题"
-          width="700"
+          style="width: 20%"
           align="center">
         </el-table-column>
         <el-table-column
           prop="author"
           label="作者"
-          width="100"
-          style="color: dimgray"
+          style="color: dimgray;width: 10%"
           align="center">
         </el-table-column>
         <el-table-column
-          prop="source"
+          prop="url"
           label="来源"
-          width="300"
+          style="width: 20%"
           align="center">
         </el-table-column>
         <el-table-column
-          prop="date"
+          prop="create_time"
           label="时间"
-          width="200"
+          style="width: 20%"
           align="center">
         </el-table-column>
         <el-table-column
           label="操作"
-          width="200"
+          style="width: 20%"
           align="center">
-          <router-link to="ArticleDetail">详情</router-link>
+          <template slot-scope="scope">
+          <el-button type="text" icon="el-icon-zoom-in" @click="detailArticle(scope.row.id)">详情</el-button>
+          <el-button type="text" icon="el-icon-close" @click="deleteArticle(scope.row.id)">删除</el-button>
+          </template>
         </el-table-column>
       </el-table>
       <div class="block"  style="margin:100px">
@@ -73,24 +67,56 @@
     name: "Configuration",
     data(){
       return{
-          id:"",
+          rowId:0,
+          lib_id:1,
           total:10,
           tableData:[],
           curPage:1,
+
       }
     },
     created(){
-          this.id = this.$route.params.id;
+          this.lib_id = this.$route.params.id;
           this.getTextLibData();
     },
     methods:{
+      detailArticle(id){
+        this.$router.replace('/articleDetail/'+ this.lib_id+`/${id}`)
+      },
+      deleteArticle(id) {
+        alert(parseInt(id))
+        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+            textLibApi.deleteArticle(this.lib_id,parseInt(id)).then(res => {
+              if (res.data.flag) {
+                this.getTextLibData()
+              }
+              this.$message({
+                type: res.data.flag?'success':'error',
+                message: res.data.message
+              })
+            })
+          }
+        ).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      }
+      ,
         handleCurrentChange(val) {
             this.curPage = val;
             this.getTextLibData();
         },
         getTextLibData(){
-            textLibApi.getTextLibData(this.id,this.curPage).then(res=>{
-                console.log(res)
+            textLibApi.getTextLibData(this.lib_id,this.curPage).then(res=>{
+              console.log(res.data)
+               this.total = res.data.data.total;
+               this.tableData = res.data.data.rows;
             })
         },
       importClick(){
