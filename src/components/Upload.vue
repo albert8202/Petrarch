@@ -5,8 +5,6 @@
       <div style="width: 500px; color: #8c939d">
         文本库名称： {{lib_name}}
       </div>
-
-
         <div style="width: 10%;height: 50px;float: left;margin-top: 50px">导入文件</div>
         <div style="height: 80px;width: 50%;float: left">
           <el-upload
@@ -25,7 +23,7 @@
 
 
       <p style="margin-top: 50px">标题映射</p>
-      <el-container style="margin-top: 30px;width: 60%">
+      <div style="margin-top: 30px;width: 60%">
         <el-table
           :data="matchTable"
           style="width: 80%;height: auto">
@@ -47,28 +45,15 @@
               </el-select>
             </template>
           </el-table-column>
-
-          <!--<el-table-column-->
-          <!--align="right">-->
-          <!--<template slot-scope="scope">-->
-          <!--<el-button-->
-          <!--size="mini"-->
-          <!--@click="handleEdit(scope.$index, scope.row)">Edit</el-button>-->
-          <!--<el-button-->
-          <!--size="mini"-->
-          <!--type="danger"-->
-          <!--@click="handleDelete(scope.$index, scope.row)">Delete</el-button>-->
-          <!--</template>-->
-          <!--</el-table-column>-->
         </el-table>
 
-      </el-container>
-      <el-button type="primary" style="margin-top: -500px;float: top" @click="uploadFile">上传<i class="el-icon-upload el-icon--right"></i></el-button>
+      </div>
+      <el-button type="primary" style="float: top;margin-top: 50px" @click="uploadFile">上传<i class="el-icon-upload el-icon--right"></i></el-button>
     </el-container>
-    <el-footer style="color:  black;background-color:grey;margin-top:220px">
-      <p style="margin-left: 650px">关于我们 服务协议 隐私政策</p>
-      <p style="margin-left: 600px">Copyright 2018 上海萌泰数据科技有限公司</p>
-    </el-footer>
+    <!--<el-footer style="color:  black;background-color:grey;margin-top:220px">-->
+      <!--<p style="margin-left: 650px">关于我们 服务协议 隐私政策</p>-->
+      <!--<p style="margin-left: 600px">Copyright 2018 上海萌泰数据科技有限公司</p>-->
+    <!--</el-footer>-->
   </div>
 </template>
 

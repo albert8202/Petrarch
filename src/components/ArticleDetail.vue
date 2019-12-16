@@ -7,7 +7,7 @@
       <h5 style="text-align: center">{{this.article.author}}</h5>
     </el-header>
     <el-main>
-      <pre v-for="(item, index) in article.content"><p style="width: 80%;margin-left: 10%; text-indent:2%">{{item}}</p></pre>
+      <p v-for="(item, index) in article.content" style="width: 60%;word-wrap:break-word;text-indent: 2em;margin-left: 20%">{{item}}</p>
       <!-- 词云 -->
       <div
         style="width: 1600px;height: 25px;margin-left: 100px;margin-top: 100px;border-bottom:1px  solid dimgray;font-weight: bold">
@@ -15,13 +15,13 @@
       </div>
       <div ref='wordCloudBox'></div>
     </el-main>
-      <el-footer>
+      <el-footer style="margin-bottom: 40px">
         <div
           style="width: 1600px;height: 25px;margin-left: 100px;margin-top: 100px;border-bottom:1px  solid dimgray;font-weight: bold">
           相关新闻
         </div>
         <div>
-          <div v-for="(item,index) in related" :key="index"> <a :href="item.url">{{item.title}}</a></div>
+          <div v-for="(item,index) in related" :key="index" style="margin-left: 150px;margin-top: 20px"> <a :href="item.url">{{item.title}}</a></div>
         </div>
       </el-footer>
     </el-container>
