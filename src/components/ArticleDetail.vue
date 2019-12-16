@@ -4,10 +4,10 @@
     <el-container>
     <el-header style="color: grey; width:80%;margin-left: 10%;margin-top:10px"><h5 style="text-align: center">
       {{this.article.publish_time}}</h5>
-      <h5 style="text-align: center">{{this.article.author}}</h5>
+      <h5 style="text-align: center;margin-bottom: 50px">{{this.article.author}}</h5>
     </el-header>
     <el-main>
-      <p v-for="(item, index) in article.content" style="width: 60%;word-wrap:break-word;text-indent: 2em;margin-left: 20%">{{item}}</p>
+      <p v-for="(item, index) in article.content" style="width: 60%;word-wrap:break-word;text-indent: 2em;margin-left: 20%;line-height: 30px" >{{item}}</p>
       <!-- 词云 -->
       <div
         style="width: 1600px;height: 25px;margin-left: 100px;margin-top: 100px;border-bottom:1px  solid dimgray;font-weight: bold">
