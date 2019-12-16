@@ -58,6 +58,14 @@ export default {
       url:`${group_name}/related/${lib}/${id}`,
       method:'get'
     })
+  },
+
+  uploadArticles(lib,formdata){
+    return request({
+      url:`${group_name}/${lib}`,
+      method:'post',
+      data: formdata
+    })
   }
 
 

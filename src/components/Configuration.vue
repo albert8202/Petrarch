@@ -122,7 +122,7 @@
             })
         },
       importClick(){
-        this.$router.push({path:'/upload',query:{name:this.lib_name}})
+        this.$router.push({path:'/upload',query:{name:this.lib_name,id:this.lib_id}})
       }
 
     }
