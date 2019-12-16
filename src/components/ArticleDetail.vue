@@ -13,7 +13,7 @@
         style="width: 1600px;height: 25px;margin-left: 100px;margin-top: 100px;border-bottom:1px  solid dimgray;font-weight: bold">
         词云图
       </div>
-      <div ref='wordCloudBox'></div>
+      <div ref='wordCloudBox' style="margin-left: 300px"></div>
     </el-main>
       <el-footer style="margin-bottom: 40px">
         <div
