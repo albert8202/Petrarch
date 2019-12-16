@@ -136,7 +136,7 @@ export default new Router({
         },
         //结果详情
         {
-            path: '/cloud',
+            path: '/excel',
             name: 'Cloud',
             component: cloud,
             meta: {

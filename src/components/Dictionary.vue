@@ -110,7 +110,7 @@
           <el-form v-model="form">
             <el-upload style="display:inline-block" action="http://100.68.187.168:5000/dic" :auto-upload="false"
                        :limit="1" :on-change="uploadFile">
-              <h4 style="color:rgb(216,83,75)">
+                <h4 style="color:rgb(216,83,75)">
                 <i data-v-0f1723f0 class="el-icon-upload"></i> &nbsp;上传词典
               </h4>
             </el-upload>
