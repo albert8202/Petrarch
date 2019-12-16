@@ -4,10 +4,12 @@
       <nav class="navBar" style="z-index: 1;">
 
         <Menu  mode="horizontal" :theme="theme1" avtive-name="1" @on-select="onSelect">
-          <div router-link="{path: '/'}" style="float: left">这是萌泰科技的图标</div>
+          <template>
+            <img src="../static/img/logo.png" />
+          </template>
           <Submenu name="1" style="float: right">
             <template slot="title">
-              <Icon type="ios-people"/>
+              <el-icon class="el-icon-s-custom"/>
               萌泰科技
             </template>
             <MenuItem name="Personal" >个人账户</MenuItem>
@@ -15,11 +17,11 @@
 
           </Submenu>
           <MenuItem name="AnalysisMenu"  style="float: right" >
-            <Icon type="md-analytics"/>
+            <el-icon class="el-icon-set-up"></el-icon>
             分析配置
           </MenuItem>
           <MenuItem name="MyProject" style="float: right" >
-            <Icon type="ios-paper"/>
+            <el-icon class="el-icon-s-custom"/>
             我的项目
           </MenuItem>
 

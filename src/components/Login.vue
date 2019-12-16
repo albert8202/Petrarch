@@ -1,27 +1,27 @@
 <template>
-  <div id="LoginPage">
+  <div id="LoginPage" >
     <loadingAnimate v-if="loading" class="center-fix"/>
     <div id="head-div">
       <div id="logo" >
-        <img src="static/icons8_planet_on_the_dark_side_128px.png" width="80" height="80">
+        <img src="static/img/logo.png" width="200" height="80">
       </div>
-      <div id="WebName" style="font-size: 30px;color: white;float: left;margin-top: 43px;margin-left: 10px">
-        锐研·云质析
-      </div>
+
     </div>
     <div class="LoginFormContainer">
       <div class="Wrapper">
         <div class="LoginText">
-          <span>登录</span>
+          <span >登录</span>
         </div>
         <div class="ErrHint alert alert-danger" v-if="errHint">
           {{ errHint }}
         </div>
         <div class="LoginInput" >
           <div class="account">
-            <input size="large" type="text" v-model="email" placeholder="邮箱" @keyup.enter="loginEventHandeler"></input>
+            账号
+            <input size="large" type="text" v-model="email" placeholder="账号" @keyup.enter="loginEventHandeler"></input>
           </div>
           <div class="password">
+            密码
             <input size="large" type="password" v-model="password" placeholder="密码" @keyup.enter="loginEventHandeler"></input>
           </div>
         </div>
@@ -30,18 +30,11 @@
         </div>
       </div>
     </div>
-    <div class="RegistHint">
-      <div class="Wrapper">
-        <div class="hint" style="padding-left: 165px">
-          <span>还没有账号?</span>
-          <router-link to="/register">赶紧注册一个叭 »</router-link>
-        </div>
-      </div>
-    </div>
+
     <div id="buttom-div">
-      <div id="buttom-content" style="color: white;">
-        <p style="margin-left: 650px">关于我们    服务协议   隐私政策</p>
-        <p style="margin-left: 600px">Copyright 2018 上海萌泰数据科技有限公司</p>
+      <div id="buttom-content" style="color: black;">
+        <p style="text-align: center;width: 1700px">关于我们    服务协议   隐私政策</p>
+        <p style="text-align: center">Copyright 2018 上海萌泰数据科技有限公司</p>
       </div>
     </div>
   </div>
@@ -84,23 +77,21 @@
 
 <style scoped>
   #LoginPage {
-    height: calc(100vh - 46px);
+    height: calc(100vh - 120px);
     /* padding-top: 10px; */
-    background-color: #e6ecf0;
+    background: url('/static/img/background.jpg') center center no-repeat;
   }
   #head-div
   {
-    top:0;
-    height: 15%;
+    height: 18%;
     width: 100%;
-    background-color: #ff3333;
-    margin-bottom: 100px;
+
   }
   #buttom-div
   {
-    height: 15%;
+    height:13%;
     width: 100%;
-    background-color: #ff3333;
+    background-color: gainsboro;
     position: fixed;
     bottom: 0;
   }
@@ -120,38 +111,34 @@
     text-align: left;
   }
   .LoginFormContainer {
-    max-width: 840px;
-    padding: 15px;
-    margin: 0 auto;
+    width: 20%;
+    margin-left: 70%;
+    height: 40%;
   }
 
   .LoginFormContainer {
     background-color: white;
   }
 
-  .Wrapper {
-    max-width: 585px;
-    padding: 0 10px;
-    margin: 0 auto;
-  }
+
 
   .LoginText {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 600;
-    margin-left: 220px;
-    margin-bottom: 20px;
+    margin-bottom: 5%;
+    padding-top: 10%;
+    text-align: center;
   }
 
   .LoginInput input {
-    width: 97%;
-    max-width: 280px;
-    padding: 4px;
+    width:60%;
+    margin-left: 6%;
     border: 1px solid #e6ecf0;
     border-radius: 3px;
     outline: none;
-    font-size: 14px;
-    line-height: 20px;
-    margin-left: 125px;
+    font-size: 18px;
+    line-height:30px;
+    margin-top:30px;
   }
 
   .LoginInput input:focus {
@@ -160,12 +147,18 @@
     border-color: #ff3333;
   }
 
-  .LoginInput .account {
-    margin-bottom: 15px;
+  .LoginInput {
+    margin-bottom: 40px;
+    margin-left: 50px;
+   margin-top: 20px;
   }
 
   .Submit {
-    margin-top: 30px;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    width: 60%;
+
+    margin-left: 20%;
   }
 
   .Submit button {
@@ -177,11 +170,11 @@
     cursor: pointer;
     font-size: 14px;
     line-height: 20px;
-    padding: 6px 16px;
-    position: relative;
+    padding: 6px 36px;
     text-align: center;
     white-space: nowrap;
-    margin-left: 210px;
+    width: 80%;
+    margin-left: 10%;
   }
 
   .Submit button:hover {

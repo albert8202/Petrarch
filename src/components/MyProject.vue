@@ -52,7 +52,7 @@
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="isLibEditShow = false">取 消</el-button>
-          <el-button type="primary" @click="editForSure">修改</el-button>
+          <el-button type="primary" @click="editForSure">修 改</el-button>
         </div>
       </el-dialog>
 

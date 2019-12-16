@@ -6,24 +6,29 @@
         文本库名称： {{lib_name}}
       </div>
 
-      <p style="margin-top: 50px">导入文件</p>
-      <el-upload style="display:inline-block"
-                 :auto-upload="false"
-                 accept=".xls,.xlsx"
-                 :limit="1"
-                 :on-change="handleChange"
-                 :on-remove="handleRemove">
-        <h4 style="color:rgb(216,83,75)">
-          <i data-v-0f1723f0 class="el-icon-upload"></i> &nbsp;上传文件
-        </h4>
-        <div slot="tip" class="el-upload__tip">只能上传xls/xlsx文件，且只能上传一个</div>
-      </el-upload>
+
+        <div style="width: 10%;height: 50px;float: left;margin-top: 50px">导入文件</div>
+        <div style="height: 80px;width: 50%;float: left">
+          <el-upload
+                     :auto-upload="false"
+                     accept=".xls,.xlsx"
+                     :limit="1"
+                     :on-change="handleChange"
+                     :on-remove="handleRemove">
+            <h4 style="color:rgb(216,83,75)">
+              <i data-v-0f1723f0 class="el-icon-upload"></i> &nbsp;上传文件
+            </h4>
+            <div slot="tip" class="el-upload__tip">只能上传xls/xlsx文件，且只能上传一个</div>
+          </el-upload>
+        </div>
+
+
 
       <p style="margin-top: 50px">标题映射</p>
       <el-container style="margin-top: 30px;width: 60%">
         <el-table
           :data="matchTable"
-          style="width: 80%">
+          style="width: 80%;height: auto">
           <el-table-column
             label="Excel单元格标题"
             prop="excelTitle">
@@ -58,7 +63,7 @@
         </el-table>
 
       </el-container>
-      <el-button type="primary" style="margin-top: 30px" @click="uploadFile">上传<i class="el-icon-upload el-icon--right"></i></el-button>
+      <el-button type="primary" style="margin-top: -500px;float: top" @click="uploadFile">上传<i class="el-icon-upload el-icon--right"></i></el-button>
     </el-container>
     <el-footer style="color:  black;background-color:grey;margin-top:220px">
       <p style="margin-left: 650px">关于我们 服务协议 隐私政策</p>
