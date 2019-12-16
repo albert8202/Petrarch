@@ -41,7 +41,6 @@ export default new Router({
             meta: {
                 keepAlive: false
             }
-
         },
         //我的项目
         {

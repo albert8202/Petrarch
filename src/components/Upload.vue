@@ -121,6 +121,7 @@
         methods: {
             handleRemove(file,fileList){
                 this.fileTemp = null
+                this.matchTable = []
             },
             handleChange(file,fileList) {
                 this.fileTemp = file.raw;
@@ -198,6 +199,9 @@
                         type: res.data.flag? 'success':'error',
                         message: res.data.message
                     })
+                    if (res.data.flag){
+                        this.$route.push({path:`/configuration/${this.lib_id}`, query:{name: this.lib_name}})
+                    }
                 })
             }
         }
