@@ -88,7 +88,7 @@
                                         <i class="fa fa-database"></i>&nbsp;&nbsp;
                                         <span>
                                             共计：
-                                            <span style="color: red;">90</span>&nbsp;条
+                                            <span style="color: red;" :v-text="eventTotal">{{eventTotal}}</span>&nbsp;条
                                         </span>
                                     </div>
                                     <!---->
@@ -121,6 +121,7 @@
                     <el-table-column align="center" prop="analysis_algorithm" label="提取级别"></el-table-column>
                     <el-table-column align="center" prop="create_time" label="创建时间"></el-table-column>
                     <el-table-column align="center" prop="status" label="状态">
+                        <!-- todo -->
                         <el-button size="mini" type="warning" round>
                             <span>等待中</span>
                         </el-button>
@@ -132,15 +133,16 @@
                         </el-button>
                     </el-table-column>
                     <el-table-column align="center" prop="operation" label="操作">
-                        <router-link to="EventResult">
-                            <el-button type="text"><span><i class="fa fa-line-chart"></i></span>
+                                        <template slot-scope="scope">
+
+                            <el-button @click="toResult(scope.row.id)" type="text"><span><i class="fa fa-line-chart"></i></span>
                             </el-button>
-                        </router-link>
-                        <el-button type="text" style="margin-left:10px;"><span>
+                        <el-button @click="delEventLib(scope.row.id)" type="text" style="margin-left:10px;"><span>
                                 <i class="fa fa-trash"></i></span></el-button>
+                </template>
                     </el-table-column>
                 </el-table>
-                <el-pagination style="margin-top:20px" @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="curPage" :page-size="curSize" layout="total,prev, pager, next, jumper" :total="total"></el-pagination>
+                <el-pagination style="margin-top:20px" @size-change="getEventLib" @current-change="getEventLib" :current-page.sync="curPage" :page-size="curSize" layout="total,prev, pager, next, jumper" :total="total"></el-pagination>
 
             </div>
 
@@ -207,6 +209,12 @@ export default {
     name: "EventExtract",
     data() {
         return {
+            timer:null,
+            eventTotal: 0,
+            event:{
+                total:0,
+                create_time:'2020 - 08 - 22'
+            },
             total: 0,
             curPage: 1,
             curSize: 10,
@@ -242,12 +250,17 @@ export default {
         };
     },
     created() {
+        
         // authApi.getUser().token != undefined
         this.initData()
         this.getAllEventLib()
-        setInterval(() => {
-            setTimeout(this.getStatus, 0)
-        }, 10000)
+        this.getEventLib()
+        this.timer=setInterval(() => {
+            setTimeout(this.getStatus(), 0)
+        }, 3000)
+    },
+    beforeDestroy(){
+        clearInterval(this.timer);
     },
     methods: {
         initData() {
@@ -284,7 +297,7 @@ export default {
         },
         getAllEventLib() {
             eventLibApi.getAllEventLib().then(res => {
-                this.total = res.data.data.total
+                this.eventTotal = res.data.data.total
                 this.eventLibs = res.data.data.json
             })
         },
@@ -303,8 +316,8 @@ export default {
                 this.getEventLib()
             })
         },
-        toResult() {
-            this.$router.push("/eventResult");
+        toResult(id) {
+            this.$router.push("/eventResult/"+id);
         }
     }
 };

@@ -1,235 +1,227 @@
 <template>
-  <section data-v-7e5aa87c class="el-container container-subjectExtra is-vertical">
+<section data-v-7e5aa87c class="el-container container-subjectExtra is-vertical">
     <div data-v-7e5aa87c class="content">
-      <div data-v-7e5aa87c class="el-row">
-        <div data-v-7e5aa87c class="el-col el-col-22">
-          <ul data-v-7e5aa87c class="menus">
-            <li data-v-7e5aa87c style="cursor: pointer;">
-              <span data-v-7e5aa87c>我的分析</span>
-              <i data-v-7e5aa87c class="fa fa-angle-right fa-lg"></i>&nbsp;
-            </li>
-            <li data-v-7e5aa87c style="cursor: pointer;">
-              <span data-v-7e5aa87c>分析</span>
-              <i data-v-7e5aa87c class="fa fa-angle-right fa-lg"></i>&nbsp;
-            </li>
-            <li data-v-7e5aa87c style="color: rgb(233, 71, 67);">
-              <span data-v-7e5aa87c>事件提取</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div data-v-7e5aa87c class="el-row">
-        <div
-          data-v-7e5aa87c
-          class="el-row"
-          style="height: 80px; background-color: rgb(245, 247, 249);"
-        >
-          <div class="el-col el-col-22">
-            <div class="el-row" style="height: 40px; line-height: 40px; padding-left: 20px;">
-              <span>
-                  <el-button type="success" style="padding:3px;font-size:10px;text-align:center">主</el-button>
-                &nbsp;&nbsp;
-              </span>
-                <span
-                  style="color: rgb(0, 0, 0); font-weight: bold; font-size: 14px;"
-                >
-                  文本库样例
-                </span>
+        <div data-v-7e5aa87c class="el-row">
+            <div data-v-7e5aa87c class="el-col el-col-22">
+                <ul data-v-7e5aa87c class="menus">
+                    <li data-v-7e5aa87c style="cursor: pointer;">
+                        <span data-v-7e5aa87c>我的分析</span>
+                        <i data-v-7e5aa87c class="fa fa-angle-right fa-lg"></i>&nbsp;
+                    </li>
+                    <li data-v-7e5aa87c style="cursor: pointer;">
+                        <span data-v-7e5aa87c>分析</span>
+                        <i data-v-7e5aa87c class="fa fa-angle-right fa-lg"></i>&nbsp;
+                    </li>
+                    <li data-v-7e5aa87c style="color: rgb(233, 71, 67);">
+                        <span data-v-7e5aa87c>事件提取</span>
+                    </li>
+                </ul>
             </div>
-            <div class="el-row" style="height: 40px; line-height: 30px; padding-left: 20px;">
-              <form class="el-form el-form--label-left el-form--inline">
-                <div class="el-form-item">
-                  <!---->
-                  <div class="el-form-item__content">
-                    <div>
-                      <i class="fa fa-database"></i>&nbsp;&nbsp;
-                      <span>
-                        共计：
-                        <span style="color: red;">90</span>&nbsp;条
-                      </span>
-                    </div>
-                    <!---->
-                  </div>
-                </div>
-                <div class="el-form-item">
-                  <!---->
-                  <div class="el-form-item__content">
-                    <div style="margin-left: 20px;">
-                      <i aria-hidden="true" class="fa fa-clock-o"></i>&nbsp;&nbsp;
-                      <span>创建时间：2019-11-08 16:37:04</span>
-                    </div>
-                    <!---->
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="el-col el-col-2">
-            <div
-              style="line-height: 80px; text-align: right;  margin-right: 30px;  cursor: pointer;"
-            >
-              <i aria-hidden="true" class="fa fa-list"></i>
-            </div>
-          </div>
         </div>
         <div data-v-7e5aa87c class="el-row">
-                <div data-v-7e5aa87c  style="margin-top:10px">
-                  <form
-                    data-v-7e5aa87c
-                    class="el-form resultForm el-form--label-left el-form--inline"
-                    width="100%"
-                  >
-                    <div data-v-7e5aa87c class="el-form-item">
-                      <label class="el-form-item__label" style="width: 80px;">&nbsp;&nbsp;提取状态:</label>
-                      <div class="el-form-item__content">
-                        <button
-                          data-v-7e5aa87c
-                          type="button"
-                          class="el-button el-button--success el-button--mini is-round"
-                          style="cursor: auto;"
-                        >
-                          <!---->
-                          <!---->
-                          <span>已完成</span>
-                        </button>
-                        <!---->
-                      </div>
+            <div data-v-7e5aa87c class="el-row" style="height: 80px; background-color: rgb(245, 247, 249);">
+                <div class="el-col el-col-22">
+                    <div class="el-row" style="height: 40px; line-height: 40px; padding-left: 20px;">
+                        <span>
+                            <el-button type="success" style="padding:3px;font-size:10px;text-align:center">主</el-button>
+                            &nbsp;&nbsp;
+                        </span>
+                        <span style="color: rgb(0, 0, 0); font-weight: bold; font-size: 14px;">
+                            文本库样例
+                        </span>
                     </div>
-                    <div data-v-7e5aa87c class="el-form-item">
-                      <label class="el-form-item__label" style="width: 100px;">事件提取词典:</label>
-                      <div class="el-form-item__content">
-                        <div style="margin-left: 20px;">
-                          xx词典
-                          <!---->
-                        </div>
-                      </div>
+                    <div class="el-row" style="height: 40px; line-height: 30px; padding-left: 20px;">
+                        <form class="el-form el-form--label-left el-form--inline">
+                            <div class="el-form-item">
+                                <!---->
+                                <div class="el-form-item__content">
+                                    <div>
+                                        <i class="fa fa-database"></i>&nbsp;&nbsp;
+                                        <span>
+                                            共计：
+                                            <span style="color: red;">{{eventTotal}}</span>&nbsp;条
+                                        </span>
+                                    </div>
+                                    <!---->
+                                </div>
+                            </div>
+                            <div class="el-form-item">
+                                <!---->
+                                <div class="el-form-item__content">
+                                    <div style="margin-left: 20px;">
+                                        <i aria-hidden="true" class="fa fa-clock-o"></i>&nbsp;&nbsp;
+                                        <span>创建时间：????</span>
+                                    </div>
+                                    <!---->
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div data-v-7e5aa87c class="el-form-item">
-                      <label class="el-form-item__label" style="width: 80px;">提取级别:</label>
-                      <div class="el-form-item__content">
-                        <div style="margin-left: 20px;">
-                          随便
-                          <!---->
-                        </div>
-                      </div>
-                    </div>
-                    <div data-v-7e5aa87c class="el-form-item">
-                      <label class="el-form-item__label" style="width: 80px;">提取时间:</label>
-                      <div class="el-form-item__content">
-                        <div style="margin-left: 20px;">
-                          2019-11-08 17:04:14
-                          <!---->
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-
-                  <div>
-                    <div data-v-7e5aa87c style="margin: 10px 0px; height: 30px;">
-                      <div data-v-7e5aa87c class="el-col el-col-19">
-                        <button
-                          data-v-7e5aa87c
-                          type="button"
-                          class="el-button wordStatistics el-button--text"
-                          style="cursor: auto;"
-                        >
-                          <!---->
-                          <!---->
-                          <span>
-                            <i data-v-7e5aa87c class="fa fa-mars-stroke fa-lg"></i> &nbsp;提取结果
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-
-                    <el-table :data="resData"  border stripe header-cell-style="background-color: rgb(245, 247, 249); text-align: center" style="width: 100%">
-                      <el-table-column align="center" prop="articleID" label="文本 ID" width="180"></el-table-column>
-                      <el-table-column align="center" prop="title" label="标题" width="180"></el-table-column>
-                      <el-table-column align="center" prop="content" label="正文"></el-table-column>
-                      <el-table-column align="center" prop="num" label="事件数量"></el-table-column>
-                      <el-table-column align="center" prop="operation" label="操作" width="80px"><el-button type="text" @click="toResultDetail"><span style="font-size:12px"><i class="fa fa-info-circle"></i>&nbsp;详情</span></el-button></el-table-column>
-                    </el-table>
-
-                    <div data-v-7e5aa87c style="margin: 10px 0px; height: 30px;">
-                      <div data-v-7e5aa87c class="el-col el-col-pull-#24">
-                        <button
-                          data-v-7e5aa87c
-                          type="button"
-                          class="el-button wordStatistics el-button--text"
-                          style="display: block;"
-                        >
-                          <!---->
-                          <!---->
-                          <span>
-                            <i data-v-7e5aa87c class="fa fa-sign-out fa-lg"></i> &nbsp;导出
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-      <div data-v-0f1723f0 class="el-col el-col-24" style="margin-top: 10px;">
-         <div class="block">
-                 <el-pagination style="margin-top:10px" @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="curPage"  :page-size="curSize" layout="total,prev, pager, next, jumper" :total="total"></el-pagination>
-
-  </div>
-      </div>
-                  </div>
                 </div>
-              </div>
+                <div class="el-col el-col-2">
+                    <div style="line-height: 80px; text-align: right;  margin-right: 30px;  cursor: pointer;">
+                        <i aria-hidden="true" class="fa fa-list"></i>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div data-v-7e5aa87c class="el-row">
+                <div data-v-7e5aa87c style="margin-top:10px">
+                    <form data-v-7e5aa87c class="el-form resultForm el-form--label-left el-form--inline" width="100%">
+                        <div data-v-7e5aa87c class="el-form-item">
+                            <label class="el-form-item__label" style="width: 80px;">&nbsp;&nbsp;提取状态:</label>
+                            <div class="el-form-item__content">
+                                <button data-v-7e5aa87c type="button" class="el-button el-button--success el-button--mini is-round" style="cursor: auto;">
+                                    <!---->
+                                    <!---->
+                                    <span>已完成</span>
+                                </button>
+                                <!---->
+                            </div>
+                        </div>
+                        <div data-v-7e5aa87c class="el-form-item">
+                            <label class="el-form-item__label" style="width: 100px;">事件提取词典:</label>
+                            <div class="el-form-item__content">
+                                <div>
+                                    xx词典
+                                    <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div data-v-7e5aa87c class="el-form-item">
+                            <label class="el-form-item__label" style="width: 80px;">提取级别:</label>
+                            <div class="el-form-item__content">
+                                <div>
+                                    随便
+                                    <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div data-v-7e5aa87c class="el-form-item">
+                            <label class="el-form-item__label" style="width: 80px;">提取时间:</label>
+                            <div class="el-form-item__content">
+                                <div>
+                                    2019-11-08 17:04:14
+                                    <!---->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div>
+                        <div data-v-7e5aa87c style="margin: 10px 0px; height: 30px;">
+                            <div data-v-7e5aa87c class="el-col el-col-19">
+                                <button data-v-7e5aa87c type="button" class="el-button wordStatistics el-button--text" style="cursor: auto;">
+                                    <!---->
+                                    <!---->
+                                    <span>
+                                        <i data-v-7e5aa87c class="fa fa-mars-stroke fa-lg"></i> &nbsp;提取结果
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <el-table :data="resData" border stripe header-cell-style="background-color: rgb(245, 247, 249); text-align: center" style="width: 100%">
+                            <el-table-column align="center" prop="articleID" label="文本 ID" width="180"></el-table-column>
+                            <el-table-column align="center" prop="title" label="标题" width="180"></el-table-column>
+                            <el-table-column align="center" prop="content" label="正文"></el-table-column>
+                            <el-table-column align="center" prop="num" label="事件数量"></el-table-column>
+                            <el-table-column align="center" prop="operation" label="操作" width="80px">
+                                <el-button type="text" @click="toResultDetail"><span style="font-size:12px"><i class="fa fa-info-circle"></i>&nbsp;详情</span></el-button>
+                            </el-table-column>
+                        </el-table>
+
+                        <div data-v-7e5aa87c style="margin: 10px 0px; height: 30px;">
+                            <div data-v-7e5aa87c class="el-col el-col-pull-#24">
+                                <button @click="download()" data-v-7e5aa87c type="button" class="el-button wordStatistics el-button--text" style="display: block;">
+                                    <!---->
+                                    <!---->
+                                    <span>
+                                        <i data-v-7e5aa87c class="fa fa-sign-out fa-lg"></i> &nbsp;导出
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div data-v-0f1723f0 class="el-col el-col-24" style="margin-top: 10px;">
+                            <div class="block">
+                                <el-pagination style="margin-top:10px" @size-change="getEventRes" @current-change="getEventRes" :current-page.sync="curPage" :page-size="curSize" layout="total,prev, pager, next, jumper" :total="total"></el-pagination>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer data-v-7e5aa87c class="el-footer" style="height: 60px;">
-      <div data-v-4e9c2f90 data-v-7e5aa87c class="footer">
-        <div data-v-4e9c2f90 class="links">
-          <a data-v-4e9c2f90 href="#">关于我们</a>
-          <a data-v-4e9c2f90 href="#">服务协议</a>
-          <a data-v-4e9c2f90>隐私政策</a>
+        <div data-v-4e9c2f90 data-v-7e5aa87c class="footer">
+            <div data-v-4e9c2f90 class="links">
+                <a data-v-4e9c2f90 href="#">关于我们</a>
+                <a data-v-4e9c2f90 href="#">服务协议</a>
+                <a data-v-4e9c2f90>隐私政策</a>
+            </div>
+            <div data-v-4e9c2f90 class="copyright">
+                Copyright © 2019 上海萌泰数据科技股份有限公司 © 版权所有.
+                <a data-v-4e9c2f90 href=" http://beian.miit.gov.cn" target="_blank" style="color: rgb(73, 49, 133);">沪 ICP 备 09099644 号</a>
+            </div>
         </div>
-        <div data-v-4e9c2f90 class="copyright">
-          Copyright © 2019 上海萌泰数据科技股份有限公司 © 版权所有.
-          <a
-            data-v-4e9c2f90
-            href=" http://beian.miit.gov.cn"
-            target="_blank"
-            style="color: rgb(73, 49, 133);"
-          >沪 ICP 备 09099644 号</a>
-        </div>
-      </div>
     </footer>
-  </section>
+</section>
 </template>
 
 <script>
 import eventResultApi from "@/api/eventResult";
+import eventLibApi from "@/api/eventLib";
 export default {
-  name: "EventResult",
-  data() {
-    return {
-        total:0,
-        event:{
+    name: "EventResult",
+    data() {
+        return {
+            id: 1,
+            total: 0,
+            eventTotal:0,
+            resData: [{
+                articleID: '1',
+                title: 'title',
+                content: 'xxxxx',
+                num: '233',
+                operation: '',
+            }, ]
+        };
+    },
+    created() {
+        this.id = this.$route.params.id
+        this.getEventRes()
+    },
+    methods: {
+        getAllEventLib() {
+            eventLibApi.getAllEventLib().then(res => {
+                this.eventTotal = res.data.data.total
+            })
+        },
+        getEventLib(){
 
         },
-        resData:[
-            {
-                articleID: '1',
-                title:'title',
-                content:'xxxxx',
-                num:'233',
-                operation:'',
-            },
-        ]
-    };
-  },
-  methods:{
-      getEventRes(id){
-          eventResultApi.getEventResult(id).then(res=>{
-              this.total=res.data.data.event_total
-              this.resData=res.data.data.rows
-          })
-      },
-      toResultDetail(){
-          this.$router.push('/resultDetail')
-      }
-  }
+        getEventRes() {
+            eventResultApi.getEventResult(this.id).then(res => {
+                this.total = res.data.data.event_total
+                this.resData = res.data.data.rows
+            })
+        },
+        toResultDetail() {
+            this.$router.push('/resultDetail')
+        },
+        download(){
+            var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.resData)));
+  element.setAttribute('download', this.event.name+'_result');
+ 
+  element.style.display = 'none';
+  document.body.appendChild(element);
+ 
+  element.click();
+ 
+  document.body.removeChild(element);
+        }
+    }
 };
 </script>
 

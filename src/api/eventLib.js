@@ -17,7 +17,7 @@ export default {
     },
     getAllEventLib() {
         return request({
-            url: `/${group_name}`,
+            url: `/${group_name}/`,
             method: 'get',
         })
     },

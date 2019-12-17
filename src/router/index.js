@@ -118,7 +118,7 @@ export default new Router({
         },
         //提取结果
         {
-            path: '/eventResult',
+            path: '/eventResult/:id',
             name: 'EventResult',
             component: EventResult,
             meta: {
