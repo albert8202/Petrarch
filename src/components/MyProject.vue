@@ -52,7 +52,7 @@
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="isLibEditShow = false">取 消</el-button>
-          <el-button type="primary" @click="editForSure">修改</el-button>
+          <el-button type="primary" @click="editForSure">修 改</el-button>
         </div>
       </el-dialog>
 
@@ -65,7 +65,7 @@
         <el-table-column prop="id" label="序号" style="width: 5%" align="center"></el-table-column>
         <el-table-column label="文本库标题" style="width: 20%" align="center">
           <template slot-scope="scope">
-            <a :href= "'/configuration/'+scope.row.id" target="_self" class="buttonText">{{scope.row.textlibrary_name}}</a>
+            <router-link :to= "{path:`/configuration/${scope.row.id}`, query:{name: scope.row.textlibrary_name}}" ><a  class="buttonText">{{scope.row.textlibrary_name}}</a></router-link>
           </template>
         </el-table-column>
         <el-table-column prop="description" label="描述" style="color: dimgray;width: 30%"

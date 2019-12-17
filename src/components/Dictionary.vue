@@ -1,5 +1,5 @@
 <template>
-<section data-v-0f1723f0 class="el-container container-defineLibrary is-vertical">
+  <section data-v-0f1723f0 class="el-container container-defineLibrary is-vertical">
     <!-- <header data-v-0f1723f0 class="el-header" style="height: 60px;">
       <nav data-v-273cece6 data-v-0f1723f0 class="nav-bar">
         <div data-v-273cece6 class="brand">
@@ -50,160 +50,168 @@
       </nav>
     </header>-->
     <div data-v-0f1723f0 class="content">
-        <div data-v-0f1723f0 class="el-row">
-            <div data-v-0f1723f0 class="el-col el-col-22">
-                <ul data-v-0f1723f0 class="menus">
-                    <router-link data-v-0f1723f0 tag="li" style="cursor:pointer;" to="AnalysisMenu">
-                        <span data-v-0f1723f0>分析配置</span>
+      <div data-v-0f1723f0 class="el-row">
+        <div data-v-0f1723f0 class="el-col el-col-22">
+          <ul data-v-0f1723f0 class="menus">
+            <router-link data-v-0f1723f0 tag="li" style="cursor:pointer;" to="AnalysisMenu">
+              <span data-v-0f1723f0>分析配置</span>
 
-                        <i data-v-0f1723f0 class="fa fa-angle-right fa-lg"></i>
-                        &nbsp;
-                    </router-link>
-                    <li data-v-0f1723f0 style="color: rgb(233, 71, 67);">
-                        <span data-v-0f1723f0>分词词典</span>
-                    </li>
-                </ul>
-            </div>
-            <div data-v-0f1723f0 class="el-col el-col-2">
-                <div data-v-0f1723f0 style="margin-top: 20px; text-align: right; display: none;">
-                    <button data-v-0f1723f0 type="button" class="el-button el-button--primary el-button--mini" style="background-color: rgb(247, 247, 247); color: rgb(102, 102, 102); border-color: rgb(221, 221, 221);">
-                        <!---->
-                        <!---->
-                        <span>返回分析</span>
-                    </button>
-                </div>
-            </div>
+              <i data-v-0f1723f0 class="fa fa-angle-right fa-lg"></i>
+              &nbsp;
+            </router-link>
+            <li data-v-0f1723f0 style="color: rgb(233, 71, 67);">
+              <span data-v-0f1723f0>分词词典</span>
+            </li>
+          </ul>
         </div>
-        <div data-v-0f1723f0 class="el-col el-col-24">
-            <form data-v-0f1723f0 class="el-form el-form--label-left">
-                <div data-v-0f1723f0 class="el-form-item">
-                    <label class="el-form-item__label">词典名称</label>
-                    <div class="el-form-item__content">
-                        <div data-v-0f1723f0 class="el-input el-input--suffix" style="width: 200px;">
-                            <!---->
-                            <input type="text" v-model="search" autocomplete="off" placeholder="请输入" class="el-input__inner" />
-                            <!---->
-                            <!---->
-                            <!---->
-                        </div>
-                        <button @click="dict_data()" data-v-0f1723f0 type="button" class="el-button el-button--primary">
-                            <!---->
-                            <!---->
-                            <span>查询</span>
-                        </button>
-                        <!---->
-                    </div>
-                </div>
-            </form>
+        <div data-v-0f1723f0 class="el-col el-col-2">
+          <div data-v-0f1723f0 style="margin-top: 20px; text-align: right; display: none;">
+            <button data-v-0f1723f0 type="button" class="el-button el-button--primary el-button--mini"
+                    style="background-color: rgb(247, 247, 247); color: rgb(102, 102, 102); border-color: rgb(221, 221, 221);">
+              <!---->
+              <!---->
+              <span>返回分析</span>
+            </button>
+          </div>
         </div>
-        <div data-v-0f1723f0 class="el-col el-col-24">
-            <button data-v-0f1723f0 type="button" class="el-button wordStatistics el-button--text" style="margin-bottom:20px" @click="dialogVisible=true">
+      </div>
+      <div data-v-0f1723f0 class="el-col el-col-24">
+        <form data-v-0f1723f0 class="el-form el-form--label-left">
+          <div data-v-0f1723f0 class="el-form-item">
+            <label class="el-form-item__label">词典名称</label>
+            <div class="el-form-item__content">
+              <div data-v-0f1723f0 class="el-input el-input--suffix" style="width: 200px;">
+                <!---->
+                <input type="text" v-model="search" autocomplete="off" placeholder="请输入" class="el-input__inner"/>
                 <!---->
                 <!---->
-                <span>
+                <!---->
+              </div>
+              <button @click="dict_data()" data-v-0f1723f0 type="button" class="el-button el-button--primary">
+                <!---->
+                <!---->
+                <span>查询</span>
+              </button>
+              <!---->
+            </div>
+          </div>
+        </form>
+      </div>
+      <div data-v-0f1723f0 class="el-col el-col-24">
+        <button data-v-0f1723f0 type="button" class="el-button wordStatistics el-button--text"
+                style="margin-bottom:20px" @click="dialogVisible=true">
+          <!---->
+          <!---->
+          <span>
                     <i data-v-0f1723f0 class="fa fa-plus-square-o fa-lg"></i> &nbsp;创建词典
                 </span>
-            </button>
-            <el-dialog title="创建词典" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
-                <el-form v-model="form">
-                    <el-upload style="display:inline-block" action="http://100.68.187.168:5000/dic" :auto-upload="false" :limit="1" :on-change="uploadFile">
-                        <h4 style="color:rgb(216,83,75)">
-                            <i data-v-0f1723f0 class="el-icon-upload"></i> &nbsp;上传词典
-                        </h4>
-                    </el-upload>
-                    <el-form-item>
-                        <h4 style="margin:10px 0">词典名称</h4>
-                        <el-input v-model="form.name" placeholder="请输新建词典的名称" autocomplete="off"></el-input>
-                    </el-form-item>
-                </el-form>
-                <span slot="footer" class="dialog-footer">
+        </button>
+        <el-dialog title="创建词典" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
+          <el-form v-model="form">
+            <el-upload style="display:inline-block" action="http://100.68.187.168:5000/dic" :auto-upload="false"
+                       :limit="1" :on-change="uploadFile">
+                <h4 style="color:rgb(216,83,75)">
+                <i data-v-0f1723f0 class="el-icon-upload"></i> &nbsp;上传词典
+              </h4>
+            </el-upload>
+            <el-form-item>
+              <h4 style="margin:10px 0">词典名称</h4>
+              <el-input v-model="form.name" placeholder="请输新建词典的名称" autocomplete="off"></el-input>
+            </el-form-item>
+          </el-form>
+          <span slot="footer" class="dialog-footer">
                     <el-button @click="dialogVisible = false">取 消</el-button>
                     <el-button type="primary" @click="createDict(),dialogVisible = false">确 定</el-button>
                 </span>
-            </el-dialog>
-            <p data-v-0f1723f0></p>
-        </div>
-        <el-table :data="dict_data" stripe header-cell-style="background-color: rgb(245, 247, 249); text-align: center" style="width: 100%">
-            <el-table-column width="200%" align="center" prop="id" label="#"></el-table-column>
-            <el-table-column align="center" prop="name" label="词典名称">
-                <template slot-scope="scope">
-                    <a :href="'/dictionaryDetail/'+scope.row.id" target="_blank" class="buttonText">{{scope.row.name}}</a>
-                </template>
-            </el-table-column>
-            <el-table-column align="center" prop="create_time" label="创建时间"></el-table-column>
+        </el-dialog>
+        <p data-v-0f1723f0></p>
+      </div>
+      <el-table :data="dict_data" stripe header-cell-style="background-color: rgb(245, 247, 249); text-align: center"
+                style="width: 100%">
+        <el-table-column width="200%" align="center" prop="id" label="#"></el-table-column>
+        <el-table-column align="center" prop="name" label="词典名称">
+          <template slot-scope="scope">
+            <a :href="'/dictionaryDetail/'+scope.row.id" target="_blank" class="buttonText">{{scope.row.name}}</a>
+          </template>
+        </el-table-column>
+        <el-table-column align="center" prop="create_time" label="创建时间"></el-table-column>
 
-            <el-table-column align="center" prop="operation" label="操作">
-                <template slot-scope="scope">
-                    <el-button @click="downloadDict(scope.row.id,scope.row.name)" type="text">
+        <el-table-column align="center" prop="operation" label="操作">
+          <template slot-scope="scope">
+            <el-button @click="downloadDict(scope.row.id,scope.row.name)" type="text">
                         <span style="font-size:12px">
                             <i class="fa fa-download"></i>下载
                         </span>
-                    </el-button>
-                    <el-button type="text">
+            </el-button>
+            <el-button type="text">
                         <span style="font-size:12px">
                             <i class="fa fa-pencil-square-o"></i>修改
                         </span>
-                    </el-button>
-                    <el-button @click="delDict(scope.row.id)" type="text">
+            </el-button>
+            <el-button @click="delDict(scope.row.id)" type="text">
                         <span style="font-size:12px">
                             <i class="fa fa-trash"></i>删除
                         </span>
-                    </el-button>
-                </template>
-            </el-table-column>
-        </el-table>
-        <div data-v-0f1723f0 class="el-col el-col-24" style="margin-top: 10px;">
-            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="curPage" :page-sizes="[10, 20, 30, 40]" :page-size.sync="curSize" layout="total,sizes,prev, pager, next, jumper" :total="total"></el-pagination>
-        </div>
+            </el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+      <div data-v-0f1723f0 class="el-col el-col-24" style="margin-top: 10px;">
+        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                       :current-page.sync="curPage" :page-sizes="[10, 20, 30, 40]" :page-size.sync="curSize"
+                       layout="total,sizes,prev, pager, next, jumper" :total="total"></el-pagination>
+      </div>
     </div>
     <footer data-v-0f1723f0 class="el-footer" style="height: 60px;">
-        <div data-v-4e9c2f90 data-v-0f1723f0 class="footer">
-            <div data-v-4e9c2f90 class="links">
-                <a data-v-4e9c2f90 href="#">关于我们</a>
-                <a data-v-4e9c2f90 href="#">服务协议</a>
-                <a data-v-4e9c2f90>隐私政策</a>
-            </div>
-            <div data-v-4e9c2f90 class="copyright">
-                Copyright © 2019 上海萌泰数据科技股份有限公司 © 版权所有.
-                <a data-v-4e9c2f90 href=" http://beian.miit.gov.cn" target="_blank" style="color: rgb(73, 49, 133);">沪 ICP 备 09099644 号</a>
-            </div>
+      <div data-v-4e9c2f90 data-v-0f1723f0 class="footer">
+        <div data-v-4e9c2f90 class="links">
+          <a data-v-4e9c2f90 href="#">关于我们</a>
+          <a data-v-4e9c2f90 href="#">服务协议</a>
+          <a data-v-4e9c2f90>隐私政策</a>
         </div>
+        <div data-v-4e9c2f90 class="copyright">
+          Copyright © 2019 上海萌泰数据科技股份有限公司 © 版权所有.
+          <a data-v-4e9c2f90 href=" http://beian.miit.gov.cn" target="_blank" style="color: rgb(73, 49, 133);">沪 ICP 备
+            09099644 号</a>
+        </div>
+      </div>
     </footer>
-</section>
+  </section>
 </template>
 
 <script>
-import dictionaryApi from "@/api/dictionary";
-export default {
+  import dictionaryApi from "@/api/dictionary";
+
+  export default {
     name: "Dictionary",
     data() {
-        return {
-            search: '',
-            form: {
-                dic: null,
-                name: ""
-            },
-            dialogVisible: false,
-            dictName: "",
-            curPage: 1,
-            curSize: 10,
-            dict_data: [{
-                id: 1,
-                name: "ss",
-                create_time: "11",
-                operation: ""
-            }],
-            total: 0
-        };
+      return {
+        search: '',
+        form: {
+          dic: null,
+          name: ""
+        },
+        dialogVisible: false,
+        dictName: "",
+        curPage: 1,
+        curSize: 10,
+        dict_data: [{
+          id: 1,
+          name: "ss",
+          create_time: "11",
+          operation: ""
+        }],
+        total: 0
+      };
     },
     created() {
-        this.getDict();
+      this.getDict();
     },
     computed: {
 
-        dict_data() {
-          alert(this.search)
-const search = this.search
+      dict_data() {
+        alert(this.search)
+        const search = this.search
         if (search) {
           // filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
           // 注意： filter() 不会对空数组进行检测。
@@ -223,81 +231,81 @@ const search = this.search
           })
         }
         return this.dict_data
-        },
+      },
     },
     watch: {
-        // 检测表格数据过滤变化，自动跳到第一页
-        dict_data() {
-            this.curPage = 1
-        }
+      // 检测表格数据过滤变化，自动跳到第一页
+      dict_data() {
+        this.curPage = 1
+      }
     },
     methods: {
-        uploadFile(file) {
-            console.log(file.raw)
-            this.form.dic = file.raw
-        },
-        getDict() {
-            dictionaryApi.getDictionaryData(this.curPage, this.curSize).then(res => {
-                this.total = res.data.data.total;
-                this.dict_data = res.data.data.rows;
-            });
-        },
-        delDict(id) {
-            dictionaryApi.delDictionary(id).then(res => {
-                this.$message({
-                    type: res.data.flag ? "success" : "error",
-                    message: res.data.message
-                });
-            });
-        },
-        createDict() {
-            let fd = new FormData();
-            fd.append("dic", this.form.dic);
-            fd.append("name", this.form.name);
-            dictionaryApi.createDictionary(fd).then(res => {
-                this.$message({
-                    type: res.data.flag ? "success" : "error",
-                    message: res.data.message
-                });
-                this.getDict()
-            });
-        },
-        downloadDict(id, name) {
-            dictionaryApi.downloadDictionary(id).then(res => {
+      uploadFile(file) {
+        console.log(file.raw)
+        this.form.dic = file.raw
+      },
+      getDict() {
+        dictionaryApi.getDictionaryData(this.curPage, this.curSize).then(res => {
+          this.total = res.data.data.total;
+          this.dict_data = res.data.data.rows;
+        });
+      },
+      delDict(id) {
+        dictionaryApi.delDictionary(id).then(res => {
+          this.$message({
+            type: res.data.flag ? "success" : "error",
+            message: res.data.message
+          });
+        });
+      },
+      createDict() {
+        let fd = new FormData();
+        fd.append("dic", this.form.dic);
+        fd.append("name", this.form.name);
+        dictionaryApi.createDictionary(fd).then(res => {
+          this.$message({
+            type: res.data.flag ? "success" : "error",
+            message: res.data.message
+          });
+          this.getDict()
+        });
+      },
+      downloadDict(id, name) {
+        dictionaryApi.downloadDictionary(id).then(res => {
 
-                const content = res.data
-                const blob = new Blob([content]) // 构造一个blob对象来处理数据
-                const fileName = name + '.txt' // 导出文件名
-                // 对于<a>标签，只有 Firefox 和 Chrome（内核） 支持 download 属性
-                // IE10以上支持blob但是依然不支持download
-                if ('download' in document.createElement('a')) { // 支持a标签download的浏览器
-                    const link = document.createElement('a') // 创建a标签
-                    link.download = fileName // a标签添加属性
-                    link.style.display = 'none'
-                    link.href = URL.createObjectURL(blob)
-                    document.body.appendChild(link)
-                    link.click() // 执行下载
-                    URL.revokeObjectURL(link.href) // 释放url
-                    document.body.removeChild(link) // 释放标签
-                } else { // 其他浏览器
-                    navigator.msSaveBlob(blob, fileName)
-                }
-            })
-        }
+          const content = res.data
+          const blob = new Blob([content]) // 构造一个blob对象来处理数据
+          const fileName = name + '.txt' // 导出文件名
+          // 对于<a>标签，只有 Firefox 和 Chrome（内核） 支持 download 属性
+          // IE10以上支持blob但是依然不支持download
+          if ('download' in document.createElement('a')) { // 支持a标签download的浏览器
+            const link = document.createElement('a') // 创建a标签
+            link.download = fileName // a标签添加属性
+            link.style.display = 'none'
+            link.href = URL.createObjectURL(blob)
+            document.body.appendChild(link)
+            link.click() // 执行下载
+            URL.revokeObjectURL(link.href) // 释放url
+            document.body.removeChild(link) // 释放标签
+          } else { // 其他浏览器
+            navigator.msSaveBlob(blob, fileName)
+          }
+        })
+      }
     }
-};
+  };
 </script>
 
 <style scoped>
-a:hover {
+  a:hover {
     color: red
-}
+  }
 
-.el-button--text {
+  .el-button--text {
     color: black
-}
+  }
 
-.el-button--text:hover {
+  .el-button--text:hover {
     color: red;
-}
+  }
 </style>

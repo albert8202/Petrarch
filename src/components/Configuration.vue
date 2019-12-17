@@ -69,6 +69,7 @@
       return{
           rowId:0,
           lib_id:1,
+          lib_name:"",
           total:10,
           tableData:[],
           curPage:1,
@@ -77,6 +78,7 @@
     },
     created(){
           this.lib_id = this.$route.params.id;
+          this.lib_name = this.$route.query.name;
           this.getTextLibData();
     },
     methods:{
@@ -120,7 +122,7 @@
             })
         },
       importClick(){
-        this.$router.push('/upload')
+        this.$router.push({path:'/upload',query:{name:this.lib_name,id:this.lib_id}})
       }
 
     }

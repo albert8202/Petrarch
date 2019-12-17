@@ -41,7 +41,6 @@ export default new Router({
             meta: {
                 keepAlive: false
             }
-
         },
         //我的项目
         {
@@ -136,7 +135,7 @@ export default new Router({
         },
         //结果详情
         {
-            path: '/cloud',
+            path: '/excel',
             name: 'Cloud',
             component: cloud,
             meta: {
