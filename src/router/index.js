@@ -126,7 +126,7 @@ export default new Router({
         },
         //结果详情
         {
-            path: '/resultDetail',
+            path: '/resultDetail/:id',
             name: 'ResultDetail',
             component: ResultDetail,
             meta: {

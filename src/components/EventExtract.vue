@@ -78,6 +78,14 @@
                         <span style="color: rgb(0, 0, 0); font-weight: bold; font-size: 14px;">
                             文本库样例
                         </span>
+                        <div style="margin-left:20px;display:none">
+                               
+                                        <i class="fa fa-database"></i>&nbsp;&nbsp;
+                                        <span>
+                                            共计：
+                                            <span style="color: red;" :v-text="eventTotal">{{eventTotal}}</span>&nbsp;条
+                                        </span>
+                                    </div>
                     </div>
                     <div class="el-row" style="height: 40px; line-height: 30px; padding-left: 20px;">
                         <form class="el-form el-form--label-left el-form--inline">
@@ -90,16 +98,6 @@
                                             共计：
                                             <span style="color: red;" :v-text="eventTotal">{{eventTotal}}</span>&nbsp;条
                                         </span>
-                                    </div>
-                                    <!---->
-                                </div>
-                            </div>
-                            <div class="el-form-item">
-                                <!---->
-                                <div class="el-form-item__content">
-                                    <div style="margin-left: 20px;">
-                                        <i aria-hidden="true" class="fa fa-clock-o"></i>&nbsp;&nbsp;
-                                        <span>创建时间：2019-11-08 16:37:04</span>
                                     </div>
                                     <!---->
                                 </div>
@@ -121,28 +119,30 @@
                     <el-table-column align="center" prop="analysis_algorithm" label="提取级别"></el-table-column>
                     <el-table-column align="center" prop="create_time" label="创建时间"></el-table-column>
                     <el-table-column align="center" prop="status" label="状态">
+                         <template slot-scope="scope">
                         <!-- todo -->
-                        <el-button size="mini" type="warning" round>
+                        <el-button v-show="scope.row.status==0" size="mini" type="warning" round>
                             <span>等待中</span>
                         </el-button>
-                        <el-button size="mini" type="info" round>
+                        <el-button v-show="scope.row.status==1" size="mini" type="info" round>
                             <span>提取中</span>
                         </el-button>
-                        <el-button size="mini" type="success" round>
+                        <el-button v-show="scope.row.status==2" size="mini" type="success" round>
                             <span>已完成</span>
                         </el-button>
+                         </template>
                     </el-table-column>
                     <el-table-column align="center" prop="operation" label="操作">
                                         <template slot-scope="scope">
 
-                            <el-button @click="toResult(scope.row.id)" type="text"><span><i class="fa fa-line-chart"></i></span>
+                            <el-button @click="toResult(scope.row.id,scope.row)" type="text"><span><i class="fa fa-line-chart"></i></span>
                             </el-button>
                         <el-button @click="delEventLib(scope.row.id)" type="text" style="margin-left:10px;"><span>
                                 <i class="fa fa-trash"></i></span></el-button>
                 </template>
                     </el-table-column>
                 </el-table>
-                <el-pagination style="margin-top:20px" @size-change="getEventLib" @current-change="getEventLib" :current-page.sync="curPage" :page-size="curSize" layout="total,prev, pager, next, jumper" :total="total"></el-pagination>
+                <!-- <el-pagination style="margin-top:20px" @size-change="getEventLib" @current-change="getEventLib" :current-page.sync="curPage" :page-size="curSize" layout="total,prev, pager, next, jumper" :total="total"></el-pagination> -->
 
             </div>
 
@@ -174,12 +174,11 @@
                         </el-select>
                     </el-form-item>
                 </el-form>
-                <el-button @click="startEventExtract" type="primary">
+                <el-button  @click="startEventExtract" type="primary">
                     <!---->
                     <!---->
                     <span>开始提取</span>
                 </el-button>
-                <el-button>取消提取</el-button>
             </div>
         </div>
         <!---->
@@ -254,7 +253,7 @@ export default {
         // authApi.getUser().token != undefined
         this.initData()
         this.getAllEventLib()
-        this.getEventLib()
+        // this.getEventLib()
         this.timer=setInterval(() => {
             setTimeout(this.getStatus(), 0)
         }, 3000)
@@ -293,6 +292,8 @@ export default {
                     type: res.data.flag ? "success" : "error",
                     message: res.data.message
                 });
+                if(res.data.flag)
+                    this.getAllEventLib()
             })
         },
         getAllEventLib() {
@@ -313,11 +314,12 @@ export default {
                     type: res.data.flag ? "success" : "error",
                     message: res.data.message
                 });
-                this.getEventLib()
+                if(res.data.flag)
+                    this.getAllEventLib()
             })
         },
-        toResult(id) {
-            this.$router.push("/eventResult/"+id);
+        toResult(id,row) {
+            this.$router.push({path:"/eventResult/"+id, query:{eventTotal:this.eventTotal,event:row}});
         }
     }
 };

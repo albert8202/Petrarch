@@ -17,7 +17,7 @@ export default {
     },
     getAllEventLib() {
         return request({
-            url: `/${group_name}/`,
+            url: `/${group_name}`,
             method: 'get',
         })
     },
@@ -36,6 +36,12 @@ export default {
     getStatus(id) {
         return request({
             url: `/${group_name}/${id}`,
+            method: 'get',
+        })
+    },
+    getEventLibDetail(id) {
+        return request({
+            url: `/${group_name}/detail/${id}`,
             method: 'get',
         })
     }

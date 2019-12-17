@@ -39,18 +39,8 @@
                                         <i class="fa fa-database"></i>&nbsp;&nbsp;
                                         <span>
                                             共计：
-                                            <span style="color: red;">{{eventTotal}}</span>&nbsp;条
+                                            <span style="color: red;" v-text="eventTotal">{{eventTotal}}</span>&nbsp;条
                                         </span>
-                                    </div>
-                                    <!---->
-                                </div>
-                            </div>
-                            <div class="el-form-item">
-                                <!---->
-                                <div class="el-form-item__content">
-                                    <div style="margin-left: 20px;">
-                                        <i aria-hidden="true" class="fa fa-clock-o"></i>&nbsp;&nbsp;
-                                        <span>创建时间：????</span>
                                     </div>
                                     <!---->
                                 </div>
@@ -70,19 +60,22 @@
                         <div data-v-7e5aa87c class="el-form-item">
                             <label class="el-form-item__label" style="width: 80px;">&nbsp;&nbsp;提取状态:</label>
                             <div class="el-form-item__content">
-                                <button data-v-7e5aa87c type="button" class="el-button el-button--success el-button--mini is-round" style="cursor: auto;">
-                                    <!---->
-                                    <!---->
+                                <el-button v-if="event.status==0" size="mini" type="warning" round>
+                                    <span>等待中</span>
+                                </el-button>
+                                <el-button v-if="event.status==1" size="mini" type="info" round>
+                                    <span>提取中</span>
+                                </el-button>
+                                <el-button v-if="event.status==2" size="mini" type="success" round>
                                     <span>已完成</span>
-                                </button>
-                                <!---->
+                                </el-button>
                             </div>
                         </div>
                         <div data-v-7e5aa87c class="el-form-item">
                             <label class="el-form-item__label" style="width: 100px;">事件提取词典:</label>
                             <div class="el-form-item__content">
                                 <div>
-                                    xx词典
+                                    {{event.dictionary_id}}
                                     <!---->
                                 </div>
                             </div>
@@ -91,7 +84,7 @@
                             <label class="el-form-item__label" style="width: 80px;">提取级别:</label>
                             <div class="el-form-item__content">
                                 <div>
-                                    随便
+                                    {{event.analysis_algorithm}}
                                     <!---->
                                 </div>
                             </div>
@@ -100,7 +93,7 @@
                             <label class="el-form-item__label" style="width: 80px;">提取时间:</label>
                             <div class="el-form-item__content">
                                 <div>
-                                    2019-11-08 17:04:14
+                                    {{event.create_time}}
                                     <!---->
                                 </div>
                             </div>
@@ -121,12 +114,14 @@
                         </div>
 
                         <el-table :data="resData" border stripe header-cell-style="background-color: rgb(245, 247, 249); text-align: center" style="width: 100%">
-                            <el-table-column align="center" prop="articleID" label="文本 ID" width="180"></el-table-column>
+                            <el-table-column align="center" prop="text_id" label="文本 ID" width="180"></el-table-column>
                             <el-table-column align="center" prop="title" label="标题" width="180"></el-table-column>
-                            <el-table-column align="center" prop="content" label="正文"></el-table-column>
-                            <el-table-column align="center" prop="num" label="事件数量"></el-table-column>
+                            <el-table-column show-overflow-tooltip align="center" prop="content" label="正文"></el-table-column>
+                            <el-table-column align="center" prop="event_num" label="事件数量"></el-table-column>
                             <el-table-column align="center" prop="operation" label="操作" width="80px">
-                                <el-button type="text" @click="toResultDetail"><span style="font-size:12px"><i class="fa fa-info-circle"></i>&nbsp;详情</span></el-button>
+                              <template slot-scope="scope">
+                                <el-button type="text" @click="toResultDetail(scope.row.text_id)"><span style="font-size:12px"><i class="fa fa-info-circle"></i>&nbsp;详情</span></el-button>
+                                </template>
                             </el-table-column>
                         </el-table>
 
@@ -177,7 +172,10 @@ export default {
         return {
             id: 1,
             total: 0,
-            eventTotal:0,
+            curPage:1,
+            curSize:10,
+            eventTotal: '0',
+            event: null,
             resData: [{
                 articleID: '1',
                 title: 'title',
@@ -189,37 +187,37 @@ export default {
     },
     created() {
         this.id = this.$route.params.id
-        this.getEventRes()
+        this.eventTotal = this.$route.query.eventTotal
+        this.event = this.$route.query.event
+        this.getEventLibDetail()
     },
     methods: {
-        getAllEventLib() {
-            eventLibApi.getAllEventLib().then(res => {
-                this.eventTotal = res.data.data.total
+        getEventLibDetail() {
+            eventLibApi.getEventLibDetail(this.id).then(res => {
+                this.resData = res.data.data
+                this.total = res.data.data.length
             })
-        },
-        getEventLib(){
-
         },
         getEventRes() {
             eventResultApi.getEventResult(this.id).then(res => {
-                this.total = res.data.data.event_total
+                this.total = res.data.data.rows.size
                 this.resData = res.data.data.rows
             })
         },
-        toResultDetail() {
-            this.$router.push('/resultDetail')
+        toResultDetail(id) {
+          this.$router.push({path:"/resultDetail/"+id, query:{projectID:this.id}});
         },
-        download(){
+        download() {
             var element = document.createElement('a');
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.resData)));
-  element.setAttribute('download', this.event.name+'_result');
- 
-  element.style.display = 'none';
-  document.body.appendChild(element);
- 
-  element.click();
- 
-  document.body.removeChild(element);
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.resData)));
+            element.setAttribute('download', this.event.name + '_result');
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
         }
     }
 };

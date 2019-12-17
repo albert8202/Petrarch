@@ -7,23 +7,24 @@
         </div>
       </el-row>
       <div class="description">
-        <span class="description">时间</span>
-        <span class="description">来源</span>
-        <span class="description">作者</span>
+        <span class="description">时间: {{article.publish_time}}</span>
+        <a :href="article.url"><span>来源</span></a>
+        <span class="description">作者: {{article.author}}</span>
       </div>
       <el-row>
         <div class="description">
           <span class="keyword">关键词：</span>
-          <span class="description">中国社会科学院;越南社会科学翰林院;中国改革开放;世界社会主义;改革开放;老挝革新</span>
+          <span class="description">{{article.keywords}}</span>
           <el-button size="mini" round="true">分享</el-button>
         </div>
       </el-row>
 
       <el-row class="content">
-        <span
+        <p
+        style="word-wrap:break-word;text-indent: 2em;line-height: 30px" 
           class="content_text"
-          :v-text="content"
-        >中国社会科学网讯（记者王禧玉）2018年是中国改革开放40周年和越南、老挝社会主义革新32周年。为深入总结改革开放的历史进程和实践经验，进一步深化社会主义国家改革开放和世界社会主义运动的认识，2018年11月1日，在北京举行了主题为“改革开放与21世纪世界社会主义”国际研讨会，会议由中国社会科学院、越南社会科学翰林院主办，中国社会科学院马克思主义研究院承办。以下全省略</span>
+           v-for="item in article.content" :key="item"
+        >{{item}}</p>
       </el-row>
     </div>
     <div>
@@ -44,12 +45,11 @@
           header-cell-style=" background-color: rgb(245, 247, 249); text-align: center"
           style="width: 100%;"
         >
-          <el-table-column prop="date" label="实施者"></el-table-column>
-          <el-table-column prop="name" label="受施者"></el-table-column>
-          <el-table-column prop="address" label="触发词"></el-table-column>
-          <el-table-column prop="address" label="时间"></el-table-column>
-          <el-table-column prop="address" label="地点"></el-table-column>
-          <el-table-column prop="address" label="事件提取"></el-table-column>
+          <el-table-column align="center" prop="source" label="实施者"></el-table-column>
+          <el-table-column align="center" prop="target" label="受施者"></el-table-column>
+          <el-table-column align="center" prop="event" label="触发词"></el-table-column>
+          <el-table-column align="center" prop="location" label="地点"></el-table-column>
+          <el-table-column align="center" prop="rs" label="事件提取"></el-table-column>
         </el-table>
       </el-row>
     </div>
@@ -57,14 +57,30 @@
 </template>
 
 <script>
+import eventResultApi from "@/api/eventResult";
 export default {
   name: "ResultDeetail",
   data() {
     return {
-        content:''
+      projectID:0,
+      id:0,
+      article:null,
+        tableData:[{}]
     };
   },
+  created(){
+    this.id=this.$route.params.id
+    this.projectID=this.$route.query.projectID
+    this.getEventResult()
+  },
   methods:{
+      getEventResult(){
+        eventResultApi.getEventResult(this.projectID,this.id).then(res=>{
+          this.tableData=res.data.events
+          this.article=res.data.text
+          this.article.time=this.$formatter(this.article.time)
+        })
+      },
       toEventResult(){
           this.$router.push('/eventResult')
       }
