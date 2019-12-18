@@ -79,7 +79,7 @@
                             文本库样例
                         </span>
                         <div style="margin-left:20px;display:none">
-                               
+
                                         <i class="fa fa-database"></i>&nbsp;&nbsp;
                                         <span>
                                             共计：
@@ -116,7 +116,11 @@
                 <el-table :data="eventLibs" stripe header-cell-style="background-color: rgb(245, 247, 249); text-align: center" style="width: 100%">
                     <el-table-column align="center" prop="name" label="名称"></el-table-column>
                     <el-table-column align="center" prop="dictionary_id" label="事件词典名称"></el-table-column>
-                    <el-table-column align="center" prop="analysis_algorithm" label="提取级别"></el-table-column>
+                    <el-table-column align="center" label="提取级别">
+                      <template slot-scope="scope">
+                        <span>{{scope.row.analysis_algorithm == 0? '句子提取':'段落提取'}}</span>
+                      </template>
+                    </el-table-column>
                     <el-table-column align="center" prop="create_time" label="创建时间"></el-table-column>
                     <el-table-column align="center" prop="status" label="状态">
                          <template slot-scope="scope">
@@ -249,14 +253,13 @@ export default {
         };
     },
     created() {
-        
+
         // authApi.getUser().token != undefined
         this.initData()
         this.getAllEventLib()
         // this.getEventLib()
-        this.timer=setInterval(() => {
-            setTimeout(this.getStatus(), 0)
-        }, 3000)
+        this.getStatus()
+        this.timer=setInterval(()=>{setTimeout(this.getStatus)}, 3000)
     },
     beforeDestroy(){
         clearInterval(this.timer);
@@ -280,7 +283,8 @@ export default {
         //     });
         // },
         getStatus() {
-            for (item in eventLibs) {
+            for (let i= 0;i<this.eventLibs.length;i++ ) {
+                let item = this.eventLibs[i];
                 eventLibApi.getStatus(item.id).then(res => {
                     item.status = res.data.data.status
                 })

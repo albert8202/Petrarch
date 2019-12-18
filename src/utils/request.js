@@ -11,7 +11,7 @@ function getAuthorization() {
 }
 const service = axios.create(({
     // baseURL: 'http://192.168.135.128:7300/mock/5dd6c9eacc546d0b141fb290',
-    baseURL: 'http://118.25.153.97:5000/',
+    baseURL: 'http://127.0.0.1:5000/',
     // baseURL: 'https://118.25.153.97/',
     // baseURL: 'http://192.168.31.188:9003',
     timeout: 3000,

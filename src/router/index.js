@@ -20,9 +20,9 @@ Vue.use(Router)
 export default new Router({
     mode: 'history',
     routes: [{
-            path: '/home',
-            name: 'HelloWorld',
-            component: HelloWorld
+            path: '/',
+            name: 'Login',
+            component: Login
         },
         //注册
         {
