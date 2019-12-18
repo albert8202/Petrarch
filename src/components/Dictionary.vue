@@ -181,6 +181,7 @@
 
 <script>
   import dictionaryApi from "@/api/dictionary";
+  import authApi from "@/utils/auth";
 
   export default {
     name: "Dictionary",
@@ -205,6 +206,14 @@
       };
     },
     created() {
+        if (authApi.getUser().token === undefined){
+            this.$message({
+                type:'error',
+                message:'请先登录'
+            })
+            this.$router.push('/login')
+            return
+        }
       this.getDict();
     },
     computed: {

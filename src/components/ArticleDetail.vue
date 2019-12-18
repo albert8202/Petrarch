@@ -34,6 +34,7 @@
 <script>
   import textLibApi from "@/api/textLib";
   import myCloud from '@/assets/myCloud'
+  import authApi from "@/utils/auth";
 
   export default {
     name: "ArticleDetail",
@@ -47,6 +48,14 @@
       }
     },
     created() {
+        if (authApi.getUser().token === undefined){
+            this.$message({
+                type:'error',
+                message:'请先登录'
+            })
+            this.$router.push('/login')
+            return
+        }
       this.article_id = this.$route.params.id
       this.lib_id = this.$route.params.lib
       this.getSingleArticle()

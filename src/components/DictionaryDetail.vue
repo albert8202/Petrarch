@@ -1,23 +1,32 @@
 <template>
 <div >
     <pre>
-    <span  v-html="content">{{this.content}}</span>
+      <p  v-html="content" class="text_center">{{this.content}}</p>
     </pre>
 </div>
-    
+
 </template>
 
 <script>
 import dictionaryApi from "@/api/dictionary";
+import authApi from "@/utils/auth";
 export default {
     name: 'DictionaryDetail',
     data(){
         return{
             id:1,
-            content:'sad'
+            content:'加载中...'
         }
     },
     created(){
+        if (authApi.getUser().token === undefined){
+            this.$message({
+                type:'error',
+                message:'请先登录'
+            })
+            this.$router.push('/login')
+            return
+        }
         this.id = this.$route.params.id
         this.getDictionary()
     },
@@ -33,5 +42,8 @@ export default {
 </script>
 
 <style scoped>
-
+.text_center{
+  text-align: left;
+  margin-left: 30%;
+}
 </style>

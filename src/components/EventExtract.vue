@@ -253,7 +253,14 @@ export default {
         };
     },
     created() {
-
+        if (authApi.getUser().token === undefined){
+            this.$message({
+                type:'error',
+                message:'请先登录'
+            })
+            this.$router.push('/login')
+            return
+        }
         // authApi.getUser().token != undefined
         this.initData()
         this.getAllEventLib()
@@ -285,6 +292,7 @@ export default {
         getStatus() {
             for (let i= 0;i<this.eventLibs.length;i++ ) {
                 let item = this.eventLibs[i];
+                if (item.status !== 2)
                 eventLibApi.getStatus(item.id).then(res => {
                     item.status = res.data.data.status
                 })

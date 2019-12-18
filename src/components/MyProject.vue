@@ -1,12 +1,11 @@
 <template>
   <div>
-    <div>我的项目</div>
     <span>
 
     </span>
     <div style="width: 70%;margin-left: 15%">
       <el-button type="text" size="small" style="margin-left: 100px" @click="isLibCreateShow = true"><i
-        class="el-icon-upload el-icon--right"></i>新建文本库
+        class="el-icon-upload el-icon--right top"></i>新建文本库
       </el-button>
       <!--create new textLib-->
       <el-dialog title="新建文本库" :visible.sync="isLibCreateShow" style="width: 60%;margin-left: 20%">
@@ -104,6 +103,7 @@
 <script>
   import textLibApi from "@/api/textLib";
   import timeUtil from '@/utils/timeUtil'
+  import authApi from "@/utils/auth";
 
   export default {
     name: "MyProject",
@@ -136,6 +136,14 @@
       };
     },
     created() {
+        if (authApi.getUser().token === undefined){
+            this.$message({
+                type:'error',
+                message:'请先登录'
+            })
+            this.$router.push('/login')
+            return
+        }
       this.getAllTextLibData()
     },
     methods: {
@@ -219,5 +227,8 @@
   .el-dropdown-link {
     cursor: pointer;
     color: #fc6c6c;
+  }
+  .top{
+    margin-left: -100px;
   }
 </style>

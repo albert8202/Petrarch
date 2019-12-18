@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div>分析配置</div>
     <div style="width: 70%;margin-left: 15%">
       <el-button type="text" icon="el-icon-download" @click="importClick">导入</el-button>
       <el-table
@@ -63,6 +62,7 @@
 
 <script>
   import textLibApi from "@/api/textLib";
+  import authApi from "@/utils/auth";
   export default {
     name: "Configuration",
     data(){
@@ -77,6 +77,14 @@
       }
     },
     created(){
+        if (authApi.getUser().token === undefined){
+            this.$message({
+                type:'error',
+                message:'请先登录'
+            })
+            this.$router.push('/login')
+            return
+        }
           this.lib_id = this.$route.params.id;
           this.lib_name = this.$route.query.name;
           this.getTextLibData();
@@ -86,7 +94,6 @@
         this.$router.replace('/articleDetail/'+ this.lib_id+`/${id}`)
       },
       deleteArticle(id) {
-        alert(parseInt(id))
         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',

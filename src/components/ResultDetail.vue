@@ -21,7 +21,7 @@
 
       <el-row class="content">
         <p
-        style="word-wrap:break-word;text-indent: 2em;line-height: 30px" 
+        style="word-wrap:break-word;text-indent: 2em;line-height: 30px"
           class="content_text"
            v-for="item in article.content" :key="item"
         >{{item}}</p>
@@ -58,6 +58,7 @@
 
 <script>
 import eventResultApi from "@/api/eventResult";
+import authApi from "@/utils/auth";
 export default {
   name: "ResultDeetail",
   data() {
@@ -69,6 +70,14 @@ export default {
     };
   },
   created(){
+      if (authApi.getUser().token === undefined){
+          this.$message({
+              type:'error',
+              message:'请先登录'
+          })
+          this.$router.push('/login')
+          return
+      }
     this.id=this.$route.params.id
     this.projectID=this.$route.query.projectID
     this.getEventResult()

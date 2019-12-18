@@ -166,6 +166,7 @@
 <script>
 import eventResultApi from "@/api/eventResult";
 import eventLibApi from "@/api/eventLib";
+import authApi from "@/utils/auth";
 export default {
     name: "EventResult",
     data() {
@@ -186,6 +187,14 @@ export default {
         };
     },
     created() {
+        if (authApi.getUser().token === undefined){
+            this.$message({
+                type:'error',
+                message:'请先登录'
+            })
+            this.$router.push('/login')
+            return
+        }
         this.id = this.$route.params.id
         this.eventTotal = this.$route.query.eventTotal
         this.event = this.$route.query.event

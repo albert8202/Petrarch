@@ -12,8 +12,7 @@
               <el-icon class="el-icon-s-custom"/>
               萌泰科技
             </template>
-            <MenuItem name="Personal" >个人账户</MenuItem>
-            <MenuItem name="LogOut">退出</MenuItem>
+            <MenuItem name="LogOut" ><div @click="logout">退出</div></MenuItem>
 
           </Submenu>
           <MenuItem name="AnalysisMenu"  style="float: right" >
@@ -34,6 +33,7 @@
 </template>
 
 <script>
+  import authApi from "@/utils/auth";
   export default {
     name: 'App',
     data() {
@@ -44,6 +44,14 @@
     methods:{
       onSelect(d) {
         this.$router.push({ path: "/" + d });
+      },
+      logout(){
+        authApi.removeUser();
+        this.$message({
+            type:'success',
+            message:'成功退出'
+        })
+          this.$router.push('/login');
       }
     }
   }
