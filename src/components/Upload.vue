@@ -190,7 +190,7 @@
                         message: res.data.message
                     })
                     if (res.data.flag){
-                        this.$route.push({path:`/configuration/${this.lib_id}`, query:{name: this.lib_name}})
+                        this.$router.push({path:`/configuration/${this.lib_id}`, query:{name: this.lib_name}})
                     }
                 })
             }
