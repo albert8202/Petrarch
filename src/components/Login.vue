@@ -31,12 +31,26 @@
       </div>
     </div>
 
-    <div id="buttom-div">
-      <div id="buttom-content" style="color: black;">
-        <p style="text-align: center;width: 1700px">关于我们    服务协议   隐私政策</p>
-        <p style="text-align: center">Copyright 2018 上海萌泰数据科技有限公司</p>
+    <!--<div id="buttom-div">-->
+      <!--<div id="buttom-content" style="color: black;">-->
+        <!--<p style="text-align: center;width: 1700px">关于我们    服务协议   隐私政策</p>-->
+        <!--<p style="text-align: center">Copyright 2018 上海萌泰数据科技有限公司</p>-->
+      <!--</div>-->
+    <!--</div>-->
+    <footer data-v-0f1723f0 class="el-footer" style="height: 60px;width: 100%;  position:fixed;bottom:0">
+      <div data-v-4e9c2f90 data-v-0f1723f0 class="footer">
+        <div data-v-4e9c2f90 class="links">
+          <a data-v-4e9c2f90 href="#">关于我们</a>
+          <a data-v-4e9c2f90 href="#">服务协议</a>
+          <a data-v-4e9c2f90>隐私政策</a>
+        </div>
+        <div data-v-4e9c2f90 class="copyright">
+          Copyright © 2019 上海萌泰数据科技股份有限公司 © 版权所有.
+          <a data-v-4e9c2f90 href=" http://beian.miit.gov.cn" target="_blank" style="color: rgb(73, 49, 133);">沪 ICP 备
+            09099644 号</a>
+        </div>
       </div>
-    </div>
+    </footer>
   </div>
 </template>
 
@@ -77,9 +91,12 @@
 
 <style scoped>
   #LoginPage {
-    height: calc(100vh - 120px);
     /* padding-top: 10px; */
     background: url('/static/img/background.jpg') center center no-repeat;
+    height: 960px;
+    margin:0px;
+    padding: 0px;
+    background-size: cover;
   }
   #head-div
   {
@@ -114,6 +131,7 @@
     width: 20%;
     margin-left: 70%;
     height: 40%;
+    opacity: 0.85;
   }
 
   .LoginFormContainer {
@@ -123,7 +141,7 @@
 
 
   .LoginText {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 600;
     margin-bottom: 5%;
     padding-top: 10%;
@@ -136,7 +154,7 @@
     border: 1px solid #e6ecf0;
     border-radius: 3px;
     outline: none;
-    font-size: 18px;
+    font-size: 13px;
     line-height:30px;
     margin-top:30px;
   }
@@ -150,7 +168,7 @@
   .LoginInput {
     margin-bottom: 40px;
     margin-left: 50px;
-   margin-top: 20px;
+    margin-top: 20px;
   }
 
   .Submit {
