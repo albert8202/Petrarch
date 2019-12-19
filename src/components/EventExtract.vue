@@ -165,6 +165,18 @@
                     <el-form-item required="true" label="自定义名称">
                         <el-input v-model="form.name" placeholder="请输入提取名称" style="margin-left: 10px;width:300px;" auto-complete="false"></el-input>
                     </el-form-item>
+                    <el-form-item required="true" label="提取字段">
+                      <template>
+                        <el-select style="margin-left: 25px;width: 300px;" v-model="value1" multiple placeholder="请选择">
+                          <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value">
+                          </el-option>
+                        </el-select>
+                      </template>
+                    </el-form-item>
                     <el-form-item required="true" label="提取级别">
                         <el-radio-group style="margin-left: 30px;" v-model="form.algorithm">
                             <el-radio :label="0">句子提取</el-radio>
@@ -213,6 +225,7 @@ export default {
     data() {
         return {
             timer:null,
+            checkAll: false,
             eventTotal: 0,
             event:{
                 total:0,
@@ -221,6 +234,28 @@ export default {
             total: 0,
             curPage: 1,
             curSize: 10,
+            options: [{
+                value: 'title',
+                label: '标题'
+            }, {
+                value: 'author',
+                label: '作者'
+            }, {
+                value: 'publish_time',
+                label: '发布时间'
+            }, {
+                value: 'summary',
+                label: '摘要'
+            }, {
+                value: 'keywords',
+                label: '关键词'
+            },{
+                value: 'content',
+                label: '内容'
+            },{
+                value: 'url',
+                label: 'url'
+            }],
             textLibs: [{
                 name: '1',
                 id: '1',
@@ -240,7 +275,7 @@ export default {
                 name: '',
                 type: 13,
                 algorithm: null,
-                dic_id: null
+                dic_id: null,
             },
             eventLibs: [{
                 name: "name",
@@ -249,7 +284,8 @@ export default {
                 time: "now",
                 state: "",
                 operation: ""
-            }]
+            }],
+            value1:[],
         };
     },
     created() {
@@ -332,7 +368,7 @@ export default {
         },
         toResult(id,row) {
             this.$router.push({path:"/eventResult/"+id, query:{eventTotal:this.eventTotal,event:row}});
-        }
+        },
     }
 };
 </script>

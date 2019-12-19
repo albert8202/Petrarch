@@ -67,6 +67,11 @@
             loading:false
           }
         },
+        created(){
+            if(authApi.getUser().token !== undefined){
+                this.$router.push("/myproject")
+            }
+        },
         methods:{
             login(){
                 userApi.login(this.email, this.password).then(response=>{
@@ -83,7 +88,6 @@
                     }
                 })
             }
-
         },
 }
 

@@ -265,7 +265,11 @@
             type: res.data.flag ? "success" : "error",
             message: res.data.message
           });
+            if(res.data.flag){
+                this.getDict();
+            }
         });
+
       },
       createDict() {
         let fd = new FormData();
