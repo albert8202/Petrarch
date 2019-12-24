@@ -2,8 +2,8 @@
   <div>
     <el-breadcrumb separator-class="el-icon-arrow-right" style="margin-left: 15%">
       <el-breadcrumb-item :to="{ path: '../../../myproject' }" style="margin-top: 12px">我的项目</el-breadcrumb-item>
-      <el-breadcrumb-item :to="{path:'../../'}" style="margin-top: 12px">文本库</el-breadcrumb-item>
-      <el-breadcrumb-item :to="{path:'../../'}" style="margin-top: 12px">文本训练集</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{path:'../../../configuration/'+lib_id}" style="margin-top: 12px">文本库</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{path:''}" style="margin-top: 12px">文本训练集</el-breadcrumb-item>
     </el-breadcrumb>
     <h1 style="color: black;text-align: center">{{this.article.title}}</h1>
     <el-container>

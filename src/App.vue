@@ -23,10 +23,9 @@
             <el-icon class="el-icon-s-custom"/>
             我的项目
           </MenuItem>
-
-
         </Menu>
       </nav>
+
     </section>
     <router-view/>
   </div>
