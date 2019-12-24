@@ -1,15 +1,23 @@
 <template>
   <div>
     <div style="width: 70%;margin-left: 15%">
-      <el-button type="text" icon="el-icon-download" @click="importClick">导入</el-button>
+      <el-breadcrumb separator-class="el-icon-arrow-right" >
+        <el-breadcrumb-item :to="{ path: '../../myproject' }" style="margin-top: 12px">我的项目</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{path:'#'}" style="margin-top: 12px">文本库</el-breadcrumb-item>
+      </el-breadcrumb>
+      <el-button type="text" icon="el-icon-download" @click="importClick" style="margin-top: 15px">导入</el-button>
       <el-table
       ref="mutipleTable"
       :data="tableData"
+      stripe
+      header-cell-style="background-color: rgb(245, 247, 249)"
       tooltip-effect="dark">
+        <el-table-column type="index" label="序号" width="100" align="center"></el-table-column>
         <el-table-column
+          v-if="isIDShow"
           prop="id"
           label="序号"
-          style="width: 5%"
+          style="width: 15%"
           align="center">
         </el-table-column>
         <el-table-column
@@ -67,6 +75,7 @@
     name: "Configuration",
     data(){
       return{
+          isIDShow:false,
           rowId:0,
           lib_id:1,
           lib_name:"",

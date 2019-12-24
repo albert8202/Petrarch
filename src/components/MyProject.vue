@@ -4,12 +4,15 @@
 
     </span>
     <div style="width: 70%;margin-left: 15%">
+      <el-breadcrumb separator-class="el-icon-arrow-right" style="margin-top: 10px">
+        <el-breadcrumb-item :to="{ path: '/' }">我的项目</el-breadcrumb-item>
+      </el-breadcrumb>
       <el-button type="text" size="small" style="margin-left: 100px" @click="isLibCreateShow = true"><i
-        class="el-icon-upload el-icon--right top"></i>新建文本库
+        class="el-icon-upload el-icon--right top">\</i>新建文本库
       </el-button>
       <!--create new textLib-->
       <el-dialog title="新建文本库" :visible.sync="isLibCreateShow" style="width: 60%;margin-left: 20%">
-        <el-form :model="newLibInfor">
+        <el-form :model="newLibInfor" stripe>
           <el-form-item label="文本库名称" style="width: 80%;margin-left: 10%">
             <el-input v-model="newLibInfor.name"
                       placeholder="请输入文本库的标题"
@@ -58,10 +61,12 @@
 
       <el-table
         :data="tableData"
+        stripe
+        header-cell-style="background-color: rgb(245, 247, 249)"
         tooltip-effect="dark"
       >
-
-        <el-table-column prop="id" label="序号" style="width: 5%" align="center"></el-table-column>
+        <el-table-column type="index" label="序号" width="100" align="center"></el-table-column>
+        <el-table-column v-if="isIDShow" prop="id" label="序号" style="width: 5%" align="center"></el-table-column>
         <el-table-column label="文本库标题" style="width: 20%" align="center">
           <template slot-scope="scope">
             <router-link :to= "{path:`/configuration/${scope.row.id}`, query:{name: scope.row.textlibrary_name}}" ><a  class="buttonText">{{scope.row.textlibrary_name}}</a></router-link>
@@ -109,6 +114,7 @@
     name: "MyProject",
     data() {
       return {
+        isIDShow:false,
         rowId: 0,
         curPage: 1,
         total: 0,

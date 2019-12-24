@@ -1,5 +1,10 @@
 <template>
   <div>
+    <el-breadcrumb separator-class="el-icon-arrow-right" style="margin-left: 15%">
+      <el-breadcrumb-item :to="{ path: '../../../myproject' }" style="margin-top: 12px">我的项目</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{path:'../../'}" style="margin-top: 12px">文本库</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{path:'../../'}" style="margin-top: 12px">文本训练集</el-breadcrumb-item>
+    </el-breadcrumb>
     <h1 style="color: black;text-align: center">{{this.article.title}}</h1>
     <el-container>
     <el-header style="color: grey; width:80%;margin-left: 10%;margin-top:10px"><h5 style="text-align: center">
@@ -10,18 +15,18 @@
       <p v-for="(item, index) in article.content" style="width: 60%;word-wrap:break-word;text-indent: 2em;margin-left: 20%;line-height: 30px" >{{item}}</p>
       <!-- 词云 -->
       <div
-        style="width: 1600px;height: 25px;margin-left: 100px;margin-top: 100px;border-bottom:1px  solid dimgray;font-weight: bold">
+        style="width: 70%;height: 25px;margin-left: 15%;margin-top: 100px;border-bottom:1px  solid dimgray;font-weight: bold">
         词云图
       </div>
-      <div ref='wordCloudBox' style="margin-left: 300px"></div>
+      <div ref='wordCloudBox' style="margin-left: 30%"></div>
     </el-main>
       <el-footer style="margin-bottom: 40px">
         <div
-          style="width: 1600px;height: 25px;margin-left: 100px;margin-top: 100px;border-bottom:1px  solid dimgray;font-weight: bold">
+          style="width: 70%;height: 25px;margin-left: 15%;margin-top: 100px;border-bottom:1px  solid dimgray;font-weight: bold">
           相关新闻
         </div>
         <div>
-          <div v-for="(item,index) in related" :key="index" style="margin-left: 150px;margin-top: 20px"> <a :href="item.url">{{item.title}}</a></div>
+          <div v-for="(item,index) in related" :key="index" style="margin-left: 15%;margin-top: 20px"> <a :href="item.url">{{item.title}}</a></div>
         </div>
       </el-footer>
     </el-container>
