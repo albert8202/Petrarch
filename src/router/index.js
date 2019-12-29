@@ -14,6 +14,7 @@ import EventResult from '@/components/EventResult'
 import ResultDetail from '@/components/ResultDetail'
 import DictionaryDetail from '@/components/DictionaryDetail'
 import cloud from "@/components/cloud";
+import DictionaryCreate from "@/components/DictionaryCreate";
 
 Vue.use(Router)
 
@@ -90,12 +91,21 @@ export default new Router({
         },
         //字典
         {
-            path: '/dictionary',
-            name: 'Dictionary',
-            component: Dictionary,
+            path: '/dictionaryCreate',
+            name: 'DictionaryCreate',
+            component: DictionaryCreate,
             meta: {
                 keepAlive: true
             }
+        },
+      //字典创建
+        {
+          path: '/dictionary',
+          name: 'Dictionary',
+          component: Dictionary,
+          meta: {
+            keepAlive: true
+          }
         },
         //字典
         {

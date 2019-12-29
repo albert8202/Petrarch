@@ -42,6 +42,13 @@ export default {
             url: `/${group_name}/download/${id}`,
             method: 'get',
         })
+    },
+    createDictionaryByMyself(json){
+      return request({
+        url:`/${group_name}/self`,
+        method: 'post',
+        data: json
+      })
     }
 
 }

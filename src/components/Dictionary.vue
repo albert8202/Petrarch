@@ -103,7 +103,15 @@
           <!---->
           <!---->
           <span>
-                    <i data-v-0f1723f0 class="fa fa-plus-square-o fa-lg"></i> &nbsp;创建词典
+                    <i data-v-0f1723f0 class="fa fa-plus-square-o fa-lg"></i> &nbsp;上传词典
+                </span>
+        </button>
+        <button data-v-0f1723f0 type="button" class="el-button wordStatistics el-button--text"
+                style="margin-bottom:20px" @click="toCreate">
+          <!---->
+          <!---->
+          <span>
+                    <i data-v-0f1723f0 class="fa fa-plus-square-o fa-lg"></i> &nbsp;新建词典
                 </span>
         </button>
         <el-dialog title="创建词典" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
@@ -304,7 +312,10 @@
             navigator.msSaveBlob(blob, fileName)
           }
         })
-      }
+      },
+        toCreate(){
+            this.$router.push('/DictionaryCreate');
+        }
     }
   };
 </script>
