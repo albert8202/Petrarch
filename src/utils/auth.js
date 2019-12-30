@@ -9,8 +9,8 @@ export default {
   },
   getUser(){
     return {
-      token: 'dadsa',
-      // token: Cookies.get(TokenKey),
+      // token: 'dadsa',
+      token: Cookies.get(TokenKey),
       name: Cookies.get(NameKey),
     }
   },
