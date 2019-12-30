@@ -117,11 +117,12 @@
         <el-dialog title="创建词典" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
           <el-form v-model="form">
             <el-upload style="display:inline-block" action="http://100.68.187.168:5000/dic" :auto-upload="false"
-                       :limit="1" :on-change="uploadFile">
+                       :limit="1" accept=".txt" :on-change="uploadFile">
                 <h4 style="color:rgb(216,83,75)">
                 <i data-v-0f1723f0 class="el-icon-upload"></i> &nbsp;上传词典
               </h4>
             </el-upload>
+            <div slot="tip" class="el-upload__tip">只能上传txt文件，且只能上传一个</div>
             <el-form-item>
               <h4 style="margin:10px 0">词典名称</h4>
               <el-input v-model="form.name" placeholder="请输新建词典的名称" autocomplete="off"></el-input>

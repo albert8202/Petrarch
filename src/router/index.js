@@ -13,8 +13,10 @@ import EventExtract from '@/components/EventExtract'
 import EventResult from '@/components/EventResult'
 import ResultDetail from '@/components/ResultDetail'
 import DictionaryDetail from '@/components/DictionaryDetail'
-import cloud from "@/components/cloud";
-import DictionaryCreate from "@/components/DictionaryCreate";
+import cloud from "@/components/cloud"
+import DictionaryCreate from "@/components/DictionaryCreate"
+import TransMenu from "@/components/TransMenu"
+import Translate from "@/components/Translate"
 
 Vue.use(Router)
 
@@ -98,14 +100,14 @@ export default new Router({
                 keepAlive: true
             }
         },
-      //字典创建
+        //字典创建
         {
-          path: '/dictionary',
-          name: 'Dictionary',
-          component: Dictionary,
-          meta: {
-            keepAlive: true
-          }
+            path: '/dictionary',
+            name: 'Dictionary',
+            component: Dictionary,
+            meta: {
+                keepAlive: true
+            }
         },
         //字典
         {
@@ -152,6 +154,22 @@ export default new Router({
                 keepAlive: true
             }
         },
-
+        // 字典翻译
+        {
+            path: '/transMenu',
+            name: 'TransMenu',
+            component: TransMenu,
+            meta: {
+                keepAlive: true
+            }
+        },
+        {
+            path: '/translate/:id',
+            name: 'Translate',
+            component: Translate,
+            meta: {
+                keepAlive: true
+            }
+        }
     ]
 })

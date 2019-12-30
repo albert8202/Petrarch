@@ -95,7 +95,25 @@
         </div>
         <div class="el-col el-col-6">
           <div>
-            <div class="el-card grid grid3 is-always-shadow">
+            <router-link to="TransMenu">
+            <div class="el-card grid grid4 is-always-shadow">
+              <div class="el-card__header">
+                <div class="header header3"></div>
+              </div>
+              <div class="el-card__body">
+                <div class="body">
+                  <img src="/static/img/logic.7f597f0.png" alt />
+                  <p class="title" style="color: rgb(252, 108, 108);">Cameo字典翻译</p>
+                  <p class="text">用户可以自行分类翻译获取Cameo字典，以防默认字典存在翻译不全的问题。</p>
+                </div>
+              </div>
+            </div>
+            </router-link>
+          </div>
+        </div>
+        <div class="el-col el-col-6">
+          <div>
+            <div class="el-card grid grid4 is-always-shadow">
               <div class="el-card__header">
                 <div class="header header3"></div>
               </div>
@@ -107,22 +125,6 @@
                   />
                   <p class="title" style="color: rgb(252, 108, 108);">情感词典</p>
                   <p class="text">创建用户想要的情感词典，在不同的词典中可以归类不同的词汇，而且可以定义每一个词汇的分数。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="el-col el-col-6">
-          <div>
-            <div class="el-card grid grid4 is-always-shadow">
-              <div class="el-card__header">
-                <div class="header header3"></div>
-              </div>
-              <div class="el-card__body">
-                <div class="body">
-                  <img src="/static/img/logic.7f597f0.png" alt />
-                  <p class="title" style="color: rgb(252, 108, 108);">主题逻辑</p>
-                  <p class="text">主题抽取存在用户主观意识上的定义，用户可以自定义想要分析抽取的主题逻辑。</p>
                 </div>
               </div>
             </div>
