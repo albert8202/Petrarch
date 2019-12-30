@@ -42,7 +42,7 @@
         </div>
       </el-main>
       <el-footer>
-        <div>
+        <div style="margin-top:20px">
           <el-carousel
             style="width: 100%; margin: 10px"
             :autoplay="false"
@@ -181,7 +181,7 @@ export default {
       this.blockName = this.tableData[0]["class"];
       this.cameoList = res["cameoData"];
 
-      this.setRefHeight();
+      // this.setRefHeight();
       (this.commit = "确认"),
         (this.disableCommit = false),
         this.tempDisableCommit();
@@ -267,7 +267,7 @@ export default {
       return (() => {
         window.screenWidth = document.body.clientWidth;
         that.screenWidth = window.screenWidth;
-        this.setRefHeight();
+        // this.setRefHeight();
       })();
     };
   }
