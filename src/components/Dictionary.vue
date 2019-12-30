@@ -137,7 +137,12 @@
       </div>
       <el-table :data="dict_data" stripe header-cell-style="background-color: rgb(245, 247, 249); text-align: center"
                 style="width: 100%">
-        <el-table-column width="200%" align="center" prop="id" label="#"></el-table-column>
+
+        <el-table-column width="200%" label="序号" align="center" >
+          <template slot-scope="scope">
+            {{(scope.$index + 1)}}
+          </template>
+        </el-table-column>
         <el-table-column align="center" prop="name" label="词典名称">
           <template slot-scope="scope">
             <a :href="'/dictionaryDetail/'+scope.row.id" target="_blank" class="buttonText">{{scope.row.name}}</a>
@@ -150,11 +155,6 @@
             <el-button @click="downloadDict(scope.row.id,scope.row.name)" type="text">
                         <span style="font-size:12px">
                             <i class="fa fa-download"></i>下载
-                        </span>
-            </el-button>
-            <el-button type="text">
-                        <span style="font-size:12px">
-                            <i class="fa fa-pencil-square-o"></i>修改
                         </span>
             </el-button>
             <el-button @click="delDict(scope.row.id)" type="text">
@@ -197,6 +197,7 @@
     data() {
       return {
         search: '',
+          isIDShow:false,
         form: {
           dic: null,
           name: ""

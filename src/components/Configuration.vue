@@ -33,6 +33,7 @@
           align="center">
         </el-table-column>
         <el-table-column
+          show-overflow-tooltip
           prop="url"
           label="来源"
           style="width: 20%"

@@ -1,23 +1,11 @@
 <template>
 <section data-v-7e5aa87c class="el-container container-subjectExtra is-vertical">
-    <div data-v-7e5aa87c class="content">
-        <div data-v-7e5aa87c class="el-row">
-            <div data-v-7e5aa87c class="el-col el-col-22">
-                <ul data-v-7e5aa87c class="menus">
-                    <li data-v-7e5aa87c style="cursor: pointer;">
-                        <span data-v-7e5aa87c>我的分析</span>
-                        <i data-v-7e5aa87c class="fa fa-angle-right fa-lg"></i>&nbsp;
-                    </li>
-                    <li data-v-7e5aa87c style="cursor: pointer;">
-                        <span data-v-7e5aa87c>分析</span>
-                        <i data-v-7e5aa87c class="fa fa-angle-right fa-lg"></i>&nbsp;
-                    </li>
-                    <li data-v-7e5aa87c style="color: rgb(233, 71, 67);">
-                        <span data-v-7e5aa87c>事件提取</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
+  <div data-v-7e5aa87c class="content">
+  <el-breadcrumb separator-class="el-icon-arrow-right" style="margin-bottom: 10px">
+    <el-breadcrumb-item :to="{ path: '../../../myproject' }" style="margin-top: 12px">我的项目</el-breadcrumb-item>
+    <el-breadcrumb-item :to="{path:'../../../EventExtract/'}" style="margin-top: 12px">字典列表</el-breadcrumb-item>
+    <el-breadcrumb-item :to="{path:''}" style="margin-top: 12px">字典</el-breadcrumb-item>
+  </el-breadcrumb>
         <div data-v-7e5aa87c class="el-row">
             <div data-v-7e5aa87c class="el-row" style="height: 80px; background-color: rgb(245, 247, 249);">
                 <div class="el-col el-col-22">
@@ -227,6 +215,7 @@ export default {
             element.click();
 
             document.body.removeChild(element);
+            console.log(element)
         }
     }
 };

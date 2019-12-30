@@ -1,5 +1,5 @@
 <template>
-<section data-v-7e5aa87c class="el-container container-subjectExtra is-vertical">
+  <section data-v-7e5aa87c class="el-container container-subjectExtra is-vertical">
     <!-- <header data-v-7e5aa87c class="el-header" style="height: 60px;">
       <nav data-v-273cece6 data-v-7e5aa87c class="nav-bar">
         <div data-v-273cece6 class="brand">
@@ -50,335 +50,330 @@
       </nav>
     </header>-->
     <div data-v-7e5aa87c class="content">
-        <div data-v-7e5aa87c class="el-row">
-            <div data-v-7e5aa87c class="el-col el-col-22">
-                <ul data-v-7e5aa87c class="menus">
-                    <li data-v-7e5aa87c style="cursor: pointer;">
-                        <span data-v-7e5aa87c>我的分析</span>
-                        <i data-v-7e5aa87c class="fa fa-angle-right fa-lg"></i>&nbsp;
-                    </li>
-                    <li data-v-7e5aa87c style="cursor: pointer;">
-                        <span data-v-7e5aa87c>分析</span>
-                        <i data-v-7e5aa87c class="fa fa-angle-right fa-lg"></i>&nbsp;
-                    </li>
-                    <li data-v-7e5aa87c style="color: rgb(233, 71, 67);">
-                        <span data-v-7e5aa87c>事件提取</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div data-v-7e5aa87c class="el-row">
-            <div data-v-7e5aa87c class="el-row" style="height: 80px; background-color: rgb(245, 247, 249);">
-                <div class="el-col el-col-22">
-                    <div class="el-row" style="height: 40px; line-height: 40px; padding-left: 20px;">
+      <div data-v-7e5aa87c class="el-row">
+        <el-breadcrumb separator-class="el-icon-arrow-right" style="margin-bottom: 5px">
+          <el-breadcrumb-item :to="{ path: '../../AnalysisMenu' }" style="margin-top: 12px">我的分析</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{path:'#'}" style="margin-top: 12px">事件提取</el-breadcrumb-item>
+        </el-breadcrumb>
+      </div>
+      <div data-v-7e5aa87c class="el-row">
+        <div data-v-7e5aa87c class="el-row" style="height: 80px; background-color: rgb(245, 247, 249);">
+          <div class="el-col el-col-22">
+            <div class="el-row" style="height: 40px; line-height: 40px; padding-left: 20px;">
                         <span>
                             <el-button type="success" style="padding:3px;font-size:10px;text-align:center">主</el-button>
                             &nbsp;&nbsp;
                         </span>
-                        <span style="color: rgb(0, 0, 0); font-weight: bold; font-size: 14px;">
+              <span style="color: rgb(0, 0, 0); font-weight: bold; font-size: 14px;">
                             文本库样例
                         </span>
-                        <div style="margin-left:20px;display:none">
+              <div style="margin-left:20px;display:none">
 
-                                        <i class="fa fa-database"></i>&nbsp;&nbsp;
-                                        <span>
+                <i class="fa fa-database"></i>&nbsp;&nbsp;
+                <span>
                                             共计：
                                             <span style="color: red;" :v-text="eventTotal">{{eventTotal}}</span>&nbsp;条
                                         </span>
-                                    </div>
-                    </div>
-                    <div class="el-row" style="height: 40px; line-height: 30px; padding-left: 20px;">
-                        <form class="el-form el-form--label-left el-form--inline">
-                            <div class="el-form-item">
-                                <!---->
-                                <div class="el-form-item__content">
-                                    <div>
-                                        <i class="fa fa-database"></i>&nbsp;&nbsp;
-                                        <span>
+              </div>
+            </div>
+            <div class="el-row" style="height: 40px; line-height: 30px; padding-left: 20px;">
+              <form class="el-form el-form--label-left el-form--inline">
+                <div class="el-form-item">
+                  <!---->
+                  <div class="el-form-item__content">
+                    <div>
+                      <i class="fa fa-database"></i>&nbsp;&nbsp;
+                      <span>
                                             共计：
                                             <span style="color: red;" :v-text="eventTotal">{{eventTotal}}</span>&nbsp;条
                                         </span>
-                                    </div>
-                                    <!---->
-                                </div>
-                            </div>
-                        </form>
                     </div>
-                </div>
-                <div class="el-col el-col-2">
-                    <div style="line-height: 80px; text-align: right; margin-right: 30px; cursor: pointer;">
-                        <i aria-hidden="true" class="fa fa-list"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div style="margin-top:20px">
-                <el-table :data="eventLibs" stripe header-cell-style="background-color: rgb(245, 247, 249); text-align: center" style="width: 100%">
-                    <el-table-column align="center" prop="name" label="名称"></el-table-column>
-                    <el-table-column align="center" prop="dictionary_id" label="事件词典名称"></el-table-column>
-                    <el-table-column align="center" label="提取级别">
-                      <template slot-scope="scope">
-                        <span>{{scope.row.analysis_algorithm == 0? '句子提取':'段落提取'}}</span>
-                      </template>
-                    </el-table-column>
-                    <el-table-column align="center" prop="create_time" label="创建时间"></el-table-column>
-                    <el-table-column align="center" prop="status" label="状态">
-                         <template slot-scope="scope">
-                        <!-- todo -->
-                        <el-button v-show="scope.row.status==0" size="mini" type="warning" round>
-                            <span>等待中</span>
-                        </el-button>
-                        <el-button v-show="scope.row.status==1" size="mini" type="info" round>
-                            <span>提取中</span>
-                        </el-button>
-                        <el-button v-show="scope.row.status==2" size="mini" type="success" round>
-                            <span>已完成</span>
-                        </el-button>
-                         </template>
-                    </el-table-column>
-                    <el-table-column align="center" prop="operation" label="操作">
-                                        <template slot-scope="scope">
-
-                            <el-button @click="toResult(scope.row.id,scope.row)" type="text"><span><i class="fa fa-line-chart"></i></span>
-                            </el-button>
-                        <el-button @click="delEventLib(scope.row.id)" type="text" style="margin-left:10px;"><span>
-                                <i class="fa fa-trash"></i></span></el-button>
-                </template>
-                    </el-table-column>
-                </el-table>
-                <!-- <el-pagination style="margin-top:20px" @size-change="getEventLib" @current-change="getEventLib" :current-page.sync="curPage" :page-size="curSize" layout="total,prev, pager, next, jumper" :total="total"></el-pagination> -->
-
-            </div>
-
-            <div data-v-7e5aa87c class="newStatistic" style="display: block;">
-                <div data-v-7e5aa87c class="add">
-                    <h3>&nbsp;&nbsp;新建主题抽取</h3>
-                    <p data-v-7e5aa87c></p>
-                </div>
-                <el-form v-model="form" class="el-form el-form--label-left" style="width: 600px;">
-                    <el-form-item required="true" label="事件文本库">
-                        <el-select style="margin-left: 10px;width: 300px;" v-model="form.lib_id" placeholder="请选择">
-                            <el-option v-for="item in textLibs" :key="item.id" :label="item.textlibrary_name" :value="item.id">
-                            </el-option>
-                        </el-select>
-                    </el-form-item>
-                    <el-form-item required="true" label="自定义名称">
-                        <el-input v-model="form.name" placeholder="请输入提取名称" style="margin-left: 10px;width:300px;" auto-complete="false"></el-input>
-                    </el-form-item>
-                    <el-form-item required="true" label="提取字段">
-                      <template>
-                        <el-select style="margin-left: 25px;width: 300px;" v-model="value1" multiple placeholder="请选择">
-                          <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value">
-                          </el-option>
-                        </el-select>
-                      </template>
-                    </el-form-item>
-                    <el-form-item required="true" label="提取级别">
-                        <el-radio-group style="margin-left: 30px;" v-model="form.algorithm">
-                            <el-radio :label="0">句子提取</el-radio>
-                            <el-radio :label="1">段落提取</el-radio>
-                        </el-radio-group>
-                    </el-form-item>
-                    <el-form-item required="true" label="事件词典">
-                        <el-select style="margin-left: 24px;width: 300px;" v-model="form.dic_id" placeholder="请选择">
-                            <el-option v-for="item in dictLibs" :key="item.id" :label="item.name" :value="item.id">
-                            </el-option>
-                        </el-select>
-                    </el-form-item>
-                </el-form>
-                <el-button  @click="startEventExtract" type="primary">
                     <!---->
-                    <!---->
-                    <span>开始提取</span>
-                </el-button>
+                  </div>
+                </div>
+              </form>
             </div>
+          </div>
+          <div class="el-col el-col-2">
+            <div style="line-height: 80px; text-align: right; margin-right: 30px; cursor: pointer;">
+              <i aria-hidden="true" class="fa fa-list"></i>
+            </div>
+          </div>
         </div>
-        <!---->
+
+        <div style="margin-top:20px">
+          <el-table :data="eventLibs" stripe
+                    header-cell-style="background-color: rgb(245, 247, 249); text-align: center" style="width: 100%">
+            <el-table-column align="center" prop="name" label="名称"></el-table-column>
+            <el-table-column align="center" prop="dictionary_id" label="事件词典名称"></el-table-column>
+            <el-table-column align="center" label="提取级别">
+              <template slot-scope="scope">
+                <span>{{scope.row.analysis_algorithm == 0? '句子提取':'段落提取'}}</span>
+              </template>
+            </el-table-column>
+            <el-table-column align="center" prop="create_time" label="创建时间"></el-table-column>
+            <el-table-column align="center" prop="status" label="状态">
+              <template slot-scope="scope">
+                <!-- todo -->
+                <el-button v-show="scope.row.status==0" size="mini" type="warning" round>
+                  <span>等待中</span>
+                </el-button>
+                <el-button v-show="scope.row.status==1" size="mini" type="info" round>
+                  <span>提取中</span>
+                </el-button>
+                <el-button v-show="scope.row.status==2" size="mini" type="success" round>
+                  <span>已完成</span>
+                </el-button>
+              </template>
+            </el-table-column>
+            <el-table-column align="center" prop="operation" label="操作">
+              <template slot-scope="scope">
+
+                <el-button @click="toResult(scope.row.id,scope.row)" type="text"><span><i class="fa fa-line-chart"></i></span>
+                </el-button>
+                <el-button @click="delEventLib(scope.row.id)" type="text" style="margin-left:10px;"><span>
+                                <i class="fa fa-trash"></i></span></el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+          <!-- <el-pagination style="margin-top:20px" @size-change="getEventLib" @current-change="getEventLib" :current-page.sync="curPage" :page-size="curSize" layout="total,prev, pager, next, jumper" :total="total"></el-pagination> -->
+
+        </div>
+
+        <div data-v-7e5aa87c class="newStatistic" style="display: block;">
+          <div data-v-7e5aa87c class="add">
+            <h3>&nbsp;&nbsp;新建主题抽取</h3>
+            <p data-v-7e5aa87c></p>
+          </div>
+          <el-form v-model="form" class="el-form el-form--label-left" style="width: 600px;">
+            <el-form-item required="true" label="事件文本库">
+              <el-select style="margin-left: 10px;width: 300px;" v-model="form.lib_id" placeholder="请选择">
+                <el-option v-for="item in textLibs" :key="item.id" :label="item.textlibrary_name" :value="item.id">
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item required="true" label="自定义名称">
+              <el-input v-model="form.name" placeholder="请输入提取名称" style="margin-left: 10px;width:300px;"
+                        auto-complete="false"></el-input>
+            </el-form-item>
+            <el-form-item required="true" label="提取字段">
+              <template>
+                <el-select style="margin-left: 25px;width: 300px;" v-model="value1" multiple placeholder="请选择">
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </template>
+            </el-form-item>
+            <el-form-item required="true" label="提取级别">
+              <el-radio-group style="margin-left: 30px;" v-model="form.algorithm">
+                <el-radio :label="0">句子提取</el-radio>
+                <el-radio :label="1">段落提取</el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item required="true" label="事件词典">
+              <el-select style="margin-left: 24px;width: 300px;" v-model="form.dic_id" placeholder="请选择">
+                <el-option v-for="item in dictLibs" :key="item.id" :label="item.name" :value="item.id">
+                </el-option>
+              </el-select>
+            </el-form-item>
+          </el-form>
+          <el-button @click="startEventExtract" type="primary">
+            <!---->
+            <!---->
+            <span>开始提取</span>
+          </el-button>
+        </div>
+      </div>
+      <!---->
     </div>
     <footer data-v-7e5aa87c class="el-footer" style="height: 60px;">
-        <div data-v-4e9c2f90 data-v-7e5aa87c class="footer">
-            <div data-v-4e9c2f90 class="links">
-                <a data-v-4e9c2f90 href="#">关于我们</a>
-                <a data-v-4e9c2f90 href="#">服务协议</a>
-                <a data-v-4e9c2f90>隐私政策</a>
-            </div>
-            <div data-v-4e9c2f90 class="copyright">
-                Copyright © 2019 上海萌泰数据科技股份有限公司 © 版权所有.
-                <a data-v-4e9c2f90 href=" http://beian.miit.gov.cn" target="_blank" style="color: rgb(73, 49, 133);">沪 ICP 备 09099644 号</a>
-            </div>
+      <div data-v-4e9c2f90 data-v-7e5aa87c class="footer">
+        <div data-v-4e9c2f90 class="links">
+          <a data-v-4e9c2f90 href="#">关于我们</a>
+          <a data-v-4e9c2f90 href="#">服务协议</a>
+          <a data-v-4e9c2f90>隐私政策</a>
         </div>
+        <div data-v-4e9c2f90 class="copyright">
+          Copyright © 2019 上海萌泰数据科技股份有限公司 © 版权所有.
+          <a data-v-4e9c2f90 href=" http://beian.miit.gov.cn" target="_blank" style="color: rgb(73, 49, 133);">沪 ICP 备
+            09099644 号</a>
+        </div>
+      </div>
     </footer>
-</section>
+  </section>
 </template>
 
 <script>
-import dictionaryApi from "@/api/dictionary";
-import textLibApi from "@/api/textLib";
-import eventLibApi from "@/api/eventLib";
-import authApi from "@/utils/auth"
-export default {
-    name: "EventExtract",
-    data() {
-        return {
-            timer:null,
-            checkAll: false,
-            eventTotal: 0,
-            event:{
-                total:0,
-                create_time:'2020 - 08 - 22'
-            },
-            total: 0,
-            curPage: 1,
-            curSize: 10,
-            options: [{
-                value: 'title',
-                label: '标题'
-            }, {
-                value: 'author',
-                label: '作者'
-            }, {
-                value: 'publish_time',
-                label: '发布时间'
-            }, {
-                value: 'summary',
-                label: '摘要'
-            }, {
-                value: 'keywords',
-                label: '关键词'
-            },{
-                value: 'content',
-                label: '内容'
-            },{
-                value: 'url',
-                label: 'url'
-            }],
-            textLibs: [{
-                name: '1',
-                id: '1',
-            }, {
-                name: '2',
-                id: '2',
-            }],
-            dictLibs: [{
-                name: '1',
-                id: '1',
-            }, {
-                name: '2',
-                id: '2',
-            }],
-            form: {
-                lib_id: null,
-                name: '',
-                type: 13,
-                algorithm: null,
-                dic_id: null,
-            },
-            eventLibs: [{
-                name: "name",
-                dicName: "someDictionary",
-                level: "juzi",
-                time: "now",
-                state: "",
-                operation: ""
-            }],
-            value1:[],
-        };
-    },
-    created() {
-        if (authApi.getUser().token === undefined){
-            this.$message({
-                type:'error',
-                message:'请先登录'
-            })
-            this.$router.push('/login')
-            return
-        }
-        // authApi.getUser().token != undefined
-        this.initData()
-        this.getAllEventLib()
-        // this.getEventLib()
-        this.getStatus()
-        this.timer=setInterval(()=>{setTimeout(this.getStatus)}, 3000)
-    },
-    beforeDestroy(){
-        clearInterval(this.timer);
-    },
-    methods: {
-        initData() {
-            eventLibApi.getTextLibAndDictionary().then(res => {
-                this.textLibs = res.data.data.libs
-                this.dictLibs = res.data.data.dicts
-            })
+    import dictionaryApi from "@/api/dictionary";
+    import textLibApi from "@/api/textLib";
+    import eventLibApi from "@/api/eventLib";
+    import authApi from "@/utils/auth"
+
+    export default {
+        name: "EventExtract",
+        data() {
+            return {
+                timer: null,
+                checkAll: false,
+                eventTotal: 0,
+                event: {
+                    total: 0,
+                    create_time: '2020 - 08 - 22'
+                },
+                total: 0,
+                curPage: 1,
+                curSize: 10,
+                options: [{
+                    value: 'title',
+                    label: '标题'
+                }, {
+                    value: 'author',
+                    label: '作者'
+                }, {
+                    value: 'publish_time',
+                    label: '发布时间'
+                }, {
+                    value: 'summary',
+                    label: '摘要'
+                }, {
+                    value: 'keywords',
+                    label: '关键词'
+                }, {
+                    value: 'content',
+                    label: '内容'
+                }, {
+                    value: 'url',
+                    label: 'url'
+                }],
+                textLibs: [{
+                    name: '1',
+                    id: '1',
+                }, {
+                    name: '2',
+                    id: '2',
+                }],
+                dictLibs: [{
+                    name: '1',
+                    id: '1',
+                }, {
+                    name: '2',
+                    id: '2',
+                }],
+                form: {
+                    lib_id: null,
+                    name: '',
+                    type: 13,
+                    algorithm: null,
+                    dic_id: null,
+                },
+                eventLibs: [{
+                    name: "name",
+                    dicName: "someDictionary",
+                    level: "juzi",
+                    time: "now",
+                    state: "",
+                    operation: ""
+                }],
+                value1: [],
+            };
         },
-        // getTextLib() {
-        //     eventLibApi.createEventLib(this.form).then(res=>{
-        //         this.total=res.data.data.total
-        //         this.eventLibs=res.data.data.rows
-        //     })
-        // },
-        // gtDict(){
-        //      dictionaryApi.getDictionaryData(1, 10).then(res => {
-        //         this.dictLibs = res.data.data.rows;
-        //     });
-        // },
-        getStatus() {
-            for (let i= 0;i<this.eventLibs.length;i++ ) {
-                let item = this.eventLibs[i];
-                if (item.status !== 2)
-                eventLibApi.getStatus(item.id).then(res => {
-                    item.status = res.data.data.status
+        created() {
+            if (authApi.getUser().token === undefined) {
+                this.$message({
+                    type: 'error',
+                    message: '请先登录'
                 })
+                this.$router.push('/login')
+                return
             }
+            // authApi.getUser().token != undefined
+            this.initData()
+            this.getAllEventLib()
+            // this.getEventLib()
+            this.getStatus()
+            this.timer = setInterval(() => {
+                setTimeout(this.getStatus)
+            }, 3000)
         },
-        startEventExtract() {
-            eventLibApi.createEventLib(this.form).then(res => {
-                this.$message({
-                    type: res.data.flag ? "success" : "error",
-                    message: res.data.message
-                });
-                if(res.data.flag)
-                    this.getAllEventLib()
-            })
+        beforeDestroy() {
+            clearInterval(this.timer);
         },
-        getAllEventLib() {
-            eventLibApi.getAllEventLib().then(res => {
-                this.eventTotal = res.data.data.total
-                this.eventLibs = res.data.data.json
-            })
-        },
-        getEventLib() {
-            eventLibApi.getEventLib(this.curPage, this.curSize).then(res => {
-                this.total = res.data.data.total
-                this.eventLibs = res.data.data.rows
-            })
-        },
-        delEventLib(id) {
-            eventLibApi.delEventLib(id).then(res => {
-                this.$message({
-                    type: res.data.flag ? "success" : "error",
-                    message: res.data.message
-                });
-                if(res.data.flag)
-                    this.getAllEventLib()
-            })
-        },
-        toResult(id,row) {
-            this.$router.push({path:"/eventResult/"+id, query:{eventTotal:this.eventTotal,event:row}});
-        },
-    }
-};
+        methods: {
+            initData() {
+                eventLibApi.getTextLibAndDictionary().then(res => {
+                    this.textLibs = res.data.data.libs
+                    this.dictLibs = res.data.data.dicts
+                })
+            },
+            // getTextLib() {
+            //     eventLibApi.createEventLib(this.form).then(res=>{
+            //         this.total=res.data.data.total
+            //         this.eventLibs=res.data.data.rows
+            //     })
+            // },
+            // gtDict(){
+            //      dictionaryApi.getDictionaryData(1, 10).then(res => {
+            //         this.dictLibs = res.data.data.rows;
+            //     });
+            // },
+            getStatus() {
+                for (let i = 0; i < this.eventLibs.length; i++) {
+                    let item = this.eventLibs[i];
+                    if (item.status !== 2)
+                        eventLibApi.getStatus(item.id).then(res => {
+                            item.status = res.data.data.status
+                        })
+                }
+            },
+            startEventExtract() {
+                eventLibApi.createEventLib(this.form).then(res => {
+                    this.$message({
+                        type: res.data.flag ? "success" : "error",
+                        message: res.data.message
+                    });
+                    if (res.data.flag)
+                        this.getAllEventLib()
+                })
+            },
+            getAllEventLib() {
+                eventLibApi.getAllEventLib().then(res => {
+                    this.eventTotal = res.data.data.total
+                    this.eventLibs = res.data.data.json
+                })
+            },
+            getEventLib() {
+                eventLibApi.getEventLib(this.curPage, this.curSize).then(res => {
+                    this.total = res.data.data.total
+                    this.eventLibs = res.data.data.rows
+                })
+            },
+            delEventLib(id) {
+                eventLibApi.delEventLib(id).then(res => {
+                    this.$message({
+                        type: res.data.flag ? "success" : "error",
+                        message: res.data.message
+                    });
+                    if (res.data.flag)
+                        this.getAllEventLib()
+                })
+            },
+            toResult(id, row) {
+                this.$router.push({path: "/eventResult/" + id, query: {eventTotal: this.eventTotal, event: row}});
+            },
+        }
+    };
 </script>
 
 <style scoped>
-.el-button--text {
+  .el-button--text {
     color: black
-}
+  }
 
-.el-button--text:hover {
+  .el-button--text:hover {
     color: red;
-}
+  }
 </style>

@@ -7,13 +7,13 @@
       <el-breadcrumb separator-class="el-icon-arrow-right" style="margin-top: 10px">
         <el-breadcrumb-item :to="{ path: '/' }">我的项目</el-breadcrumb-item>
       </el-breadcrumb>
-      <el-button type="text" size="small" style="margin-left: 100px" @click="isLibCreateShow = true"><i
-        class="el-icon-upload el-icon--right top">\</i>新建文本库
+      <el-button type="text" size="small" style="margin-left: 100px;margin-top: 30px" @click="isLibCreateShow = true"><i
+        class="el-icon-upload el-icon--right top"></i>新建文本库
       </el-button>
       <!--create new textLib-->
       <el-dialog title="新建文本库" :visible.sync="isLibCreateShow" style="width: 60%;margin-left: 20%">
         <el-form :model="newLibInfor" stripe>
-          <el-form-item label="文本库名称" style="width: 80%;margin-left: 10%">
+          <el-form-item label="文本库名称" style="width: 80%;margin-left: 10%;">
             <el-input v-model="newLibInfor.name"
                       placeholder="请输入文本库的标题"
                       autocomplete="off">
@@ -64,6 +64,7 @@
         stripe
         header-cell-style="background-color: rgb(245, 247, 249)"
         tooltip-effect="dark"
+
       >
         <el-table-column type="index" label="序号" width="100" align="center"></el-table-column>
         <el-table-column v-if="isIDShow" prop="id" label="序号" style="width: 5%" align="center"></el-table-column>

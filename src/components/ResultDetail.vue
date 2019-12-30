@@ -50,6 +50,7 @@
           <el-table-column align="center" prop="event" label="触发词"></el-table-column>
           <el-table-column align="center" prop="location" label="地点"></el-table-column>
           <el-table-column align="center" prop="rs" label="事件提取"></el-table-column>
+          <el-table-column show-overflow-tooltip align="center" prop="content" label="文本"></el-table-column>
         </el-table>
       </el-row>
     </div>

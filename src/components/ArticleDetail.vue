@@ -5,7 +5,7 @@
       <el-breadcrumb-item :to="{path:'../../../configuration/'+lib_id}" style="margin-top: 12px">文本库</el-breadcrumb-item>
       <el-breadcrumb-item :to="{path:''}" style="margin-top: 12px">文本训练集</el-breadcrumb-item>
     </el-breadcrumb>
-    <h1 style="color: black;text-align: center">{{this.article.title}}</h1>
+    <h1 style="color: black;text-align: center;margin-top: 30px">{{this.article.title}}</h1>
     <el-container>
     <el-header style="color: grey; width:80%;margin-left: 10%;margin-top:10px"><h5 style="text-align: center">
       {{this.article.publish_time}}</h5>
@@ -18,7 +18,7 @@
         style="width: 70%;height: 25px;margin-left: 15%;margin-top: 100px;border-bottom:1px  solid dimgray;font-weight: bold">
         词云图
       </div>
-      <div ref='wordCloudBox' style="margin-left: 30%"></div>
+      <div ref='wordCloudBox' style="margin-left: 17%"></div>
     </el-main>
       <el-footer style="margin-bottom: 40px">
         <div
