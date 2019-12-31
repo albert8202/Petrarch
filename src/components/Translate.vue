@@ -36,7 +36,7 @@
             <el-table-column align="center" prop="comment" label="注释（多为搭配的动词）" show-overflow></el-table-column>
           </el-table>
           <div style="margin-top: 20px">
-            <el-button @click="end()">退出</el-button>
+            <el-button @click="end">退出</el-button>
             <el-button :disabled="disableCommit" @click="sendData()">{{commit}}</el-button>
           </div>
         </div>
@@ -173,7 +173,7 @@ export default {
         return;
       }
       if (this.curNum == this.allNum){
-                
+
       this.commit = "保存";
       this.disableCommit = false;
       }
@@ -221,12 +221,14 @@ export default {
           .then(() => {
             this.isExit = true;
             this.id = "none"; //只要不是cameo编号，随便都行
+              console.log("click exit")
             translateAPI.end(this.id).then(response => {
+                console.log("get response")
               this.$message({
                 type: response.data.flag ? "success" : "error",
                 message: response.data.res
               });
-              this.$router.push("/menu");
+              this.$router.push("/transMenu");
             });
           })
           .catch(() => {});
@@ -249,7 +251,7 @@ export default {
     this.getData();
     this.timer = setInterval(() => {
       setTimeout(this.getData, 0);
-    }, 1000);
+    }, 3000);
   },
   beforeDestroy() {
     clearInterval(this.timer);
@@ -275,7 +277,7 @@ export default {
 </script>
 
 <style scoped>
-.content {  
+.content {
   padding-top: 20px;
   margin: 0 auto 0 auto;
   width: 100%;

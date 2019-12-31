@@ -24,7 +24,7 @@ export default {
     },
     sendResult(data) {
         return request({
-            url: '/result',
+            url: '/results',
             method: 'post',
             data: data
         })
