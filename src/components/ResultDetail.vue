@@ -15,7 +15,7 @@
         <div class="description">
           <span class="keyword">关键词：</span>
           <span class="description">{{article.keywords}}</span>
-          <el-button size="mini" round="true">分享</el-button>
+<!--          <el-button size="mini" round="true" @click="getXMLResult">输出xml文件</el-button>-->
         </div>
       </el-row>
 
@@ -48,6 +48,7 @@
           <el-table-column align="center" prop="source" label="实施者"></el-table-column>
           <el-table-column align="center" prop="target" label="受施者"></el-table-column>
           <el-table-column align="center" prop="event" label="触发词"></el-table-column>
+          <el-table-column align="center" prop="sentenceTime" label="发生时间"></el-table-column>
           <el-table-column align="center" prop="location" label="地点"></el-table-column>
           <el-table-column align="center" prop="rs" label="事件提取"></el-table-column>
           <el-table-column show-overflow-tooltip align="center" prop="content" label="文本"></el-table-column>
@@ -93,6 +94,28 @@ export default {
       },
       toEventResult(){
           this.$router.push('/eventResult')
+      },
+      getXMLResult(){
+          eventResultApi.getXMLResult(this.id).then(res=>{
+
+              const content = res.data
+              const blob = new Blob([content]) // 构造一个blob对象来处理数据
+              const fileName = 'result.xml'// 导出文件名
+              // 对于<a>标签，只有 Firefox 和 Chrome（内核） 支持 download 属性
+              // IE10以上支持blob但是依然不支持download
+              if ('download' in document.createElement('a')) { // 支持a标签download的浏览器
+                  const link = document.createElement('a') // 创建a标签
+                  link.download = fileName // a标签添加属性
+                  link.style.display = 'none'
+                  link.href = URL.createObjectURL(blob)
+                  document.body.appendChild(link)
+                  link.click() // 执行下载
+                  URL.revokeObjectURL(link.href) // 释放url
+                  document.body.removeChild(link) // 释放标签
+              } else { // 其他浏览器
+                  navigator.msSaveBlob(blob, fileName)
+              }
+          })
       }
   }
 };
