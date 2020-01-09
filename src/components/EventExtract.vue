@@ -124,6 +124,9 @@
                 <el-button v-show="scope.row.status==2" size="mini" type="success" round>
                   <span>已完成</span>
                 </el-button>
+                <el-button v-show="scope.row.status==4" size="mini" type="danger" round>
+                  <span>提取出错</span>
+                </el-button>
               </template>
             </el-table-column>
             <el-table-column align="center" prop="operation" label="操作">
